@@ -3,7 +3,7 @@
 from sqlmodel import select
 import reflex as rx
 
-from data_visualisation.models import Customer, Cereals, Covid, Countries, MathProblem
+from data_visualisation.models import Customer, Cereals, Covid, Countries, MathProblem, DifficultLevel
 from data_visualisation.data_loading import loading_data
 
 
@@ -136,11 +136,11 @@ def add_item_ui():
             rx.button(
                 rx.flex(
                     "Add New Item",
-                    rx.icon(tag="plus", width=24, height=24),
+                    rx.icon(tag="plus", width=12, height=9),
                     spacing="3",
                 ),
-                size="4",
-                radius="full",
+                size="2",
+                radius="full"
             ),
         ),
         rx.dialog.content(
@@ -271,11 +271,11 @@ def update_item_ui(item):
 def navbar():
     return rx.hstack(
         rx.vstack(
-            rx.heading("Math App", size="7", font_family="Inter"),
+            rx.heading("Math App", size="9", font_family="Inter"),
         ),
         rx.spacer(),
         add_item_ui(),
-        rx.avatar(fallback="MP", size="4"),
+        rx.avatar(src='math_app_logo.png',  size="6"),
         rx.color_mode.button(),
         position="fixed",
         width="100%",
@@ -286,16 +286,29 @@ def navbar():
         padding_bottom="1em",
         backdrop_filter="blur(10px)",
     )
-
+ 
+def get_difficult_level(item) ->  str:
+     diff_num =   getattr(item, "Difficulty") 
+     return diff_num
+    
+    #  if diff_num <= 2:
+    #      return  DifficultLevel.Low
+    #  elif diff_num <= 3.5:
+    #      return DifficultLevel.Medium
+    #  else:
+    #      return DifficultLevel.High
 
 def show_item(item: MODEL):
     """Show an item in a table row."""
+    
     return rx.table.row(
-        rx.table.cell(rx.avatar(fallback="DA")),
+        # rx.table.cell(rx.avatar(fallback="DA")),
+        rx.table.cell(rx.avatar(fallback=get_difficult_level(item))),
+        rx.table.cell(rx.markdown (getattr(item, "Problem"))),
         *[
             rx.table.cell(getattr(item, field))
             for field in MODEL.get_fields()
-            if field != "id"
+            if field != "id" and field != "Problem"
         ],
         rx.table.cell(
             update_item_ui(item),
@@ -323,7 +336,7 @@ def content():
                 ),
                 rx.spacer(),
                 rx.select(
-                    [*[field for field in MODEL.get_fields() if field != "id"]],
+                    [*[field for field in MODEL.get_fields() if field != "id" ]],
                     placeholder="Sort By: Name",
                     size="3",
                     on_change=lambda sort_value: State.sort_values(sort_value),
@@ -378,5 +391,5 @@ app.add_page(
     index,
     on_load=State.on_load,
     title="Math App",
-    description="Great Competition Math Problem sets!",
+    description="Try Competition Math Problem sets Here!",
 )

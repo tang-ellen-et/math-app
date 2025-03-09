@@ -14,6 +14,21 @@ class MathProblem(rx.Model, table=True):
     Difficulty: str
     Img: str
 
+from enum import Enum
+
+class DifficultLevel(Enum):
+    High = "H", 
+    Medium = "M",
+    Low = "L"
+class MathProblemSummary(rx.Model, table=True):
+    """The math problem table view summary model."""
+    Problem: str
+    Source: str
+    Year: str
+    Type: str
+    Competition: str
+    Difficulty: str
+
 
 class Customer(rx.Model, table=True):
     """The customer model."""
