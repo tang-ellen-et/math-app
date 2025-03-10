@@ -1,1 +1,5 @@
-reflex==0.7.1
+psycopg2-binary
+reflex>=0.4.8
+pandas
+plotly
+statsmodels

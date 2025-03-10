@@ -51,3 +51,38 @@ def loading_data(data_file_path: str, model: rx.Model):
         print(
             f"An error occurred! You might have the wrong datafile for your Model. Here is the error: {e}"
         )
+
+
+from datetime import date
+
+def _generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.DataFrame:
+    test_date = datetime.today()
+    problem_set = str(round(datetime.now().timestamp() * 1000))
+
+    # Randomly select 20 problems from problems_df with different difficulty levels
+    user_problems_df = problems_df.sample(n=20, replace=False)
+    user_problems_df.head(20)
+    
+    user_problems_df ['User'] = user
+    user_problems_df['ProblemSet'] = problem_set 
+    user_problems_df["ProblemId"] = user_problems_df["id"]
+    user_problems_df["TestDate"] = test_date 
+    user_problems_df["Response"] = None 
+    user_problems_df["Result"] = None 
+    
+    user_problems_df = user_problems_df.drop("Id")
+
+    return user_problems_df
+
+
+def load_user_problems(user: str,  data_file_path: str, model: rx.Model):
+    with open(data_file_path, mode="r", newline="", encoding="utf-8") as file:
+        # reader = csv.DictReader(
+        #     file
+        # )  # This automatically uses the first row as header names
+
+        problems_df = pd.read_csv(data_file_path, header=True)
+        user_problems_df = _generate_user_problem_sets (user, problems_df)
+
+        add_pandas_data_to_db(user_problems_df, model)
+    

@@ -15,19 +15,26 @@ class MathProblem(rx.Model, table=True):
     Img: str
 
 from enum import Enum
-
+from datetime import date
 class DifficultLevel(Enum):
     High = "H", 
     Medium = "M",
     Low = "L"
-class MathProblemSummary(rx.Model, table=True):
+
+class UserMathItem(rx.Model, table=True):
     """The math problem table view summary model."""
+    User: str 
+    ProblemSet: str
+    TestDate: date
+    ProblemId: int 
     Problem: str
     Source: str
     Year: str
     Type: str
     Competition: str
     Difficulty: str
+    Response: str
+    Result: str 
 
 
 class Customer(rx.Model, table=True):

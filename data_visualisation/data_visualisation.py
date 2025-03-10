@@ -5,6 +5,7 @@ import reflex as rx
 
 from data_visualisation.models import Customer, Cereals, Covid, Countries, MathProblem, DifficultLevel
 from data_visualisation.data_loading import loading_data
+# from data_visualisation.userproblems import index_4user
 
 
 MODEL = MathProblem
@@ -271,7 +272,7 @@ def update_item_ui(item):
 def navbar():
     return rx.hstack(
         rx.vstack(
-            rx.heading("Math App", size="9", font_family="Inter"),
+            rx.heading("Math App Admin - Problems", size="9", font_family="Inter"),
         ),
         rx.spacer(),
         add_item_ui(),
@@ -286,24 +287,15 @@ def navbar():
         padding_bottom="1em",
         backdrop_filter="blur(10px)",
     )
- 
-def get_difficult_level(item) ->  str:
-     diff_num =   getattr(item, "Difficulty") 
-     return diff_num
-    
-    #  if diff_num <= 2:
-    #      return  DifficultLevel.Low
-    #  elif diff_num <= 3.5:
-    #      return DifficultLevel.Medium
-    #  else:
-    #      return DifficultLevel.High
+
+from typing import cast 
 
 def show_item(item: MODEL):
     """Show an item in a table row."""
     
     return rx.table.row(
         # rx.table.cell(rx.avatar(fallback="DA")),
-        rx.table.cell(rx.avatar(fallback=get_difficult_level(item))),
+        rx.table.cell(getattr(item, "id")),
         rx.table.cell(rx.markdown (getattr(item, "Problem"))),
         *[
             rx.table.cell(getattr(item, field))
@@ -350,7 +342,7 @@ def content():
             rx.table.root(
                 rx.table.header(
                     rx.table.row(
-                        rx.table.column_header_cell("Icon"),
+                        rx.table.column_header_cell("Id"),
                         *[
                             rx.table.column_header_cell(field)
                             for field in MODEL.get_fields()

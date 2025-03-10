@@ -1,7 +1,11 @@
+.venv
+
 .states
-__pycache__/
-.web
+assets/external/
 *.db
 *.py[cod]
-assets/external/
-.venv
+.web
+__pycache__/
+alembic.ini
+alembic/
+reflex.db

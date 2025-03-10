@@ -1,9 +1,0 @@
-.states
-assets/external/
-*.db
-*.py[cod]
-.web
-__pycache__/
-alembic.ini
-alembic/
-reflex.db
