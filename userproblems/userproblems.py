@@ -8,30 +8,10 @@ from userproblems.models import   UserMathItem
 from userproblems.data_loading import load_user_problems
 from pandas import DataFrame 
 
-
-
 MODEL = UserMathItem
 data_file_path = "data_sources/math.csv"
 
-
 USER = 'Ellen'
-
-
-# class UserMathItem(rx.Model, table=True):
-#     """The math problem table view summary model."""
-#     User: str 
-#     ProblemSet: str
-#     TestDate: date
-#     ProblemId: int 
-#     Problem: str
-#     Source: str
-#     Year: str
-#     Type: str
-#     Competition: str
-#     Difficulty: str
-#     Response: str
-#     Result: str 
-
 
 class State(rx.State):
     """The app state."""
@@ -47,7 +27,10 @@ class State(rx.State):
 
     def handle_update_submit(self, form_data: dict):
         """Handle the form submit."""
-        self.current_item.update(form_data)
+        # print (f'$$$$$$$$$$ handle_update_submit: {form_data} ')
+        self.current_item.Response = form_data['Response']
+        print(f'$$$$$$$$$$ handle_update_submit After: {self.current_item}')
+        # self.current_item.update(form_data)
 
     def load_entries(self) -> list[MODEL]:
         """Get all items from the database."""
@@ -68,32 +51,53 @@ class State(rx.State):
     def get_item(self, item: MODEL):
         self.current_item = item
 
-    def add_item(self):
-        """Add an item to the database."""
-        with rx.session() as session:
-            ## If need unique items on a certain column type add in a check to see if a item has already been added
-            # if session.exec(
-            #     select(MODEL).where(MODEL.email == self.current_item["email"])
-            # ).first():
-            #     return rx.window_alert("Item already exists!!!")
-            session.add(MODEL(**self.current_item))
-            session.commit()
-        self.load_entries()
-        return rx.window_alert(f"Item has been added.")
+    # def add_item(self):
+    #     """Add an item to the database."""
+    #     with rx.session() as session:
+    #         ## If need unique items on a certain column type add in a check to see if a item has already been added
+    #         # if session.exec(
+    #         #     select(MODEL).where(MODEL.email == self.current_item["email"])
+    #         # ).first():
+    #         #     return rx.window_alert("Item already exists!!!")
+    #         session.add(MODEL(**self.current_item))
+    #         session.commit()
+    #     self.load_entries()
+    #     return rx.window_alert(f"Item has been added.")
 
-    def update_item(self):
+    def update_item_old(self):
         """Update an item in the database."""
         with rx.session() as session:
+            print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {MODEL.id}')
             item = session.exec(
                 select(MODEL).where(MODEL.id == self.current_item["id"])
             ).first()
 
             for field in MODEL.get_fields():
-                if field != "id":
+                # if field != "id":
+                if field == "Response":
                     setattr(item, field, self.current_item[field])
             session.add(item)
             session.commit()
         self.load_entries()
+        
+    def update_item(self):
+        
+        
+        """Update an item in the database."""
+        with rx.session() as session:
+            # print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {MODEL.id}')
+            # item = session.exec(
+            #     select(MODEL).where(MODEL.id == self.current_item["id"])
+            # ).first()
+
+            # for field in MODEL.get_fields():
+            #     # if field != "id":
+            #     if field == "Response":
+            #         setattr(item, field, self.current_item[field])
+            # session.add(item)
+            session.commit()
+        self.load_entries()
+
 
     def delete_item(self, id: int):
         """Delete an item from the database."""
@@ -153,79 +157,99 @@ def update_fields_and_attrs(field, attr):
     )
 
 
-def add_item_ui():
-    return rx.dialog.root(
-        rx.dialog.trigger(
-            rx.button(
-                rx.flex(
-                    "Get Results",
-                    rx.icon(tag="plus", width=12, height=9),
-                    spacing="3",
-                ),
-                size="2",
-                radius="full"
-            ),
+# def add_item_ui():
+#     return rx.dialog.root(
+#         rx.dialog.trigger(
+#             rx.button(
+#                 rx.flex(
+#                     "Get Results",
+#                     rx.icon(tag="plus", width=12, height=9),
+#                     spacing="3",
+#                 ),
+#                 size="2",
+#                 radius="full"
+#             ),
+#         ),
+#         rx.dialog.content(
+#             rx.dialog.title(
+#                 "Problem",
+#                 font_family="Inter",
+#             ),
+#             rx.dialog.description(
+#                 "Answer the problem",
+#                 size="2",
+#                 mb="4",
+#                 padding_bottom="1em",
+#             ),
+#             rx.form(
+#                 rx.flex(
+#                     *[
+#                         add_fields(field)
+#                         for field in MODEL.get_fields()
+#                         if field != "id"  
+#                     ],
+#                     rx.box(
+#                         rx.button(
+#                             "Submit",
+#                             type="submit",
+#                         ),
+#                     ),
+#                     direction="column",
+#                     spacing="3",
+#                 ),
+#                 on_submit=State.handle_add_submit,
+#                 reset_on_submit=True,
+#             ),
+#             rx.flex(
+#                 rx.dialog.close(
+#                     rx.button(
+#                         "Cancel",
+#                         variant="soft",
+#                         color_scheme="gray",
+#                     ),
+#                 ),
+#                 rx.dialog.close(
+#                     rx.button(
+#                         "Submit Item",
+#                         on_click=State.add_item,
+#                         variant="solid",
+#                     ),
+#                 ),
+#                 padding_top="1em",
+#                 spacing="3",
+#                 mt="4",
+#                 justify="end",
+#             ),
+#             style={"max_width": 450},
+#             box_shadow="lg",
+#             padding="1em",
+#             border_radius="25px",
+#             font_family="Inter",
+#         ),
+#     )
+
+
+def question2(item):
+    return rx.vstack(
+        rx.heading("Question #2"),
+        rx.text("What is the output of the following addition (+) operator?"),
+        rx.code_block(
+            """a = [10, 20]
+b = a
+b += [30, 40]
+print(a)""",
+            language="python",
         ),
-        rx.dialog.content(
-            rx.dialog.title(
-                "Problem",
-                font_family="Inter",
-            ),
-            rx.dialog.description(
-                "Answer the problem",
-                size="2",
-                mb="4",
-                padding_bottom="1em",
-            ),
-            rx.form(
-                rx.flex(
-                    *[
-                        add_fields(field)
-                        for field in MODEL.get_fields()
-                        if field != "id"  
-                    ],
-                    rx.box(
-                        rx.button(
-                            "Submit",
-                            type="submit",
-                        ),
-                    ),
-                    direction="column",
-                    spacing="3",
-                ),
-                on_submit=State.handle_add_submit,
-                reset_on_submit=True,
-            ),
-            rx.flex(
-                rx.dialog.close(
-                    rx.button(
-                        "Cancel",
-                        variant="soft",
-                        color_scheme="gray",
-                    ),
-                ),
-                rx.dialog.close(
-                    rx.button(
-                        "Submit Item",
-                        on_click=State.add_item,
-                        variant="solid",
-                    ),
-                ),
-                padding_top="1em",
-                spacing="3",
-                mt="4",
-                justify="end",
-            ),
-            style={"max_width": 450},
-            box_shadow="lg",
-            padding="1em",
-            border_radius="25px",
-            font_family="Inter",
+        rx.radio(
+            items=["[10, 20, 30, 40]", "[10, 20]"],
+            default_value=State.default_answers[1],
+            default_check=True,
+            on_change=lambda answer: State.set_answers(answer, 1),
         ),
     )
 
-
 def update_item_ui(item):
+    print (f' ============  update_item_ui:  {item}')
     return rx.dialog.root(
         rx.dialog.trigger(
             rx.button(
@@ -235,10 +259,10 @@ def update_item_ui(item):
             ),
         ),
         rx.dialog.content(
-            rx.dialog.title("Item Details"),
+            rx.dialog.title(f"Try Problem #{getattr(item, 'ProblemId')}"),
             rx.dialog.description(
-                "Update your item details.",
-                size="2",
+                rx.markdown(getattr(item,"Problem")),
+                size="4",
                 mb="4",
                 padding_bottom="1em",
             ),
@@ -249,11 +273,11 @@ def update_item_ui(item):
                             field, getattr(State.current_item, field)
                         )
                         for field in MODEL.get_fields()
-                        if field != "id"
+                        if field == "Response"
                     ],
                     rx.box(
                         rx.button(
-                            "Submit",
+                            "Update",
                             type="submit",
                         ),
                     ),
@@ -266,14 +290,14 @@ def update_item_ui(item):
             rx.flex(
                 rx.dialog.close(
                     rx.button(
-                        "Cancel",
+                        "Reset",
                         variant="soft",
                         color_scheme="gray",
                     ),
                 ),
                 rx.dialog.close(
                     rx.button(
-                        "Submit Item",
+                        "Submit Answer",
                         on_click=State.update_item,
                         variant="solid",
                     ),
@@ -294,11 +318,11 @@ def update_item_ui(item):
 def navbar():
     return rx.hstack(
         rx.vstack(
-            rx.heading("Math App - Problems", size="9", font_family="Inter"),
+            rx.heading("Math App - Problems", size="8", font_family="Inter"),
         ),
         rx.spacer(),
-        add_item_ui(),
-        rx.avatar(src='math_app_logo.png',  size="6"),
+        # add_item_ui(),
+        rx.avatar(src='math_app_logo.png',  size="8"),
         rx.color_mode.button(),
         position="fixed",
         width="100%",
@@ -321,7 +345,7 @@ def show_item(item: MODEL):
         *[
             rx.table.cell(getattr(item, field))
             for field in MODEL.get_fields()
-            if field != "id" and field != "Problem" 
+            if field != "id" and field != "Problem"  
         ],
         rx.table.cell(
             update_item_ui(item),
@@ -343,7 +367,7 @@ def content():
             rx.divider(),
             rx.hstack(
                 rx.heading(
-                    f"Total: {State.num_items} Items",
+                    f"Total: {State.num_items} Problems",
                     size="5",
                     font_family="Inter",
                 ),

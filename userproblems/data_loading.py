@@ -1,6 +1,6 @@
 import csv
 import pandas as pd
-import json
+ 
 from datetime import date, datetime
 
 import reflex as rx
@@ -29,7 +29,7 @@ def add_pandas_data_to_db(df: pd.DataFrame, model: rx.Model):
         session.commit()
 
 
-def _generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.DataFrame:
+def generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.DataFrame:
     
     test_date = datetime.today()
     problem_set = str(round(datetime.now().timestamp() * 1000))
@@ -55,7 +55,7 @@ def _generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.Data
 def load_user_problems(user: str,  data_file_path: str, model: rx.Model):
     df = pd.read_csv(data_file_path, header=0)
     print(f'====== df columns: {df.columns} ===')
-    user_problems_df = _generate_user_problem_sets (user, df)
+    user_problems_df = generate_user_problem_sets (user, df)
 
     add_pandas_data_to_db(user_problems_df, model)
     
