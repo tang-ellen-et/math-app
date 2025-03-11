@@ -51,11 +51,17 @@ def generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.DataF
 
     return user_problems_df
 
+def load_all_problems(data_file_path :str, math_model: rx.Model)->pd.DataFrame:
+    df_problems = pd.read_csv(data_file_path, header=0)
+    print(f'====== df columns: {df_problems.columns} ===')
+    
+    add_pandas_data_to_db(df_problems, math_model)
+    return df_problems 
 
-def load_user_problems(user: str,  data_file_path: str, model: rx.Model):
-    df = pd.read_csv(data_file_path, header=0)
-    print(f'====== df columns: {df.columns} ===')
-    user_problems_df = generate_user_problem_sets (user, df)
-
-    add_pandas_data_to_db(user_problems_df, model)
+def load_user_problems(user: str,  df_problems: pd.DataFrame, user_problems_model: rx.Model):
+    # df = pd.read_csv(data_file_path, header=0)
+    # print(f'====== df columns: {df.columns} ===')
+    
+    user_problems_df = generate_user_problem_sets (user, df_problems)
+    add_pandas_data_to_db(user_problems_df, user_problems_model)
     

@@ -3,23 +3,25 @@
 from sqlmodel import select
 import reflex as rx
 
-from userproblems.models import   UserMathItem
+from userproblems.models import   UserMathItem, MathProblem
 
-from userproblems.data_loading import load_user_problems
+from userproblems.data_loading import load_user_problems, load_all_problems
 from pandas import DataFrame 
 
-MODEL = UserMathItem
-data_file_path = "data_sources/math.csv"
+USER_MATH_MODEL = UserMathItem
+MATH_MODEL = MathProblem 
+
+data_file_path = "data_sources/mathv3.csv"
 
 USER = 'Ellen'
 
 class State(rx.State):
     """The app state."""
 
-    items: list[MODEL] = []
+    items: list[USER_MATH_MODEL] = []
     sort_value: str = ""
     num_items: int
-    current_item: MODEL = MODEL()
+    current_item: USER_MATH_MODEL = USER_MATH_MODEL()
 
     def handle_add_submit(self, form_data: dict):
         """Handle the form submit."""
@@ -32,10 +34,10 @@ class State(rx.State):
         print(f'$$$$$$$$$$ handle_update_submit After: {self.current_item}')
         # self.current_item.update(form_data)
 
-    def load_entries(self) -> list[MODEL]:
+    def load_entries(self) -> list[USER_MATH_MODEL]:
         """Get all items from the database."""
         with rx.session() as session:
-            self.items = session.exec(select(MODEL)).all()
+            self.items = session.exec(select(USER_MATH_MODEL)).all()
             self.num_items = len(self.items)
 
             if self.sort_value:
@@ -48,53 +50,27 @@ class State(rx.State):
         self.sort_value = sort_value
         self.load_entries()
 
-    def get_item(self, item: MODEL):
+    def get_item(self, item: USER_MATH_MODEL):
         self.current_item = item
 
-    # def add_item(self):
-    #     """Add an item to the database."""
-    #     with rx.session() as session:
-    #         ## If need unique items on a certain column type add in a check to see if a item has already been added
-    #         # if session.exec(
-    #         #     select(MODEL).where(MODEL.email == self.current_item["email"])
-    #         # ).first():
-    #         #     return rx.window_alert("Item already exists!!!")
-    #         session.add(MODEL(**self.current_item))
-    #         session.commit()
-    #     self.load_entries()
-    #     return rx.window_alert(f"Item has been added.")
-
-    def update_item_old(self):
-        """Update an item in the database."""
-        with rx.session() as session:
-            print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {MODEL.id}')
-            item = session.exec(
-                select(MODEL).where(MODEL.id == self.current_item["id"])
-            ).first()
-
-            for field in MODEL.get_fields():
-                # if field != "id":
-                if field == "Response":
-                    setattr(item, field, self.current_item[field])
-            session.add(item)
-            session.commit()
-        self.load_entries()
         
     def update_item(self):
-        
-        
+
         """Update an item in the database."""
         with rx.session() as session:
-            # print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {MODEL.id}')
-            # item = session.exec(
-            #     select(MODEL).where(MODEL.id == self.current_item["id"])
-            # ).first()
+            print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {USER_MATH_MODEL.id}')
+            
+            item = session.exec(
+                select(USER_MATH_MODEL).where(USER_MATH_MODEL.id == self.current_item.id)
+            ).first()
 
             # for field in MODEL.get_fields():
             #     # if field != "id":
             #     if field == "Response":
             #         setattr(item, field, self.current_item[field])
-            # session.add(item)
+            item.Response = self.current_item.Response 
+            
+            session.add(item)
             session.commit()
         self.load_entries()
 
@@ -102,7 +78,7 @@ class State(rx.State):
     def delete_item(self, id: int):
         """Delete an item from the database."""
         with rx.session() as session:
-            item = session.exec(select(MODEL).where(MODEL.id == id)).first()
+            item = session.exec(select(USER_MATH_MODEL).where(USER_MATH_MODEL.id == id)).first()
             session.delete(item)
             session.commit()
         self.load_entries()
@@ -112,10 +88,15 @@ class State(rx.State):
         
         with rx.session() as session:
             # Attempt to retrieve the first entry in the MODEL table
-            first_entry = session.exec(select(MODEL)).first()
+            first_problem = session.exec (select(MATH_MODEL)).first()
+            if first_problem is None and data_file_path != "":
+                df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL)
+            
+            
+            first_entry = session.exec(select(USER_MATH_MODEL)).first()
             # If nothing was returned load data from the csv file
             if first_entry is None and data_file_path != "":
-                load_user_problems(USER, data_file_path, MODEL)
+                load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
 
         self.load_entries()
 
@@ -155,78 +136,6 @@ def update_fields_and_attrs(field, attr):
         direction="column",
         spacing="2",
     )
-
-
-# def add_item_ui():
-#     return rx.dialog.root(
-#         rx.dialog.trigger(
-#             rx.button(
-#                 rx.flex(
-#                     "Get Results",
-#                     rx.icon(tag="plus", width=12, height=9),
-#                     spacing="3",
-#                 ),
-#                 size="2",
-#                 radius="full"
-#             ),
-#         ),
-#         rx.dialog.content(
-#             rx.dialog.title(
-#                 "Problem",
-#                 font_family="Inter",
-#             ),
-#             rx.dialog.description(
-#                 "Answer the problem",
-#                 size="2",
-#                 mb="4",
-#                 padding_bottom="1em",
-#             ),
-#             rx.form(
-#                 rx.flex(
-#                     *[
-#                         add_fields(field)
-#                         for field in MODEL.get_fields()
-#                         if field != "id"  
-#                     ],
-#                     rx.box(
-#                         rx.button(
-#                             "Submit",
-#                             type="submit",
-#                         ),
-#                     ),
-#                     direction="column",
-#                     spacing="3",
-#                 ),
-#                 on_submit=State.handle_add_submit,
-#                 reset_on_submit=True,
-#             ),
-#             rx.flex(
-#                 rx.dialog.close(
-#                     rx.button(
-#                         "Cancel",
-#                         variant="soft",
-#                         color_scheme="gray",
-#                     ),
-#                 ),
-#                 rx.dialog.close(
-#                     rx.button(
-#                         "Submit Item",
-#                         on_click=State.add_item,
-#                         variant="solid",
-#                     ),
-#                 ),
-#                 padding_top="1em",
-#                 spacing="3",
-#                 mt="4",
-#                 justify="end",
-#             ),
-#             style={"max_width": 450},
-#             box_shadow="lg",
-#             padding="1em",
-#             border_radius="25px",
-#             font_family="Inter",
-#         ),
-#     )
 
 
 def question2(item):
@@ -272,8 +181,8 @@ def update_item_ui(item):
                         update_fields_and_attrs(
                             field, getattr(State.current_item, field)
                         )
-                        for field in MODEL.get_fields()
-                        if field == "Response"
+                        for field in USER_MATH_MODEL.get_fields()
+                        if field == "Response" 
                     ],
                     rx.box(
                         rx.button(
@@ -290,7 +199,7 @@ def update_item_ui(item):
             rx.flex(
                 rx.dialog.close(
                     rx.button(
-                        "Reset",
+                        "Cancel",
                         variant="soft",
                         color_scheme="gray",
                     ),
@@ -314,11 +223,12 @@ def update_item_ui(item):
         ),
     )
 
+# font_family = "Comic Sans MS",
 
 def navbar():
     return rx.hstack(
         rx.vstack(
-            rx.heading("Math App - Problems", size="8", font_family="Inter"),
+            rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS"),
         ),
         rx.spacer(),
         # add_item_ui(),
@@ -335,7 +245,7 @@ def navbar():
     )
 
 
-def show_item(item: MODEL):
+def show_item(item: USER_MATH_MODEL):
     """Show an item in a table row."""
     
     return rx.table.row(
@@ -344,7 +254,7 @@ def show_item(item: MODEL):
         rx.table.cell(rx.markdown (getattr(item, "Problem"))),
         *[
             rx.table.cell(getattr(item, field))
-            for field in MODEL.get_fields()
+            for field in USER_MATH_MODEL.get_fields()
             if field != "id" and field != "Problem"  
         ],
         rx.table.cell(
@@ -373,7 +283,7 @@ def content():
                 ),
                 rx.spacer(),
                 rx.select(
-                    [*[field for field in MODEL.get_fields() if field != "id" ]],
+                    [*[field for field in USER_MATH_MODEL.get_fields() if field != "id" ]],
                     placeholder="Sort By: Name",
                     size="3",
                     on_change=lambda sort_value: State.sort_values(sort_value),
@@ -390,7 +300,7 @@ def content():
                         rx.table.column_header_cell("Icon"),
                         *[
                             rx.table.column_header_cell(field)
-                            for field in MODEL.get_fields()
+                            for field in USER_MATH_MODEL.get_fields()
                             if field != "id"
                         ],
                         rx.table.column_header_cell("Try"),
@@ -413,7 +323,8 @@ def index() -> rx.Component:
             margin_top="calc(50px + 2em)",
             padding="4em",
         ),
-        font_family="Inter",
+        # font_family="Inter",
+        font_family = "Comic Sans MS",
     )
 
 
