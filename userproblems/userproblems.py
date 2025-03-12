@@ -228,7 +228,7 @@ def update_item_ui(item):
 def navbar():
     return rx.hstack(
         rx.vstack(
-            rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS"),
+            rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS", color='green'),
         ),
         rx.spacer(),
         # add_item_ui(),
