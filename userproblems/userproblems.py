@@ -19,17 +19,22 @@ class State(rx.State):
     """The app state."""
 
     items: list[USER_MATH_MODEL] = []
+    problems: list[MATH_MODEL] = []
+    
     sort_value: str = ""
     num_items: int
     current_item: USER_MATH_MODEL = USER_MATH_MODEL()
+    current_math_problem: MATH_MODEL = MATH_MODEL()
 
     def handle_add_submit(self, form_data: dict):
         """Handle the form submit."""
+        print(f'###### handle_add_submit: {form_data}')
         self.current_item = form_data
+
 
     def handle_update_submit(self, form_data: dict):
         """Handle the form submit."""
-        # print (f'$$$$$$$$$$ handle_update_submit: {form_data} ')
+        print (f'$$$$$$$$$$ handle_update_submit: {form_data} ')
         self.current_item.Response = form_data['Response']
         print(f'$$$$$$$$$$ handle_update_submit After: {self.current_item}')
         # self.current_item.update(form_data)
@@ -45,6 +50,9 @@ class State(rx.State):
                     self.items,
                     key=lambda item: getattr(item, self.sort_value),
                 )
+            
+            self.problems = session.exec(select(MATH_MODEL)).all()
+            
 
     def sort_values(self, sort_value: str):
         self.sort_value = sort_value
@@ -69,6 +77,7 @@ class State(rx.State):
             #     if field == "Response":
             #         setattr(item, field, self.current_item[field])
             item.Response = self.current_item.Response 
+            
             
             session.add(item)
             session.commit()
@@ -250,12 +259,12 @@ def show_item(item: USER_MATH_MODEL):
     
     return rx.table.row(
         # rx.table.cell(rx.avatar(fallback="DA")),
-        rx.table.cell(rx.avatar(fallback='P')),
+        rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "ProblemId")}')),
         rx.table.cell(rx.markdown (getattr(item, "Problem"))),
         *[
             rx.table.cell(getattr(item, field))
             for field in USER_MATH_MODEL.get_fields()
-            if field != "id" and field != "Problem"  
+            if field != "id" and field != "Problem"  and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet"
         ],
         rx.table.cell(
             update_item_ui(item),
@@ -301,7 +310,7 @@ def content():
                         *[
                             rx.table.column_header_cell(field)
                             for field in USER_MATH_MODEL.get_fields()
-                            if field != "id"
+                            if field != "id" and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet"
                         ],
                         rx.table.column_header_cell("Try"),
                         # rx.table.column_header_cell("Delete"),
