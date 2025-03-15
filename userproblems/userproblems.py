@@ -35,10 +35,24 @@ class State(rx.State):
 
     def handle_update_submit(self, form_data: dict):
         """Handle the form submit."""
-        print (f'$$$$$$$$$$ handle_update_submit: {form_data} ')
+        print (f'$$- handle_update_submit form_data: {form_data} ')
         self.current_item.Response = form_data['Response']
-        print(f'$$$$$$$$$$ handle_update_submit After: {self.current_item}')
-        # self.current_item.update(form_data)
+        print(f'$$-current_item: {self.current_item}')
+        
+        #find current math problem by current_math_problem problemId in problem
+        self.current_math_problem = rx.session().exec(
+                select(MATH_MODEL).where(MATH_MODEL.id == self.current_item.ProblemId)
+            ).first()
+
+        print(f'$$-current math problem: {self.current_math_problem}')
+        
+        if(self.current_item.Response == self.current_math_problem.Answer):
+            print('$$ - Result: Correct!')
+            self.current_item.Result = "Correct!"
+        else:
+            print('$$ - Result: Wrong!')
+            self.current_item.Result = "Wrong!"
+        
 
     def load_entries(self) -> list[USER_MATH_MODEL]:
         """Get all items from the database."""
@@ -78,6 +92,7 @@ class State(rx.State):
             #     if field == "Response":
             #         setattr(item, field, self.current_item[field])
             item.Response = self.current_item.Response 
+            item.Result = self.current_item.Result
             
             
             session.add(item)
@@ -105,7 +120,7 @@ class State(rx.State):
             
             first_entry = session.exec(select(USER_MATH_MODEL)).first()
             # If nothing was returned load data from the csv file
-            if first_entry is None and data_file_path != "":
+            if first_entry is None:
                 load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
 
         self.load_entries()
@@ -308,7 +323,7 @@ def content():
             rx.table.root(
                 rx.table.header(
                     rx.table.row(
-                        rx.table.column_header_cell("Icon"),
+                        rx.table.column_header_cell("Id#"),
                         *[
                             rx.table.column_header_cell(field)
                             for field in USER_MATH_MODEL.get_fields()
