@@ -10,6 +10,7 @@ from pandas import DataFrame
 
 USER_MATH_MODEL = UserMathItem
 MATH_MODEL = MathProblem 
+USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
 
 data_file_path = "data_sources/mathv3.csv"
 
@@ -292,8 +293,9 @@ def content():
                 ),
                 rx.spacer(),
                 rx.select(
-                    [*[field for field in USER_MATH_MODEL.get_fields() if field != "id" ]],
-                    placeholder="Sort By: Name",
+                    # [*[field for field in USER_MATH_MODEL.get_fields() if field != "id" ]],
+                    [*[field for field in USER_SORT_FIELDS ]],
+                    placeholder="Sort By: Problem Type",
                     size="3",
                     on_change=lambda sort_value: State.sort_values(sort_value),
                     font_family="Inter",
