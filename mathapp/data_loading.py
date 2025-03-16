@@ -1,6 +1,7 @@
 import csv
 import pandas as pd
 from datetime import date, datetime
+from mathapp.utils import get_aime_problems
 
 import reflex as rx
 
@@ -37,7 +38,7 @@ def generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.DataF
 
     # Randomly select 20 problems from problems_df with different difficulty levels
     # user_problems_df = problems_df
-    user_problems_df = problems_df.sample(n=20, random_state=1)
+    user_problems_df = get_aime_problems(problems_df, difficulty=5)
     # print(user_problems_df.head(2))
     
     user_problems_df ['User'] = user
@@ -47,14 +48,14 @@ def generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.DataF
     user_problems_df["Response"] = '' 
     user_problems_df["Result"] = '' 
 
-
     return user_problems_df
 
-def load_all_problems(data_file_path :str, math_model: rx.Model)->pd.DataFrame:
+def load_all_problems(data_file_path :str, math_model: rx.Model, load_to_db: bool = False)->pd.DataFrame:
     df_problems = pd.read_csv(data_file_path, header=0)
     print(f'====== df columns: {df_problems.columns} ===')
     
-    add_pandas_data_to_db(df_problems, math_model)
+    if load_to_db:
+        add_pandas_data_to_db(df_problems, math_model)
     return df_problems 
 
 def load_user_problems(user: str,  df_problems: pd.DataFrame, user_problems_model: rx.Model):
