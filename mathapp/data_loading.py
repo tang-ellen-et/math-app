@@ -29,10 +29,10 @@ def add_pandas_data_to_db(df: pd.DataFrame, model: rx.Model):
         session.commit()
 
 
-def generate_user_problem_sets(user: str, problems_df: pd.DataFrame) -> pd.DataFrame:
+def generate_user_problem_sets(user: str, problem_set: str, problems_df: pd.DataFrame) -> pd.DataFrame:
     
     test_date = datetime.today()
-    problem_set = str(round(datetime.now().timestamp() * 1000))
+    # problem_set = str(round(datetime.now().timestamp() * 1000))
     
     problems_df['pid'] = problems_df.index + 1 
 
@@ -58,10 +58,11 @@ def load_all_problems(data_file_path :str, math_model: rx.Model, load_to_db: boo
         add_pandas_data_to_db(df_problems, math_model)
     return df_problems 
 
-def load_user_problems(user: str,  df_problems: pd.DataFrame, user_problems_model: rx.Model):
+def load_user_problems(user: str,  df_problems: pd.DataFrame, user_problems_model: rx.Model)-> str:
     # df = pd.read_csv(data_file_path, header=0)
     # print(f'====== df columns: {df.columns} ===')
-    
-    user_problems_df = generate_user_problem_sets (user, df_problems)
+    problem_set = str(round(datetime.now().timestamp() * 1000))
+    user_problems_df = generate_user_problem_sets (user, problem_set, df_problems)
     add_pandas_data_to_db(user_problems_df, user_problems_model)
+    return problem_set
     
