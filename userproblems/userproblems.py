@@ -7,25 +7,35 @@ from userproblems.models import   UserMathItem, MathProblem
 
 from userproblems.data_loading import load_user_problems, load_all_problems
 from pandas import DataFrame 
+from userproblems.data_graph import UserStats
 
 USER_MATH_MODEL = UserMathItem
 MATH_MODEL = MathProblem 
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
 
+# Result values
+RESULT_CORRECT = 'Correct!'
+RESULT_WRONG="Wrong!"
+RESULT_NA=""
+
 data_file_path = "data_sources/mathv3.csv"
 
 USER = 'Ellen'
+
+
 
 class State(rx.State):
     """The app state."""
 
     items: list[USER_MATH_MODEL] = []
     problems: list[MATH_MODEL] = []
+    items_by_type: list[dict] = []
     
     sort_value: str = ""
     num_items: int
     current_item: USER_MATH_MODEL = USER_MATH_MODEL()
     current_math_problem: MATH_MODEL = MATH_MODEL()
+
 
     def handle_add_submit(self, form_data: dict):
         """Handle the form submit."""
@@ -36,7 +46,9 @@ class State(rx.State):
     def handle_update_submit(self, form_data: dict):
         """Handle the form submit."""
         print (f'$$- handle_update_submit form_data: {form_data} ')
+        
         self.current_item.Response = form_data['Response']
+        
         print(f'$$-current_item: {self.current_item}')
         
         #find current math problem by current_math_problem problemId in problem
@@ -46,12 +58,16 @@ class State(rx.State):
 
         print(f'$$-current math problem: {self.current_math_problem}')
         
-        if(self.current_item.Response == self.current_math_problem.Answer):
-            print('$$ - Result: Correct!')
-            self.current_item.Result = "Correct!"
+        if(self.current_item.Response.strip()==''):
+            self.current_item.Result =  RESULT_NA
+        elif(self.current_item.Response == self.current_math_problem.Answer):
+
+            self.current_item.Result = RESULT_CORRECT
         else:
             print('$$ - Result: Wrong!')
-            self.current_item.Result = "Wrong!"
+            self.current_item.Result = RESULT_WRONG
+        
+        print(f'$$ - Result: {self.current_item.Result}!')
         
 
     def load_entries(self) -> list[USER_MATH_MODEL]:
@@ -67,6 +83,8 @@ class State(rx.State):
                 )
             
             self.problems = session.exec(select(MATH_MODEL)).all()
+            self.items_by_type= UserStats.transform_problems_by_type(self.items)
+    
             
 
     def sort_values(self, sort_value: str):
@@ -320,6 +338,7 @@ def content():
                 padding_top="2em",
                 padding_bottom="1em",
             ),
+            UserStats.graph(State.items_by_type),
             rx.table.root(
                 rx.table.header(
                     rx.table.row(
