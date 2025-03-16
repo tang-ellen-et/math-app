@@ -20,9 +20,9 @@ https://reflex.dev/docs/getting-started/installation/
 
 ```
 
-pip install reflex
-reflex init 
-
+<!-- pip install reflex -->
+<!-- reflex init  -->
+pip -r requirements.txt
 ```
 
 choose the free template (0)
