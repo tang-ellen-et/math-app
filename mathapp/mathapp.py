@@ -267,11 +267,12 @@ def update_item_ui(item):
     )
 
 # font_family = "Comic Sans MS",
-
+# rx.link("Example", href="/docs/library")
 def navbar():
     return rx.hstack(
         rx.vstack(
-            rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS", color='green'),
+            # rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS", color='green'),
+            rx.heading(rx.link("Math App - Problems", href="/about"), size="8", font_family="Comic Sans MS", color='green'),
         ),
         rx.spacer(),
         # add_item_ui(),
@@ -360,6 +361,18 @@ def content():
     )
 
 
+def about():
+    return rx.box(
+        rx.heading("About Math App"),
+        rx.section( rx.text("Math Lover can find quality math problems from various competitions with the right difficulty level to practice.\nThey can also see their performance history.")),
+        rx.link("Home", href="/")
+    )
+
+
+
+def custom():
+    return rx.text("Custom Route")
+
 def index() -> rx.Component:
     return rx.box(
         navbar(),
@@ -380,9 +393,13 @@ app = rx.App(
     ),
     stylesheets=["https://fonts.googleapis.com/css?family=Inter"],
 )
+
 app.add_page(
     index,
     on_load=State.on_load,
     title="Math App",
     description="Try Competition Math Problem sets Here!",
 )
+
+app.add_page(about)
+app.add_page(custom, route="/custom-route")
