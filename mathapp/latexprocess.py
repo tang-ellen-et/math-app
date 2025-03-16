@@ -1,20 +1,23 @@
 import pandas as pd
 
-
-data_file_path = '../data_sources/mathv2.csv'
+data_file_path = 'data_sources/mathv4.csv'
 
 df = pd.read_csv(data_file_path, header=0)
-print (df.head(10))
 
+print("==== Before ====")
+print(df.head(10))
 
-# df['Problem latex_2'] = df['Problem latex'].replace('\[', '$$').replace('\(', '$ ').replace('\%', '%')
-print('==== after === ')
+# Use str.replace with regex=True for more robust replacements
+df['Problem'] = df['Problem latex'].str.replace(r'\\[', '$$', regex=True) \
+    .str.replace(r'\\]', '$$', regex=True) \
+    .str.replace(r'\\(', '$', regex=True) \
+    .str.replace(r'\\)', '$', regex=True) \
+    .str.replace(r'\\%', '%', regex=True)
 
-df['Problem latex_2'] = df['Problem latex'].str.replace('\\[', '$$').replace('\\( ', '$ ' ) \
-    .replace('\\%', '%').replace('\\]', '$$'). replace(' \\)', ' $')
+print("==== After ====")
 print(df.head(5))
 
+df.drop(columns=['Problem latex'], inplace=True)
 
-output_file_path = '../data_sources/mathv2_processed.csv'
+output_file_path = 'data_sources/mathv4_processed.csv'
 df.to_csv(output_file_path, index=False)
-
