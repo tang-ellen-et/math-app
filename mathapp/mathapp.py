@@ -133,13 +133,18 @@ class State(rx.State):
             # Attempt to retrieve the first entry in the MODEL table
             first_problem = session.exec (select(MATH_MODEL)).first()
             if first_problem is None and data_file_path != "":
-                df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL)
+                df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=True)
+            else:
+                df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=False)
             
-            
+            # always regnerate user problems when page load or relad
+            load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
             first_entry = session.exec(select(USER_MATH_MODEL)).first()
-            # If nothing was returned load data from the csv file
-            if first_entry is None:
-                load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
+           
+
+            # # If nothing was returned load data from the csv file
+            # if first_entry is None:
+            #     load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
 
         self.load_entries()
 
