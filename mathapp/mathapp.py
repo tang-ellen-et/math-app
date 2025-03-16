@@ -35,6 +35,9 @@ class State(rx.State):
     num_items: int
     current_item: USER_MATH_MODEL = USER_MATH_MODEL()
     current_math_problem: MATH_MODEL = MATH_MODEL()
+    current_problemset = ''
+    
+    df_problems: DataFrame = DataFrame()
 
 
     def handle_add_submit(self, form_data: dict):
@@ -68,13 +71,14 @@ class State(rx.State):
             self.current_item.Result = RESULT_WRONG
         
         print(f'$$ - Result: {self.current_item.Result}!')
-        
 
     def load_entries(self) -> list[USER_MATH_MODEL]:
         """Get all items from the database."""
         with rx.session() as session:
-            self.items = session.exec(select(USER_MATH_MODEL)).all()
+            self.items = session.exec(select(USER_MATH_MODEL).where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).all()
             self.num_items = len(self.items)
+            
+            # session.exec (select(USER_MATH_MODEL.ProblemSet).distinct().order_by())
 
             if self.sort_value:
                 self.items = sorted(
@@ -85,8 +89,6 @@ class State(rx.State):
             self.problems = session.exec(select(MATH_MODEL)).all()
             self.items_by_type= UserStats.transform_problems_by_type(self.items)
     
-            
-
     def sort_values(self, sort_value: str):
         self.sort_value = sort_value
         self.load_entries()
@@ -94,7 +96,6 @@ class State(rx.State):
     def get_item(self, item: USER_MATH_MODEL):
         self.current_item = item
 
-        
     def update_item(self):
 
         """Update an item in the database."""
@@ -118,13 +119,19 @@ class State(rx.State):
         self.load_entries()
 
 
-    def delete_item(self, id: int):
-        """Delete an item from the database."""
+    def generate_new_problemset(self):
+        with rx.session() as session:            
+            # always regnerate user problems when page load or relad
+            self.current_problemset = load_user_problems(user=USER, df_problems= self.df_problems, user_problems_model= USER_MATH_MODEL)
+            first_entry = session.exec(USER_MATH_MODEL.select().where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).first()
+            
+            self.load_entries()
+    
+    def set_last_problemset(self):
         with rx.session() as session:
-            item = session.exec(select(USER_MATH_MODEL).where(USER_MATH_MODEL.id == id)).first()
-            session.delete(item)
-            session.commit()
-        self.load_entries()
+            self.current_problemset = session.exec(select(USER_MATH_MODEL.ProblemSet).distinct().order_by(USER_MATH_MODEL.ProblemSet.desc())).first()
+            
+            self.load_entries()
 
     def on_load(self):
         # Check if the database is empty
@@ -133,14 +140,19 @@ class State(rx.State):
             # Attempt to retrieve the first entry in the MODEL table
             first_problem = session.exec (select(MATH_MODEL)).first()
             if first_problem is None and data_file_path != "":
-                df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=True)
+                self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=True)
             else:
-                df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=False)
+                self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=False)
             
             # always regnerate user problems when page load or relad
-            load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
+            # load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
             first_entry = session.exec(select(USER_MATH_MODEL)).first()
-           
+            if first_entry is None:
+                self.generate_new_problemset()
+            else:
+                # find the max problemset
+                self.set_last_problemset()
+
 
             # # If nothing was returned load data from the csv file
             # if first_entry is None:
@@ -183,26 +195,6 @@ def update_fields_and_attrs(field, attr):
         ),
         direction="column",
         spacing="2",
-    )
-
-
-def question2(item):
-    return rx.vstack(
-        rx.heading("Question #2"),
-        rx.text("What is the output of the following addition (+) operator?"),
-        rx.code_block(
-            """a = [10, 20]
-b = a
-b += [30, 40]
-print(a)""",
-            language="python",
-        ),
-        rx.radio(
-            items=["[10, 20, 30, 40]", "[10, 20]"],
-            default_value=State.default_answers[1],
-            default_check=True,
-            on_change=lambda answer: State.set_answers(answer, 1),
-        ),
     )
 
 def update_item_ui(item):
@@ -280,6 +272,7 @@ def navbar():
             rx.heading(rx.link("Math App - Problems", href="/about"), size="8", font_family="Comic Sans MS", color='green'),
         ),
         rx.spacer(),
+        rx.button("Generate a Exercise!", on_click= State.generate_new_problemset),
         # add_item_ui(),
         rx.avatar(src='math_app_logo.png',  size="8"),
         rx.color_mode.button(),
@@ -326,7 +319,7 @@ def content():
             rx.divider(),
             rx.hstack(
                 rx.heading(
-                    f"Total: {State.num_items} Problems",
+                    f"Total: {State.num_items} Problems - Exercise#_{State.current_problemset}",
                     size="5",
                     font_family="Inter",
                 ),
