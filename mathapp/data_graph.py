@@ -1,6 +1,6 @@
 from collections import Counter 
 from dataclasses import dataclass
-from userproblems.models import UserMathItem, MathProblem
+from mathapp.models import UserMathItem, MathProblem
 import reflex as rx
 
 class UserStats :

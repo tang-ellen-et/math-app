@@ -1,5 +1,6 @@
 psycopg2-binary
 reflex>=0.4.8
+reflex-chakra
 pandas
 plotly
 statsmodels

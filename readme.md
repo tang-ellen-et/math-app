@@ -31,6 +31,7 @@ choose the free template (0)
 ## run it in development mode
 
 ```
+reflex db init 
 reflex run
 ```
 

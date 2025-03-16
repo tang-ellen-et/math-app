@@ -3,11 +3,11 @@
 from sqlmodel import select
 import reflex as rx
 
-from userproblems.models import   UserMathItem, MathProblem
+from mathapp.models import   UserMathItem, MathProblem
 
-from userproblems.data_loading import load_user_problems, load_all_problems
+from mathapp.data_loading import load_user_problems, load_all_problems
 from pandas import DataFrame 
-from userproblems.data_graph import UserStats
+from mathapp.data_graph import UserStats
 
 USER_MATH_MODEL = UserMathItem
 MATH_MODEL = MathProblem 
