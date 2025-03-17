@@ -359,17 +359,8 @@ def content():
     )
 
 
-def about():
-    return rx.box(
-        rx.heading("About Math App"),
-        rx.section( rx.text("Math Lover can find quality math problems from various competitions with the right difficulty level to practice.\nThey can also see their performance history.")),
-        rx.link("Home", href="/")
-    )
-
-
-
-def custom():
-    return rx.text("Custom Route")
+# def custom():
+#     return rx.text("Custom Route")
 
 def index() -> rx.Component:
     return rx.box(
@@ -398,6 +389,8 @@ app.add_page(
     title="Math App",
     description="Try Competition Math Problem sets Here!",
 )
+from mathapp.pages.about import about
+from mathapp.pages.userdashboard import userdashboard
 
 app.add_page(about)
-app.add_page(custom, route="/custom-route")
+app.add_page(userdashboard, route="/userdashboard")
