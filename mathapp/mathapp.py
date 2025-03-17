@@ -14,8 +14,8 @@ MATH_MODEL = MathProblem
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
 
 # Result values
-RESULT_CORRECT = 'Correct!'
-RESULT_WRONG="Wrong!"
+RESULT_CORRECT = 'correct'
+RESULT_WRONG="wrong"
 RESULT_NA=""
 
 data_file_path = "data_sources/mathv4_processed_3.csv"
@@ -117,6 +117,7 @@ class State(rx.State):
             session.add(item)
             session.commit()
         self.load_entries()
+        content()
 
 
     def generate_new_problemset(self):
@@ -297,19 +298,14 @@ def show_item(item: USER_MATH_MODEL):
         *[
             rx.table.cell(getattr(item, field))
             for field in USER_MATH_MODEL.get_fields()
-            if field != "id" and field != "Problem"  and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet"
+            if field != "id" and field != "Problem"  and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet" and field != "Result"
         ],
+        # *[get_result_logo(item)],
+        rx.table.cell( rx.avatar(src=f'{getattr(item, "Result")}.png', fallback=getattr(item, "Result")) )
+        ,
         rx.table.cell(
             update_item_ui(item),
-        ),
-        # rx.table.cell(
-        #     rx.button(
-        #         "Delete",
-        #         on_click=lambda: State.delete_item(getattr(item, "id")),
-        #         background=rx.color("red", 9),
-        #         color="white",
-        #     ),
-        # ),
+        )
     )
 
 
@@ -345,8 +341,9 @@ def content():
                         *[
                             rx.table.column_header_cell(field)
                             for field in USER_MATH_MODEL.get_fields()
-                            if field != "id" and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet"
+                            if field != "id" and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet" 
                         ],
+                        
                         rx.table.column_header_cell("Try"),
                         # rx.table.column_header_cell("Delete"),
                     ),
