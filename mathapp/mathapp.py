@@ -263,16 +263,16 @@ def update_item_ui(item):
         ),
     )
 
-# font_family = "Comic Sans MS",
+# font_family = "Times New Roman",
 # rx.link("Example", href="/docs/library")
 def navbar():
     return rx.hstack(
         rx.vstack(
-            # rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS", color='green'),
-            rx.heading(rx.link("Math App - Problems", href="/about"), size="8", font_family="Comic Sans MS", color='green'),
+            # rx.heading("Math App - Problems", size="8", font_family="Times New Roman", color='green'),
+            rx.heading(rx.link("Math App", href="/about"), size="8", font_family="Times New Roman", color='green'),
         ),
         rx.spacer(),
-        rx.button("Generate a Exercise!", on_click= State.generate_new_problemset),
+        rx.button("Generate a mock!", on_click= State.generate_new_problemset),
         # add_item_ui(),
         rx.avatar(src='math_app_logo.png',  size="8"),
         rx.color_mode.button(),
@@ -359,8 +359,17 @@ def content():
     )
 
 
-# def custom():
-#     return rx.text("Custom Route")
+def about():
+    return rx.box(
+        rx.heading("About Math App"),
+        rx.section( rx.text("Math Lover can find quality math problems from various competitions with the right difficulty level to practice.\nThey can also see their performance history.")),
+        rx.link("Home", href="/")
+    )
+
+
+
+def custom():
+    return rx.text("Custom Route")
 
 def index() -> rx.Component:
     return rx.box(
@@ -371,7 +380,7 @@ def index() -> rx.Component:
             padding="4em",
         ),
         # font_family="Inter",
-        font_family = "Comic Sans MS",
+        font_family = "Times New Roman",
     )
 
 
@@ -389,8 +398,6 @@ app.add_page(
     title="Math App",
     description="Try Competition Math Problem sets Here!",
 )
-from mathapp.pages.about import about
-from mathapp.pages.userdashboard import userdashboard
 
 app.add_page(about)
-app.add_page(userdashboard, route="/userdashboard")
+app.add_page(custom, route="/custom-route")
