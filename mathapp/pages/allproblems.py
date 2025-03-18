@@ -75,5 +75,5 @@ def allproblems() -> rx.Component:
         margin_top="calc(50px + 2em)",
         padding="4em",
         # font_family="Inter",
-        font_family = "Comic Sans MS",
+        font_family = "sans serif",
     )

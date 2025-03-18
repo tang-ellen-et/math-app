@@ -120,7 +120,7 @@ def navbar():
     return rx.hstack(
         rx.vstack(
             # rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS", color='green'),
-            rx.heading(rx.link("Math App - Problems", href="/allproblems"), size="8", font_family="Comic Sans MS", color='green'),
+            rx.heading(rx.link("Math App - Problems", href="/allproblems"), size="8", font_family="sans serif", color='green'),
         ),
         rx.spacer(),
         rx.button("Generate a Exercise!", on_click= State.generate_new_problemset),
@@ -219,7 +219,8 @@ def index() -> rx.Component:
             padding="4em",
         ),
         # font_family="Inter",
-        font_family = "Comic Sans MS",
+        # font_family = "Comic Sans MS",
+        font_family = 'sans serif'
     )
 
 
