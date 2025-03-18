@@ -5,7 +5,9 @@ from mathapp.state import State
 def userdashboard():
     return rx.box(
         rx.section(
-            rx.center(rx.heading("User Exercise Dashboard"))
+            rx.center(rx.heading("User Exercise Dashboard", size="9", bold=True, color_scheme="blue")) ,
+            rx.center(rx.link("Home", href="/", size="8", bold=True, color_scheme="blue")),
+            background="right/cover url('/math_app_logo.png')"
         ),
         rx.section(
             UserStats.graph_table(State.items_by_result)
@@ -17,9 +19,7 @@ def userdashboard():
                 UserStats.graph(State.items_by_type)
             )
         ),
-        rx.section(
-            rx.center(rx.link("Home", href="/"))
-        ),
+
         
         width = "70%"
         

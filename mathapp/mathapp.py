@@ -169,6 +169,7 @@ def content():
                     size="5",
                     font_family="Inter",
                 ),
+                rx.link("User Dashboard", href="/userdashboard"),
                 rx.spacer(),
                 rx.select(
                     # [*[field for field in USER_MATH_MODEL.get_fields() if field != "id" ]],
