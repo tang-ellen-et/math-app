@@ -120,7 +120,7 @@ def navbar():
     return rx.hstack(
         rx.vstack(
             # rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS", color='green'),
-            rx.heading(rx.link("Math App - Problems", href="/about"), size="8", font_family="Comic Sans MS", color='green'),
+            rx.heading(rx.link("Math App - Problems", href="/allproblems"), size="8", font_family="Comic Sans MS", color='green'),
         ),
         rx.spacer(),
         rx.button("Generate a Exercise!", on_click= State.generate_new_problemset),
@@ -239,6 +239,8 @@ app.add_page(
 )
 from mathapp.pages.about import about
 from mathapp.pages.userdashboard import userdashboard
+from mathapp.pages.allproblems import allproblems
 
 app.add_page(about)
 app.add_page(userdashboard, route="/userdashboard")
+app.add_page(allproblems, route="/allproblems")

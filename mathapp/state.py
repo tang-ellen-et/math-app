@@ -31,6 +31,7 @@ class State(rx.State):
     
     sort_value: str = ""
     num_items: int
+    num_problems: int 
     current_item: USER_MATH_MODEL = USER_MATH_MODEL()
     current_math_problem: MATH_MODEL = MATH_MODEL()
     current_problemset = ''
@@ -75,6 +76,7 @@ class State(rx.State):
         with rx.session() as session:
             self.items = session.exec(select(USER_MATH_MODEL).where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).all()
             self.num_items = len(self.items)
+            self.num_problems = len(self.problems)
             
             # session.exec (select(USER_MATH_MODEL.ProblemSet).distinct().order_by())
 
