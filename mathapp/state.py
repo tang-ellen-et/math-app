@@ -137,6 +137,20 @@ class State(rx.State):
             
             self.load_entries()
 
+    def reset_problems_db(self):
+        """Reset the problems database by clearing all user problems and regenerating them."""
+        with rx.session() as session:
+            # Delete all existing user problems
+            problems = session.exec(select(MATH_MODEL))
+            for problem in problems:
+                session.delete(problem)
+            session.commit()
+            print('$$ - problems deleted')
+            
+            self.on_load()
+                # Generate a new problemset
+        
+
     def on_load(self):
         # Check if the database is empty
         
