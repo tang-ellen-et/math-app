@@ -14,8 +14,14 @@ def add_csv_data_to_db(data_file_path: str, model: rx.Model) -> None:
 
 def add_pandas_data_to_db(df: pd.DataFrame, model: rx.Model) -> None:
     with rx.session() as session:
-        for _, row in df.iterrows():
-            session.add(model(**row.to_dict()))
+        # for _, row in df.iterrows():
+        #     session.add(model(**row.to_dict()))
+        for index, row in df.iterrows():
+            # Create an instance of Model using dictionary unpacking
+            data_tuple = row.to_dict()
+            item = model(**data_tuple)
+            session.add(item)
+            
         session.commit()
 
 def generate_user_problem_sets(user: str, problem_set: str, problems_df: pd.DataFrame) -> pd.DataFrame:
@@ -24,14 +30,20 @@ def generate_user_problem_sets(user: str, problem_set: str, problems_df: pd.Data
     
     user_problems_df = get_aime_problems(problems_df, difficulty=5)
     
-    user_problems_df.assign(
-        User=user,
-        ProblemSet=problem_set,
-        ProblemId=problems_df['pid'],
-        TestDate=test_date.strftime("%Y-%m-%d"),
-        Response='',
-        Result=''
-    )
+    # user_problems_df.assign(
+    #     User=user,
+    #     ProblemSet=problem_set,
+    #     ProblemId=problems_df['pid'],
+    #     TestDate=test_date.strftime("%Y-%m-%d"),
+    #     Response='',
+    #     Result=''
+    # )
+    user_problems_df ['User'] = user
+    user_problems_df['ProblemSet'] = problem_set 
+    user_problems_df["ProblemId"] = problems_df['pid']
+    user_problems_df["TestDate"] = test_date.strftime("%Y-%m-%d")
+    user_problems_df["Response"] = '' 
+    user_problems_df["Result"] = '' 
     
     return user_problems_df
 
