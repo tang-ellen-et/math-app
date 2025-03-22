@@ -10,3 +10,4 @@ alembic.ini
 alembic/
 reflex.db
 .crossnote/
+venv01/
