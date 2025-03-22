@@ -1,22 +1,18 @@
 """Welcome to Reflex! This file outlines the steps to create a basic app."""
 
-# from sqlmodel import select
 import reflex as rx
 
-from mathapp.models import   UserMathItem, MathProblem
+from mathapp.models import UserMathItem, MathProblem
 from mathapp.data_graph import UserStats
-
+from mathapp.state import State, USER_MATH_MODEL, MATH_MODEL
 
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
-
-
-from mathapp.state import State, USER_MATH_MODEL, MATH_MODEL
 
 def add_fields(field):
     return rx.flex(
         rx.text(
             field,
-            as_="div",
+            as_="div", 
             size="2",
             mb="1",
             weight="bold",
@@ -29,13 +25,12 @@ def add_fields(field):
         spacing="2",
     )
 
-
 def update_fields_and_attrs(field, attr):
     return rx.flex(
         rx.text(
             field,
             as_="div",
-            size="2",
+            size="2", 
             mb="1",
             weight="bold",
         ),
@@ -49,7 +44,6 @@ def update_fields_and_attrs(field, attr):
     )
 
 def update_item_ui(item):
-    
     return rx.dialog.root(
         rx.dialog.trigger(
             rx.button(
@@ -114,20 +108,18 @@ def update_item_ui(item):
         ),
     )
 
-# font_family = "Comic Sans MS",
-# rx.link("Example", href="/docs/library")
 def navbar():
     return rx.hstack(
         rx.vstack(
-            # rx.heading("Math App - Problems", size="8", font_family="Comic Sans MS", color='green'),
             rx.heading(rx.link("Math App - Problems", href="/allproblems"), size="8", font_family="sans serif", color='green'),
         ),
         rx.spacer(),
         rx.button("Generate a Exercise!", on_click=State.generate_new_problemset),
         rx.button("Reset Problems DB", on_click=State.reset_problems_db, color_scheme="red"),
-        # add_item_ui(),
-        rx.avatar(src='math_app_logo.png',  size="8"),
+        rx.avatar(src='math_app_logo.png', size="8"),
         rx.color_mode.button(),
+        rx.link("Login", href="/login", padding="1em"),
+        rx.link("Sign Up", href="/signup", padding="1em"),
         position="fixed",
         width="100%",
         top="0px",
@@ -138,12 +130,9 @@ def navbar():
         backdrop_filter="blur(10px)",
     )
 
-
 def show_item(item: USER_MATH_MODEL):
     """Show an item in a table row."""
-    
     return rx.table.row(
-        # rx.table.cell(rx.avatar(fallback="DA")),
         rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "ProblemId")}')),
         rx.table.cell(rx.markdown (getattr(item, "Problem"))),
         *[
@@ -151,14 +140,11 @@ def show_item(item: USER_MATH_MODEL):
             for field in USER_MATH_MODEL.get_fields()
             if field != "id" and field != "Problem"  and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet" and field != "Result"
         ],
-        # *[get_result_logo(item)],
-        rx.table.cell( rx.avatar(src=f'{getattr(item, "Result")}.png', fallback=getattr(item, "Result")) )
-        ,
+        rx.table.cell( rx.avatar(src=f'{getattr(item, "Result")}.png', fallback=getattr(item, "Result")) ),
         rx.table.cell(
             update_item_ui(item),
         )
     )
-
 
 def content():
     return rx.fragment(
@@ -173,7 +159,6 @@ def content():
                 rx.link("User Dashboard", href="/userdashboard"),
                 rx.spacer(),
                 rx.select(
-                    # [*[field for field in USER_MATH_MODEL.get_fields() if field != "id" ]],
                     [*[field for field in USER_SORT_FIELDS ]],
                     placeholder="Sort By: Problem Type",
                     size="3",
@@ -195,9 +180,7 @@ def content():
                             for field in USER_MATH_MODEL.get_fields()
                             if field != "id" and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet" 
                         ],
-                        
                         rx.table.column_header_cell("Try"),
-                        # rx.table.column_header_cell("Delete"),
                     ),
                 ),
                 rx.table.body(rx.foreach(State.items, show_item)),
@@ -207,9 +190,57 @@ def content():
         ),
     )
 
+def login():
+    return rx.box(
+        rx.vstack(
+            rx.heading("Login", size="8"),
+            rx.form(
+                rx.vstack(
+                    rx.input(placeholder="Username", name="username"),
+                    rx.input(placeholder="Password", name="password", type="password"),
+                    rx.cond(
+                        State.error_message != "",
+                        rx.text(State.error_message, color="red"),
+                        None,
+                    ),
+                    rx.button("Login", type="submit"),
+                    spacing="4",
+                ),
+                on_submit=State.handle_login,
+            ),
+            spacing="4",
+            align="center",
+            padding="2em",
+        ),
+        margin_top="calc(50px + 2em)",
+    )
 
-# def custom():
-#     return rx.text("Custom Route")
+def signup():
+    return rx.box(
+        rx.vstack(
+            rx.heading("Sign Up", size="8"),
+            rx.form(
+                rx.vstack(
+                    rx.input(placeholder="Username", name="username"),
+                    rx.input(placeholder="Email", name="email", type="email"),
+                    rx.input(placeholder="Password", name="password", type="password"),
+                    rx.input(placeholder="Confirm Password", name="confirm_password", type="password"),
+                    rx.cond(
+                        State.signup_error_message != "",
+                        rx.text(State.signup_error_message, color="red"),
+                        None,
+                    ),
+                    rx.button("Sign Up", type="submit"),
+                    spacing="4",
+                ),
+                on_submit=State.handle_signup,
+            ),
+            spacing="4",
+            align="center",
+            padding="2em",
+        ),
+        margin_top="calc(50px + 2em)",
+    )
 
 def index() -> rx.Component:
     return rx.box(
@@ -219,13 +250,9 @@ def index() -> rx.Component:
             margin_top="calc(50px + 2em)",
             padding="4em",
         ),
-        # font_family="Inter",
-        # font_family = "Comic Sans MS",
-        font_family = 'sans serif'
+        font_family='sans serif'
     )
 
-
-# Create app instance and add index page.
 app = rx.App(
     theme=rx.theme(
         appearance="light", has_background=True, radius="large", accent_color="grass"
@@ -239,6 +266,7 @@ app.add_page(
     title="Math App",
     description="Try Competition Math Problem sets Here!",
 )
+
 from mathapp.pages.about import about
 from mathapp.pages.userdashboard import userdashboard
 from mathapp.pages.allproblems import allproblems
@@ -246,3 +274,5 @@ from mathapp.pages.allproblems import allproblems
 app.add_page(about)
 app.add_page(userdashboard, route="/userdashboard")
 app.add_page(allproblems, route="/allproblems")
+app.add_page(login, route="/login")
+app.add_page(signup, route="/signup")

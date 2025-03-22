@@ -1,7 +1,7 @@
 Answer,Solution,Source,Year,Type,Competition,Difficulty,Img,Problem
 50,,BMT 2012 Individual #1,2012,Algebra,BMT,2.0,,Let $\{a_n\}_{n=1}^{\infty}$ be an arithmetic progression with $a_1 > 0$ and $5a_{13} = 6a_{19}$. What is the smallest integer $n$ such that $a_n < 0$?
 960,,BMT 2012 Individual #2,2012,Number Theory,BMT,2.5,,Find the smallest number with exactly 28 divisors.
-2011,,BMT 2012 Individual #3,2012,Algebra/Number Theory,BMT,2.5,,Find the largest prime factor of $$\sum_{n=1}^{\infty} \frac{2012}{n(n+1)(n+2)\cdots(n+2012)}.$$
+2011,,BMT 2012 Individual #3,2012,Algebra/Number Theory,BMT,2.5,,Find the largest prime factor of $\sum_{n=1}^{\infty} \frac{2012}{n(n+1)(n+2)\cdots(n+2012)}$.
 1006/4025,,BMT 2012 Individual #4,2012,Counting,BMT,3.0,,"Tyler rolls two 4025-sided fair dice with sides numbered $1, \dots, 4025$. Given that the number on the first die is greater than or equal to the number on the second die, what is the probability that the number on the first die is less than or equal to 2012?"
 27,,BMT 2012 Individual #5,2012,Number Theory,BMT,3.5,,"Let $a \uparrow\uparrow b$ be defined recursively as:$$a\uparrow\uparrow b =\begin{cases}a, & b = 1 \\a^{(a \uparrow\uparrow (b-1))}, & b \geq 2\end{cases}$$. What is the remainder of $3 \uparrow\uparrow(3 \uparrow\uparrow (3 \uparrow\uparrow 3))$ when divided by 60?"
 4,,BMT 2012 Individual #6,2012,Geometry,BMT,3.5,,"Let $ABCD$ be a cyclic quadrilateral, with $AB = 7$, $BC = 11$, $CD = 13$, and $DA = 17$. Let the incircle of $\triangle ABD$ hit $BD$ at $R$ and the incircle of $\triangle CBD$ hit $BD$ at $S$. What is $RS$?"
@@ -67,7 +67,7 @@ Answer,Solution,Source,Year,Type,Competition,Difficulty,Img,Problem
 "[6,6.5]",,BMT 2013 Geometry #7,2013,Geometry,BMT,3.5,,"Let ABC be a triangle with $BC=5$, $CA=3$ and $AB=4$ Variable points P, Q are on segments AB, AC, respectively such that the area of APQ is half of the area of ABC. Let and y be the lengths of perpendiculars drawn from the midpoint of PQ to sides AB and AC, respectively. Find the range of values of $2y+3x$"
 1+√2,,BMT 2013 Geometry #8,2013,Geometry,BMT,4.5,,ABC is an isosceles right triangle with right angle B and $AB=1$ ABC has an incenter at E. The excircle to ABC at side AC is drawn and has center P. Let this excircle be tangent to AB at R. Draw T on the excircle so that RT is the diameter. Extend line BC and draw point D on BC so that DT is perpendicular to RT. Extend AC and let it intersect with DT at G. Let F be the incenter of CDG. Find the area of $\triangle EFP$.
 5√2,,BMT 2013 Geometry #9,2013,Geometry,BMT,4.5,,"Let ABC be a triangle. Points D, E, F are on segments BC, CA, AB, respectively. Suppose that $AF=10$, $FB=10$, $BD=12$, $DC=17$, $CE=11$, and $EA=10$ Suppose that the circumcircles of $\triangle BFD$ and $\triangle CED$ intersect again at X. Find the circumradius of $\triangle EXF.$"
-1/110,,BMT 2013 Geometry #10,2013,Geometry,BMT,6.5,,"Let D, E, and F be the points at which the incircle, w, of $\triangle ABC$ is tangent to BC, CA, and AB, respectively. AD intersects w again at T. Extend rays TE, TF to hit line BC at $F^{\prime}$, respectively . If $BC=21,$ $CA=16$ , and $AB=15$ , then find $\frac{1}{DE^{\prime}}-\frac{1}{DF^{\prime}}|$"
+1/110,,BMT 2013 Geometry #10,2013,Geometry,BMT,6.5,,"Let D, E, and F be the points at which the incircle, w, of $\triangle ABC$ is tangent to BC, CA, and AB, respectively. AD intersects w again at T. Extend rays TE, TF to hit line BC at $F^{\prime}$, respectively . If $BC=21,$ $CA=16$ , and $AB=15$ , then find $\frac{1}{DE^{\prime}}-\frac{1}{DF^{\prime}}$"
 18,,BMT 2014 Individual #1,2014,Number Theory,BMT,1.0,,"A festive number is a four-digit integer containing one of each of the digits 0, 1, 2, and 4 in its decimal representation. How many festive numbers are there?"
 √3,,BMT 2014 Individual #2,2014,Geometry,BMT,1.5,,"Suppose  ABC is similar to $\triangle DEF$, with A, B, and C corresponding to D, E, and F respectively. If $AB=EF$ $\overline{BC}=\overline{FD}$ and $\overline{CA}=\overline{DE}=2.$ determine the area of $\triangle ABC$."
 10,,BMT 2014 Individual #3,2014,Counting,BMT,1.5,,"Suppose three boba drinks and four burgers cost 28 dollars, while two boba drinks and six burgers cost \$37.70. If you paid for one boba drink using only pennies, nickels, dimes, and quarters, determine the least number of coins you could use."
@@ -195,12 +195,10 @@ $1.92,,BmMT 2014 Team #16,2014,Algebra,BmMT,2.0,,"A box of pencils costs the sam
 4,,BMT 2016 Team #3,2016,Algebra,BMT,2.0,,A little boy takes a 12 in long strip of paper and makes a Mobius strip out of it by tapping the ends together after adding a half twist. He then takes a 1 inch long train model and runs it along the center of the strip at a speed of 12 inches per minute. How long does it take the train model to make two full complete loops around the Mobius strip? A complete loop is one that results in the train returning to its starting point.
 (1+√3)/2,,BMT 2016 Team #5,2016,Geometry,BMT,2.5,,"Let $A B C$ be a right triangle with $A B=B C=2$. Let $A C D$ be a right triangle with angle $D A C=30$ degrees and angle $D C A=60$ degrees. Given that $A B C$ and $A C D$ do not overlap, what is the area of triangle $B C D$ ?"
 19,,BMT 2016 Team #6,2016,Number Theory,BMT,3.0,,How many integers less than 400 have exactly 3 factors that are perfect squares?
-4,,BMT 2016 Team #7,2016,Algebra,BMT,4.5,,"Suppose $f(x, y)$ is a function that takes in two integers and outputs a real number, such that it satisfies $$
-\begin{aligned}
-& f(x, y)=\frac{f(x, y+1)+f(x, y-1)}{2} \\
-& f(x, y)=\frac{f(x+1, y)+f(x-1, y)}{2}
-\end{aligned}
-$$
+4,,BMT 2016 Team #7,2016,Algebra,BMT,4.5,,"Suppose $f(x, y)$ is a function that takes in two integers and outputs a real number, such that it satisfies
+
+$$f(x, y)=\frac{f(x, y+1)+f(x, y-1)}{2}$$
+$$f(x, y)=\frac{f(x+1, y)+f(x-1, y)}{2}$$ 
 
 What is the minimum number of pairs $(x, y)$ we need to evaluate to be able to uniquely determine $f$ ?"
 1716,,BMT 2016 Team #8,2016,Counting,BMT,3.0,,"How many ways are there to divide 10 candies between 3 Berkeley students and 4 Stanford students, if each Berkeley student must get at least one candy? All students are distinguishable from each other; all candies are indistinguishable."
@@ -209,25 +207,16 @@ What is the minimum number of pairs $(x, y)$ we need to evaluate to be able to u
 2017,,BMT 2016 Team #11,2016,Geometry,BMT,3.5,,"Circles $C_{1}$ and $C_{2}$ intersect at points $X$ and $Y$. Point $A$ is a point on $C_{1}$ such that the tangent line with respect to $C_{1}$ passing through $A$ intersects $C_{2}$ at $B$ and $C$, with $A$ closer to $B$ than $C$, such that 2016 $\cdot A B=B C$. Line $X Y$ intersects line $A C$ at $D$. If circles $C_{1}$ and $C_{2}$ have radii of 20 and 16 , respectively, find the ratio of $\sqrt{1+B C / B D}$."
 3/8,,BMT 2016 Team #12,2016,Geometry,BMT,4.0,,Consider a solid hemisphere of radius 1. Find the distance from its center of mass to the base.\\
 10201/100,,BMT 2016 Team #13,2016,Counting,BMT,4.0,,"Consider an urn containing 51 white and 50 black balls. Every turn, we randomly pick a ball, record the color of the ball, and then we put the ball back into the urn. We stop picking when we have recorded $n$ black balls, where $n$ is an integer randomly chosen from $\{1,2, \ldots, 100\}$ What is the expected number of turns?"
-16,,BMT 2016 Team #15,2016,Algebra,BMT,4.5,,"Let $s_{1}, s_{2}, s_{3}$ be the three roots of $x^{3}+x^{2}+\frac{9}{2} x+9$.\\ $$ \prod_{i=1}^{3}\left(4 s_{i}^{4}+81\right) $$ \\ can be written as $2^{a} 3^{b} 5^{c}$. Find $a+b+c$."
+16,,BMT 2016 Team #15,2016,Algebra,BMT,4.5,,"Let $s_{1}, s_{2}, s_{3}$ be the three roots of $x^{3}+x^{2}+\frac{9}{2} x+9$. $$ \prod_{i=1}^{3}\left(4 s_{i}^{4}+81\right) $$ can be written as $2^{a} 3^{b} 5^{c}$. Find $a+b+c$."
 3003001,,BMT 2016 Analysis #1,2016,Algebra,BMT,2.0,,Evaluate $1001^{3}-1000^{3}$
-"(16,2)",,BMT 2016 Analysis #2,2016,Algebra,BMT,2.5,,"Find an integer pair of solutions $(x, y)$ to the following system of equations. $$
-\begin{aligned}
-& \log _{2}\left(y^{x}\right)=16 \\
-& \log _{2}\left(x^{y}\right)=8
-\end{aligned}
-$$"
+"(16,2)",,BMT 2016 Analysis #2,2016,Algebra,BMT,2.5,,"Find an integer pair of solutions $(x, y)$ to the following system of equations. 
+$$\log _{2}\left(y^{x}\right)=16 $$,
+$$\log _{2}\left(x^{y}\right)=8 $$"
 3/20,,BMT 2016 Analysis #3,2016,Algebra,BMT,3.0,,"A half-mile long train is traveling at a speed of 90 miles per hour. As it enters a 1 mile long tunnel, Steve starts running from the back of the train to the front of the train at a speed of 10 miles per hour. When Steve is out of the tunnel, he stops running. How far along the train has Steve run in miles?"
 4,,BMT 2016 Analysis #4,2016,Algebra,BMT,3.0,,An geometric progression starting at $a_{0}=3$ has an even number of terms. Suppose the difference between the odd indexed terms and even indexed terms is 39321 and that the sum of the first and last term is 49155 . Find the common ratio of this geometric progression.
-89/2,,BMT 2016 Analysis #5,2016,Algebra,BMT,4.0,,"Find $$
-\frac{\tan 1^{\circ}}{1+\tan 1^{\circ}}+\frac{\tan 2^{\circ}}{1+\tan 2^{\circ}}+\ldots+\frac{\tan 89^{\circ}}{1+\tan 89^{\circ}}
-$$"
--434,,BMT 2016 Analysis #7,2016,Algebra,BMT,4.5,,"Find the coefficient of $x^{2}$ in the following polynomial $$
-(1-x)^{2}(1+2 x)^{2}(1-3 x)^{2} \ldots(1-11 x)^{2}
-$$"
-√6/3,,BMT 2016 Analysis #10,2016,Algebra,BMT,5.0,,"Evaluate $$
-\sum_{k=0}^{\infty}\left(\frac{-1}{8}\right)^{k}\binom{2 k}{k}
-$$"
+89/2,,BMT 2016 Analysis #5,2016,Algebra,BMT,4.0,,"Find $$ \frac{\tan 1^{\circ}}{1+\tan 1^{\circ}}+\frac{\tan 2^{\circ}}{1+\tan 2^{\circ}}+\ldots+\frac{\tan 89^{\circ}}{1+\tan 89^{\circ}}$$"
+-434,,BMT 2016 Analysis #7,2016,Algebra,BMT,4.5,,"Find the coefficient of $x^{2}$ in the following polynomial $$(1-x)^{2}(1+2 x)^{2}(1-3 x)^{2} \ldots(1-11 x)^{2}$$"
+√6/3,,BMT 2016 Analysis #10,2016,Algebra,BMT,5.0,,"Evaluate $$\sum_{k=0}^{\infty}\left(\frac{-1}{8}\right)^{k}\binom{2 k}{k}$$"
 3,,BMT 2016 Discrete #1,2016,Counting,BMT,2.5,,A bag is filled with quarters and nickels. The average value when pulling out a coin is 10 cents. What is the least number of nickels in the bag possible?
 768,,BMT 2016 Discrete #2,2016,Counting,BMT,2.0,,"How many integers from 1 to 2016 are divisible by 3 or 7 , but not 21 ?"
 3744,,BMT 2016 Discrete #3,2016,Counting,BMT,2.5,,How many five-card hands from a standard deck of 52 cards are full houses? A full house consists of 3 cards of one rank and 2 cards of another rank.
@@ -273,9 +262,7 @@ $$"
 9/50,,BmMT 2016 Team #9,2016,Counting,BmMT,1.5,,Suppose you have a 3 -digit number with only even digits. What is the probability that twice that number also has only even digits?
 2/5,,BmMT 2016 Team #10,2016,Counting,BmMT,2.0,,"You have a flight on Air China from Beijing to New York. The flight will depart any time between 1 p.m. and 6 p.m., uniformly at random. Your friend, Henry, is flying American Airlines, also from Beijing to New York. Henry's flight will depart any time between 3 p.m. and 5 p.m., uniformly at random. What is the probability that Henry's flight departs before your flight?"
 3-2√2,,BmMT 2016 Team #12,2016,Geometry,BmMT,2.0,,Consider a circle of radius 1 drawn tangent to the positive $x$ and $y$ axes. Now consider another smaller circle tangent to that circle and also tangent to the positive $x$ and $y$ axes. Find the radius of the smaller circle.
-5,,BmMT 2016 Team #13,2016,Algebra,BmMT,2.0,,"The following expression is an integer. Find this integer: $$
-\frac{\sqrt{20+16 \frac{\sqrt{20+16 \frac{\sqrt{20+16 \ldots}}{2}}}{2}}}{2} .
-$$"
+5,,BmMT 2016 Team #13,2016,Algebra,BmMT,2.0,,"The following expression is an integer. Find this integer: $$\frac{\sqrt{20+16 \frac{\sqrt{20+16 \frac{\sqrt{20+16 \ldots}}{2}}}{2}}}{2} .$$"
 23,,BmMT 2016 Team #14,2016,Number Theory,BmMT,2.5,,"Let $2016=a_{1} \times a_{2} \times \cdots \times a_{n}$ for some positive integers $a_{1}, a_{2}, \ldots, a_{n}$. Compute the smallest possible value of $a_{1}+a_{2}+\cdots+a_{n}$."
 1490,,BmMT 2016 Team #15,2016,Algebra,BmMT,2.0,,"The tetranacci numbers are defined by the recurrence $T_{n}=T_{n-1}+T_{n-2}+T_{n-3}+T_{n-4}$ and $T_{0}=T_{1}=T_{2}=0$ and $T_{3}=1$. Given that $T_{9}=29$ and $T_{14}=773$, calculate $T_{15}$."
 1012032,,BmMT 2016 Team #16,2016,Number Theory,BmMT,2.5,,"Find the number of zeros at the end of $(2016!)^{2016}$. Your answer should be an integer, not its prime factorization."
@@ -310,9 +297,9 @@ $$"
 55,,BMT 2017 Team #5,2017,Counting,BMT,3.0,,"You enter an elevator on floor 0 of a building with some other people, and request to go to floor 10. In order to be efficient, it doesn't stop at adjacent floors (so, if it's at floor 0, its next stop cannot be floor 1). Given that the elevator will stop at floor 10, no matter what other floors it stops at, how many combinations of stops are there for the elevator?"
 1-√3/2,,BMT 2017 Team #6,2017,Geometry,BMT,3.5,,"The center of a square of side length 1 is placed uniformly at random inside a circle of radius 1. Given that we are allowed to rotate the square about its center, what is the probability that the entire square is contained within the circle for some orientation of the square?"
 133,,BMT 2017 Team #7,2017,Algebra,BMT,3.5,,"There are 86400 seconds in a day, which can be deduced from the conversions between seconds, minutes, hours, and days. However, the leading scientists decide that we should decide on 3 new integers $x$, $y$, and $z$, such that there are $x$ seconds in a minute, $y$ minutes in an hour, and $z$ hours in a day, such that $xyz=86400$ as before, but such that the sum $x+y+z$ is minimized. What is the smallest possible value of that sum?"
-1/1009,,BMT 2017 Team #8,2017,Algebra,BMT,3.5,,"A function f with its domain on the positive integers $\mathbb{N}=\{1,2,...\}$ satisfies the following conditions: \$a): $f(1)=2017$ \$b): $\sum_{i=1}^{n}f(i)=n^{2}f(n)$, for every positive integer $n>1$. \\What is the value of $f(2017)$?"
+1/1009,,BMT 2017 Team #8,2017,Algebra,BMT,3.5,,"A function f with its domain on the positive integers $\mathbb{N}=\{1,2,...\}$ satisfies the following conditions: $a): $f(1)=2017$ $b): $\sum_{i=1}^{n}f(i)=n^{2}f(n)$, for every positive integer $n>1$. What is the value of $f(2017)$?"
 √10,,BMT 2017 Team #9,2017,Geometry,BMT,4.0,,Let $AB=10$ be a diameter of circle P. Pick point C on the circle such that $AC=8$ Let the circle with center O be the incircle of $\triangle ABC.$ Extend line AO to intersect circle P again at D. Find the length of BD.
-9,,BMT 2017 Team #10,2017,Counting,BMT,3.5,,"You and your friend play a game on a $7\times7$ grid of buckets. Your friend chooses 5 ""lucky"" buckets by marking an $X^{\prime\prime}$ on the bottom that you cannot see. However, he tells you that they either form a vertical, or horizontal line of length 5. To clarify, he will select either of the following sets of buckets: \\either $\{(a,b),(a,b+1),(a,b+2),(a,b+3),(a,b+4)\}$ or $\{(b,a),(b+1,a),(b+2,a),(b+3,a),(b+4,a)\},$ with \\ $1\le a\le7$, and $1\le b\le3$ Your friend lets you pick up at most n buckets, and you win if one of the buckets you picked was a ""lucky"" bucket. What is the minimum possible value of n such that, if you pick your buckets optimally, you can guarantee that at least one is ""lucky""?"
+9,,BMT 2017 Team #10,2017,Counting,BMT,3.5,,"You and your friend play a game on a $7\times7$ grid of buckets. Your friend chooses 5 ""lucky"" buckets by marking an $X^{\prime\prime}$ on the bottom that you cannot see. However, he tells you that they either form a vertical, or horizontal line of length 5. To clarify, he will select either of the following sets of buckets: either $\{(a,b),(a,b+1),(a,b+2),(a,b+3),(a,b+4)\}$ or $\{(b,a),(b+1,a),(b+2,a),(b+3,a),(b+4,a)\},$ with $1\le a\le7$, and $1\le b\le3$ Your friend lets you pick up at most n buckets, and you win if one of the buckets you picked was a ""lucky"" bucket. What is the minimum possible value of n such that, if you pick your buckets optimally, you can guarantee that at least one is ""lucky""?"
 2/7,,BMT 2017 Team #11,2017,Number Theory,BMT,3.5,,"Ben picks a positive number n less than 2017 uniformly at random. Then Rex, starting with the number 1, repeatedly multiplies his number by n and then finds the remainder when dividing by 2017. Rex does this until he gets back to the number 1. What is the probability that, during this process, Rex reaches every positive number less than 2017 before returning back to 1?"
 63504,,BMT 2017 Team #12,2017,Counting,BMT,3.5,,"A robot starts at the origin of the Cartesian plane. At each of 10 steps, he decides to move 1 unit in any of the following directions: left, right, up, or down, each with equal probability. After 10 steps, the probability that the robot is at the origin is $\frac{n}{4^{10}}$. Find n."
 (9-5√3)/3,,BMT 2017 Team #13,2017,Geometry,BMT,3.0,,"4 equilateral triangles of side length 1 are drawn on the interior of a unit square, each one of which shares a side with one of the 4 sides of the unit square. What is the common area enclosed by all 4 equilateral triangles?"
@@ -330,7 +317,7 @@ $$"
 9.6,,BmMT 2017 Individual #2,2017,Algebra,BmMT,1.0,,"A tub originally contains 10 gallons of water. Alex adds some water, increasing the amount of water by 20%. Barbara, unhappy with Alex's decision, decides to remove 20% of the water currently in the tub. How much water, in gallons, is left in the tub? Express your answer as an exact decimal."
 420,,BmMT 2017 Individual #3,2017,Algebra,BmMT,1.0,,"There are 2000 math students and 4000 CS students at Berkeley. If 5580 students are either math students or CS students, then how many of them are studying both math and CS?"
 6,,BmMT 2017 Individual #4,2017,Number Theory,BmMT,1.5,,Determine the smallest integer $x$ greater than 1 such that $x^2$ is one more than a multiple of 7.
-"(11,19)",,BmMT 2017 Individual #5,2017,Algebra,BmMT,1.5,,"Find two positive integers $x, y$ greater than 1 whose product equals the following sum: \\$9 + 11 + 13 + 15 + 17 + 19 + 21 + 23 + 25 + 27 + 29$\\Express your answer as an ordered pair $(x, y)$ with $x \leq y$."
+"(11,19)",,BmMT 2017 Individual #5,2017,Algebra,BmMT,1.5,,"Find two positive integers $x, y$ greater than 1 whose product equals the following sum: $9 + 11 + 13 + 15 + 17 + 19 + 21 + 23 + 25 + 27 + 29$ Express your answer as an ordered pair $(x, y)$ with $x \leq y$."
 900,,BmMT 2017 Individual #6,2017,Algebra,BmMT,1.5,,"The average walking speed of a cow is 5 meters per hour. If it takes the cow an entire day to walk around the edges of a perfect square, then determine the area (in square meters) of this square."
 6,,BmMT 2017 Individual #8,2017,Counting,BmMT,1.5,,"I have 18 socks in my drawer, 6 colored red, 8 colored blue and 4 colored green. If I close my eyes and grab a bunch of socks, how many socks must I grab to guarantee there will be two pairs of matching socks?"
 -2,,BmMT 2017 Individual #9,2017,Algebra,BmMT,1.5,,Define the operation $a@b$ to be $3 + ab + a + 2b$. There exists a number $x$ such that $x@b = 1$ for all $b$. Find $x$.
@@ -341,13 +328,7 @@ $$"
 -480,,BmMT 2017 Individual #14,2017,Algebra,BmMT,2.5,,Let $f(x) = |x - 8|$. Let $p$ be the sum of all the values of $x$ such that $f(f(f(x))) = 2$ and $q$ be the minimum solution to $f(f(f(x))) = 2$. Compute $p \cdot q$.
 5,,BmMT 2017 Individual #17,2017,Algebra,BmMT,2.5,,"Let $A, B,$ and $k$ be integers, where $k$ is positive and the greatest common divisor of $A, B,$ and $k$ is 1. Define $x\#y$ by the formula $x\#y = \frac{Ax+By}{kxy}$. If $8\#4 = \frac{1}{2}$ and $3\#1 = \frac{13}{6}$, determine the sum $A + B + k$."
 1001,,BmMT 2017 Individual #18,2017,Counting,BmMT,2.5,,"There are 20 indistinguishable balls to be placed into bins $A, B, C, D,$ and $E$. Each bin must have at least 2 balls inside of it. How many ways can the balls be placed into the bins, if each ball must be placed in a bin?"
-√3/3,,BmMT 2017 Individual #19,2017,Geometry,BmMT,3.0,,"Let $T_i$ be a sequence of equilateral triangles such that
-        \begin{enumerate}
-            \item $T_1$ is an equilateral triangle with side length 1.
-            \item $T_{i+1}$ is inscribed in the circle inscribed in triangle $T_i$ for $i \geq 1$.
-        \end{enumerate}
-        Find
-        $$\sum_{i=1}^{\infty} \text{Area}(T_i).$$"
+√3/3,,BmMT 2017 Individual #19,2017,Geometry,BmMT,3.0,,"Let $T_i$ be a sequence of equilateral triangles such that $T_1$ is an equilateral triangle with side length $1$ and $T_{i+1}$ is inscribed in the circle inscribed in triangle $T_i$ for $i\ge1$. Find $$\sum_{i=1}^{\infty} \text{Area}(T_i).$$"
 34,,BmMT 2017 Individual #20,2017,Counting,BmMT,3.5,,"A gorgeous sequence is a sequence of 1's and 0's such that there are no consecutive 1's. For instance, the set of all gorgeous sequences of length 3 is $\{[1, 0, 0], [1, 0, 1], [0, 1, 0], [0, 0, 1], [0, 0, 0]\}$. Determine the number of gorgeous sequences of length 7."
 36,,BmMT 2017 Team #1,2017,Algebra,BmMT,1.0,,Suppose $a_1 \cdot 2 = a_2 \cdot 3 = a_3$ and $a_1 + a_2 + a_3 = 66$. What is $a_3$?
 82,,BmMT 2017 Team #3,2017,Algebra,BmMT,2.0,,"If P is a quadratic polynomial with leading coefficient 1 such that $P(1) = 1$ and $P(2) = 2$, what is $P(10)$?"
@@ -394,7 +375,7 @@ e^3 - e,,BMT 2018 Algebra #7,2018,Algebra,BMT,5.0,,"Let
 990,,BMT 2018 Combinatorics #1,2018,Counting,BMT,1.5,,Bob has 3 different fountain pens and 11 different ink colors. How many ways can he fill his fountain pens with ink if he can only put one ink in each pen?
 1694,,BMT 2018 Combinatorics #2,2018,Counting,BMT,2.5,,"At the Berkeley Math Tournament, teams are composed of 6 students, each of whom pick two distinct subject tests out of 5 choices. How many different distributions across subjects are possible for a team?"
 1040,,BMT 2018 Combinatorics #3,2018,Counting,BMT,3.0,,"Consider the $9\times9$ grid of lattice points $\{(x,y)|0\le x,y\le8\}$ How many rectangles with nonzero area and sides parallel to the   y axes are there such that each corner is one of the lattice points and the point (4,4) is not contained within the interior of the rectangle? ((4,4) is allowed to lie on the boundary of the rectangle)."
-1279/65536,,BMT 2018 Combinatorics #4,2018,Counting,BMT,3.5,,"Alice starts with an empty string and randomly appends one of the digits 2,0,1, or 8 until the string ends with 2018. What is the probability Alice appends less than 9 digits before stopping?"
+1279/65536,,BMT 2018 Combinatorics #4,2018,Counting,BMT,3.5,,"Alice starts with an empty string and randomly appends one of the digits 2, 0, 1, or 8 until the string ends with 2018. What is the probability Alice appends less than 9 digits before stopping?"
 3,,BMT 2018 Combinatorics #6,2018,Counting,BMT,4.5,,"Compute
     $$\sum_{i=0}^{\infty}\sum_{j=0}^{\infty}\binom{i+j}{i}3^{-(i+j)}.$$"
 5/11,,BMT 2018 Combinatorics #7,2018,Counting,BMT,4.0,,"Let S be the set of line segments between any two vertices of a regular 21-gon. If we select two distinct line segments from S at random, what is the probability they intersect? Note that line segments are considered to intersect if they share a common vertex."
@@ -444,12 +425,7 @@ e^3 - e,,BMT 2018 Algebra #7,2018,Algebra,BMT,5.0,,"Let
         \item Ankit: I don't know whether you're the tens digit or the ones digit.
     \end{itemize}
     What was Clark's number?"
-12108/7,,BMT 2018 Team #12,2018,Algebra,BMT,6.0,,"Let $f:[0, 1] \rightarrow \mathbb{R}$ be a monotonically increasing function such that
-    \begin{align*}
-        f\left(\frac{x}{3}\right) &= \frac{f(x)}{2} \\
-        f(1-x) &= 2018 - f(x)
-    \end{align*}
-    If $f(1) = 2018$, find $f\left(\frac{12}{13}\right)$."
+12108/7,,BMT 2018 Team #12,2018,Algebra,BMT,6.0,,"Let $f:[0, 1] \rightarrow \mathbb{R}$ be a monotonically increasing function such that $f(\frac{x}{3}) = \frac{f(x)}{2}$ and $f(1-x) = 2018 - f(x)$. If $f(1) = 2018$, find $f\left(\frac{12}{13}\right)$."
 24+17√2,,BMT 2018 Team #13,2018,Algebra,BMT,5.5,,"Find the value of
     $$\frac{1}{\sqrt{2}^1} + \frac{4}{\sqrt{2}^2} + \frac{9}{\sqrt{2}^3} + \cdots$$"
 9/10,,BMT 2018 Team #14,2018,Algebra,BMT,5.0,,"Let $F_1 = 0$, $F_2 = 1$, and $F_n = F_{n-1} + F_{n-2}$. Compute
@@ -488,12 +464,7 @@ e^3 - e,,BMT 2018 Algebra #7,2018,Algebra,BMT,5.0,,"Let
 3√3,,BmMT 2018 Team #10,2018,Geometry,BmMT,2.0,,A circle of area $\pi$ is inscribed in an equilateral triangle. Find the area of the triangle.
 6,,BmMT 2018 Team #11,2018,Algebra,BmMT,2.5,,"Julie runs a 2 mile route every morning. She notices that if she jogs the route 2 miles per hour faster than normal, then she will finish the route 5 minutes faster. How fast (in miles per hour) does she normally jog?"
 25,,BmMT 2018 Team #12,2018,Geometry,BmMT,2.5,,"Let ABCD be a square of side length 10. Let EFGH be a square of side length 15 such that E is the center of ABCD, EF intersects BC at X, and EH intersects CD at Y (shown below). If $BX=7$ what is the area of quadrilateral EXCY?"
-0,,BmMT 2018 Team #13,2018,Number Theory,BmMT,2.5,,"How many solutions are there to the system of equations
-    \begin{align*}
-        a^{2}+b^{2}&=c^{2} \\
-        (a+1)^{2}+(b+1)^{2}&=(c+1)^{2}
-    \end{align*}
-    if a, b, and c are positive integers?"
+0,,BmMT 2018 Team #13,2018,Number Theory,BmMT,2.5,,"How many solutions are there to the system of equations $a^{2}+b^{2}=c^{2},(a+1)^{2}+(b+1)^{2}=(c+1)^{2}$ if a, b, and c are positive integers?"
 2√5/5,,BmMT 2018 Team #14,2018,Geometry,BmMT,2.0,,A square of side length s is inscribed in a semicircle of radius r. Compute $\frac{s}{r}$.
 4,,BmMT 2018 Team #15,2018,Number Theory,BmMT,2.0,,S is a collection of integers n with $1\le n\le50$ so that each integer in S is composite and relatively prime to every other integer in S. What is the largest possible number of integers in S?
 1/2,,BmMT 2018 Team #16,2018,Geometry,BmMT,2.5,,"Let ABCD be a regular tetrahedron and let W, X, Y, Z denote the centers of faces ABC, BCD, CDA, and DAB, respectively. What is the ratio of the volumes of tetrahedrons WXYZ and WAYZ? Express your answer as a decimal or a fraction in lowest terms."
@@ -702,9 +673,7 @@ $$ \frac{1}{5} \sum_{i=1}^\infty \frac{1}{k_i}. $$"
 2029,,BMT 2020 Geometry #9,2020,Geometry,BMT,7.0,,"The Fibonacci numbers $F_{n}$ are defined as $F_{1}=F_{2}=1$ and $F_{n}=F_{n-1}+F_{n-2}$ for all $n>2.$ Let A be the minimum area of a (possibly degenerate) convex polygon with 2020 sides, whose side lengths are the first 2020 Fibonacci numbers $F_{1},F_{2},...,F_{2020}$ (in any order). A degenerate convex polygon is a polygon where all angles are $\le180^{\circ}$. If A can be expressed in the form
     $\frac{\sqrt{(F_{a}-b)^{2}-c}}{d}$ where a , b , c and d are positive integers , compute the minimal possible value of
     $a+b+c+d$"
-5362,,BMT 2020 Geometry #10,2020,Geometry,BMT,6.0,,"Let E be an ellipse where the length of the major axis is 26, the length of the minor axis is 24. and the foci are at points R and S. Let A and B be points on the ellipse such that RASB forms a non-degenerate quadrilateral, $\overleftrightarrow{RA}$ and $\$\vec{B}$ intersect at P with segment $\overline{PR}$ containing A, and $\overleftrightarrow{RB}$ and $\overleftrightarrow{AS}$ intersect at Q with segment $\overline{QR}$ containing B. Given that $RA=AS$, $AP=26,$ the perimeter of the
-    non-degenerate quadrilateral RPSQ is $m+\sqrt{n}$, where m and n are integers.
-    Compute $m+n$."
+5362,,BMT 2020 Geometry #10,2020,Geometry,BMT,6.0,,"Let E be an ellipse where the length of the major axis is 26, the length of the minor axis is 24. and the foci are at points R and S. Let A and B be points on the ellipse such that RASB forms a non-degenerate quadrilateral, $\overleftrightarrow{RA}$ and $\ \vec{B}$ intersect at P with segment $\overline{PR}$ containing A, and $\overleftrightarrow{RB}$ and $\overleftrightarrow{AS}$ intersect at Q with segment $\overline{QR}$ containing B. Given that $RA=AS$, $AP=26,$ the perimeter of the non-degenerate quadrilateral RPSQ is $m+\sqrt{n}$, where m and n are integers. Compute $m+n$."
 11,,BMT 2020 Team #1,2020,Counting,BMT,1.0,,"Julia and James pick a random integer between 1 and 10, inclusive. The probability they pick the same number can be written in the form $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Compute $m + n$."
 16,,BMT 2020 Team #2,2020,Counting,BMT,1.5,,"There are 38 people in the California Baseball League (CBL). The CBL cannot start playing games until people are split into teams of exactly 9 people (with each person in exactly one team). Moreover, there must be an even number of teams. What is the fewest number of people who must join the CBL such that the CBL can start playing games? The CBL may not revoke membership of the 38 people already in the CBL."
 5,,BMT 2020 Team #3,2020,Geometry,BMT,1.5,,"An ant is at one corner of a unit cube. If the ant must travel on the box's surface, the shortest distance the ant must crawl to reach the opposite corner of the cube can be written in the form $\sqrt{a}$, where $a$ is a positive integer. Compute $a$."

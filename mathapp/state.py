@@ -37,7 +37,12 @@ class State(rx.State):
     current_problemset = ''
     
     df_problems: DataFrame = DataFrame()
-
+    
+    # User authentication state
+    is_authenticated: bool = False
+    current_user: str = ""
+    error_message: str = ""
+    signup_error_message: str = ""
 
     def handle_add_submit(self, form_data: dict):
         """Handle the form submit."""
@@ -177,4 +182,50 @@ class State(rx.State):
             #     load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
 
         self.load_entries()
+
+    def handle_login(self, form_data: dict):
+        """Handle user login."""
+        username = form_data.get("username", "").strip()
+        password = form_data.get("password", "").strip()
+        
+        # For demo purposes, accept any non-empty username/password
+        # In a real app, you would validate against a database
+        if username and password:
+            self.is_authenticated = True
+            self.current_user = username
+            self.error_message = ""
+            return rx.redirect("/")
+        else:
+            self.error_message = "Please enter both username and password"
+            return None
+
+    def handle_signup(self, form_data: dict):
+        """Handle user signup."""
+        username = form_data.get("username", "").strip()
+        email = form_data.get("email", "").strip()
+        password = form_data.get("password", "").strip()
+        confirm_password = form_data.get("confirm_password", "").strip()
+        
+        # Basic validation
+        if not username or not email or not password or not confirm_password:
+            self.signup_error_message = "All fields are required"
+            return None
+            
+        if password != confirm_password:
+            self.signup_error_message = "Passwords do not match"
+            return None
+            
+        if len(password) < 6:
+            self.signup_error_message = "Password must be at least 6 characters long"
+            return None
+            
+        # For demo purposes, we'll just set the user as authenticated
+        # In a real app, you would:
+        # 1. Check if username/email already exists
+        # 2. Hash the password
+        # 3. Create a new user record in the database
+        self.is_authenticated = True
+        self.current_user = username
+        self.signup_error_message = ""
+        return rx.redirect("/")
 
