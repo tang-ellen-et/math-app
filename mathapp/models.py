@@ -31,6 +31,14 @@ class UserMathItem(rx.Model, table=True):
     ProblemId: str 
 
 
+class User(rx.Model, table=True):
+    """The user model."""
+    username: str
+    email: str
+    password_hash: str
+    created_at: str
+
+
 
 
 

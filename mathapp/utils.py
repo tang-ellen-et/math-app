@@ -82,7 +82,7 @@ def get_aime_problems(df_problems: pd.DataFrame, difficulty:int)->pd.DataFrame:
     aime_problems = pd.concat([sample_3_3_5, sample_4_4_5, sample_5_5_5, sample_6_7])
     max_category_count = 6
     problems = problems.groupby('Type').apply(lambda x: x.sample(min(len(x), max_category_count))).reset_index(drop=True)
-   
+
     while any(aime_problems['Type'].value_counts() > max_category_count):
         for problem_type, count in aime_problems['Type'].value_counts().items():
             if count > max_category_count:

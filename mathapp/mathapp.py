@@ -1,171 +1,19 @@
 """Welcome to Reflex! This file outlines the steps to create a basic app."""
 
-from sqlmodel import select
 import reflex as rx
 
-from mathapp.models import   UserMathItem, MathProblem
-
-from mathapp.data_loading import load_user_problems, load_all_problems
-from pandas import DataFrame 
+from mathapp.models import UserMathItem, MathProblem
 from mathapp.data_graph import UserStats
+from mathapp.state import State, USER_MATH_MODEL, MATH_MODEL
 
-USER_MATH_MODEL = UserMathItem
-MATH_MODEL = MathProblem 
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
-
-# Result values
-RESULT_CORRECT = 'Correct!'
-RESULT_WRONG="Wrong!"
-RESULT_NA=""
-
-data_file_path = "data_sources/mathv4_processed_3.csv"
-
-USER = 'Ellen'
-
-
-
-class State(rx.State):
-    """The app state."""
-
-    items: list[USER_MATH_MODEL] = []
-    problems: list[MATH_MODEL] = []
-    items_by_type: list[dict] = []
-    
-    sort_value: str = ""
-    num_items: int
-    current_item: USER_MATH_MODEL = USER_MATH_MODEL()
-    current_math_problem: MATH_MODEL = MATH_MODEL()
-    current_problemset = ''
-    
-    df_problems: DataFrame = DataFrame()
-
-
-    def handle_add_submit(self, form_data: dict):
-        """Handle the form submit."""
-        print(f'###### handle_add_submit: {form_data}')
-        self.current_item = form_data
-
-
-    def handle_update_submit(self, form_data: dict):
-        """Handle the form submit."""
-        print (f'$$- handle_update_submit form_data: {form_data} ')
-        
-        self.current_item.Response = form_data['Response']
-        
-        print(f'$$-current_item: {self.current_item}')
-        
-        #find current math problem by current_math_problem problemId in problem
-        self.current_math_problem = rx.session().exec(
-                select(MATH_MODEL).where(MATH_MODEL.id == self.current_item.ProblemId)
-            ).first()
-
-        print(f'$$-current math problem: {self.current_math_problem}')
-        
-        if(self.current_item.Response.strip()==''):
-            self.current_item.Result =  RESULT_NA
-        elif(self.current_item.Response == self.current_math_problem.Answer):
-
-            self.current_item.Result = RESULT_CORRECT
-        else:
-            print('$$ - Result: Wrong!')
-            self.current_item.Result = RESULT_WRONG
-        
-        print(f'$$ - Result: {self.current_item.Result}!')
-
-    def load_entries(self) -> list[USER_MATH_MODEL]:
-        """Get all items from the database."""
-        with rx.session() as session:
-            self.items = session.exec(select(USER_MATH_MODEL).where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).all()
-            self.num_items = len(self.items)
-            
-            # session.exec (select(USER_MATH_MODEL.ProblemSet).distinct().order_by())
-
-            if self.sort_value:
-                self.items = sorted(
-                    self.items,
-                    key=lambda item: getattr(item, self.sort_value),
-                )
-            
-            self.problems = session.exec(select(MATH_MODEL)).all()
-            self.items_by_type= UserStats.transform_problems_by_type(self.items)
-    
-    def sort_values(self, sort_value: str):
-        self.sort_value = sort_value
-        self.load_entries()
-
-    def get_item(self, item: USER_MATH_MODEL):
-        self.current_item = item
-
-    def update_item(self):
-
-        """Update an item in the database."""
-        with rx.session() as session:
-            print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {USER_MATH_MODEL.id}')
-            
-            item = session.exec(
-                select(USER_MATH_MODEL).where(USER_MATH_MODEL.id == self.current_item.id)
-            ).first()
-
-            # for field in MODEL.get_fields():
-            #     # if field != "id":
-            #     if field == "Response":
-            #         setattr(item, field, self.current_item[field])
-            item.Response = self.current_item.Response 
-            item.Result = self.current_item.Result
-            
-            
-            session.add(item)
-            session.commit()
-        self.load_entries()
-
-
-    def generate_new_problemset(self):
-        with rx.session() as session:            
-            # always regnerate user problems when page load or relad
-            self.current_problemset = load_user_problems(user=USER, df_problems= self.df_problems, user_problems_model= USER_MATH_MODEL)
-            first_entry = session.exec(USER_MATH_MODEL.select().where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).first()
-            
-            self.load_entries()
-    
-    def set_last_problemset(self):
-        with rx.session() as session:
-            self.current_problemset = session.exec(select(USER_MATH_MODEL.ProblemSet).distinct().order_by(USER_MATH_MODEL.ProblemSet.desc())).first()
-            
-            self.load_entries()
-
-    def on_load(self):
-        # Check if the database is empty
-        
-        with rx.session() as session:
-            # Attempt to retrieve the first entry in the MODEL table
-            first_problem = session.exec (select(MATH_MODEL)).first()
-            if first_problem is None and data_file_path != "":
-                self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=True)
-            else:
-                self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=False)
-            
-            # always regnerate user problems when page load or relad
-            # load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
-            first_entry = session.exec(select(USER_MATH_MODEL)).first()
-            if first_entry is None:
-                self.generate_new_problemset()
-            else:
-                # find the max problemset
-                self.set_last_problemset()
-
-
-            # # If nothing was returned load data from the csv file
-            # if first_entry is None:
-            #     load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
-
-        self.load_entries()
-
+USER_DISPLAY_FIELDS = list(['Problem', 'Response', 'Result'])
 
 def add_fields(field):
     return rx.flex(
         rx.text(
             field,
-            as_="div",
+            as_="div", 
             size="2",
             mb="1",
             weight="bold",
@@ -178,13 +26,12 @@ def add_fields(field):
         spacing="2",
     )
 
-
 def update_fields_and_attrs(field, attr):
     return rx.flex(
         rx.text(
             field,
             as_="div",
-            size="2",
+            size="2", 
             mb="1",
             weight="bold",
         ),
@@ -198,7 +45,6 @@ def update_fields_and_attrs(field, attr):
     )
 
 def update_item_ui(item):
-    print (f' ============  update_item_ui:  {item}')
     return rx.dialog.root(
         rx.dialog.trigger(
             rx.button(
@@ -228,6 +74,7 @@ def update_item_ui(item):
                         rx.button(
                             "Update",
                             type="submit",
+                            on_click=State.update_item,
                         ),
                     ),
                     direction="column",
@@ -239,16 +86,9 @@ def update_item_ui(item):
             rx.flex(
                 rx.dialog.close(
                     rx.button(
-                        "Cancel",
+                        "Close",
                         variant="soft",
                         color_scheme="gray",
-                    ),
-                ),
-                rx.dialog.close(
-                    rx.button(
-                        "Submit Answer",
-                        on_click=State.update_item,
-                        variant="solid",
                     ),
                 ),
                 padding_top="1em",
@@ -263,55 +103,114 @@ def update_item_ui(item):
         ),
     )
 
-# font_family = "Times New Roman",
-# rx.link("Example", href="/docs/library")
 def navbar():
-    return rx.hstack(
-        rx.vstack(
-            # rx.heading("Math App - Problems", size="8", font_family="Times New Roman", color='green'),
-            rx.heading(rx.link("Math App", href="/about"), size="8", font_family="Times New Roman", color='green'),
+    return rx.box(
+        rx.hstack(
+            # Left section with logo and title
+            rx.hstack(
+                rx.heading(
+                    rx.link("Math App - Problems", href="/allproblems"),
+                    size="8",
+                    font_family="sans serif",
+                    color='green',
+                ),
+                spacing="4",
+            ),
+            rx.spacer(),
+            # Middle section with action buttons
+            rx.hstack(
+                rx.button(
+                    "Generate Exercise",
+                    on_click=State.generate_new_problemset,
+                    size="3",
+                ),
+                rx.button(
+                    "Reset Problems DB",
+                    on_click=State.reset_problems_db,
+                    color_scheme="red",
+                    size="3",
+                ),
+                spacing="4",
+            ),
+            rx.spacer(),
+            # Right section with theme toggle and auth
+            rx.hstack(
+                rx.color_mode.button(),
+                rx.cond(
+                    State.is_authenticated,
+                    rx.hstack(
+                        rx.text(
+                            f"Welcome, {State.current_user}",
+                            color="green",
+                            font_weight="bold",
+                            size="3",
+                        ),
+                        rx.button(
+                            "Logout",
+                            on_click=State.handle_logout,
+                            color_scheme="red",
+                            size="3",
+                        ),
+                        spacing="4",
+                    ),
+                    rx.hstack(
+                        rx.link(
+                            "Login",
+                            href="/login",
+                            padding="0.5em 1em",
+                            size="3",
+                        ),
+                        rx.link(
+                            "Sign Up",
+                            href="/signup",
+                            padding="0.5em 1em",
+                            size="3",
+                        ),
+                        spacing="4",
+                    ),
+                ),
+                spacing="4",
+            ),
+            position="fixed",
+            width="100%",
+            top="0px",
+            z_index="1000",
+            padding_x="4em",
+            padding_y="1em",
+            backdrop_filter="blur(10px)",
+            background="rgba(255, 255, 255, 0.8)",
         ),
-        rx.spacer(),
-        rx.button("Generate a mock!", on_click= State.generate_new_problemset),
-        # add_item_ui(),
-        rx.avatar(src='math_app_logo.png',  size="8"),
-        rx.color_mode.button(),
-        position="fixed",
-        width="100%",
-        top="0px",
-        z_index="1000",
-        padding_x="4em",
-        padding_top="2em",
-        padding_bottom="1em",
-        backdrop_filter="blur(10px)",
+        rx.box(
+            rx.image(
+                src="math_app_logo.png",
+                width="100%",
+                height="100%",
+                object_fit="cover",
+                opacity="0.1",
+                position="absolute",
+                top="0",
+                left="0",
+                z_index="-1",
+            ),
+        ),
     )
-
 
 def show_item(item: USER_MATH_MODEL):
     """Show an item in a table row."""
-    
     return rx.table.row(
-        # rx.table.cell(rx.avatar(fallback="DA")),
         rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "ProblemId")}')),
-        rx.table.cell(rx.markdown (getattr(item, "Problem"))),
         *[
-            rx.table.cell(getattr(item, field))
-            for field in USER_MATH_MODEL.get_fields()
-            if field != "id" and field != "Problem"  and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet"
+            rx.table.cell(
+                rx.markdown(getattr(item, field)) if field == "Problem" 
+                else rx.avatar(src=f'{getattr(item, field)}.png', fallback=getattr(item, field)) if field == "Result"
+                else getattr(item, field)
+            )
+            for field in USER_DISPLAY_FIELDS
         ],
         rx.table.cell(
             update_item_ui(item),
-        ),
-        # rx.table.cell(
-        #     rx.button(
-        #         "Delete",
-        #         on_click=lambda: State.delete_item(getattr(item, "id")),
-        #         background=rx.color("red", 9),
-        #         color="white",
-        #     ),
-        # ),
+        )
     )
-
 
 def content():
     return rx.fragment(
@@ -323,9 +222,9 @@ def content():
                     size="5",
                     font_family="Inter",
                 ),
+                rx.link("User Dashboard", href="/userdashboard"),
                 rx.spacer(),
                 rx.select(
-                    # [*[field for field in USER_MATH_MODEL.get_fields() if field != "id" ]],
                     [*[field for field in USER_SORT_FIELDS ]],
                     placeholder="Sort By: Problem Type",
                     size="3",
@@ -344,11 +243,9 @@ def content():
                         rx.table.column_header_cell("Id#"),
                         *[
                             rx.table.column_header_cell(field)
-                            for field in USER_MATH_MODEL.get_fields()
-                            if field != "id" and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet"
+                            for field in USER_DISPLAY_FIELDS
                         ],
                         rx.table.column_header_cell("Try"),
-                        # rx.table.column_header_cell("Delete"),
                     ),
                 ),
                 rx.table.body(rx.foreach(State.items, show_item)),
@@ -358,18 +255,57 @@ def content():
         ),
     )
 
-
-def about():
+def login():
     return rx.box(
-        rx.heading("About Math App"),
-        rx.section( rx.text("Math Lover can find quality math problems from various competitions with the right difficulty level to practice.\nThey can also see their performance history.")),
-        rx.link("Home", href="/")
+        rx.vstack(
+            rx.heading("Login", size="8"),
+            rx.form(
+                rx.vstack(
+                    rx.input(placeholder="Username", name="username"),
+                    rx.input(placeholder="Password", name="password", type="password"),
+                    rx.cond(
+                        State.error_message != "",
+                        rx.text(State.error_message, color="red"),
+                        None,
+                    ),
+                    rx.button("Login", type="submit"),
+                    spacing="4",
+                ),
+                on_submit=State.handle_login,
+            ),
+            spacing="4",
+            align="center",
+            padding="2em",
+        ),
+        margin_top="calc(50px + 2em)",
     )
 
-
-
-def custom():
-    return rx.text("Custom Route")
+def signup():
+    return rx.box(
+        rx.vstack(
+            rx.heading("Sign Up", size="8"),
+            rx.form(
+                rx.vstack(
+                    rx.input(placeholder="Username", name="username"),
+                    rx.input(placeholder="Email", name="email", type="email"),
+                    rx.input(placeholder="Password", name="password", type="password"),
+                    rx.input(placeholder="Confirm Password", name="confirm_password", type="password"),
+                    rx.cond(
+                        State.signup_error_message != "",
+                        rx.text(State.signup_error_message, color="red"),
+                        None,
+                    ),
+                    rx.button("Sign Up", type="submit"),
+                    spacing="4",
+                ),
+                on_submit=State.handle_signup,
+            ),
+            spacing="4",
+            align="center",
+            padding="2em",
+        ),
+        margin_top="calc(50px + 2em)",
+    )
 
 def index() -> rx.Component:
     return rx.box(
@@ -379,12 +315,9 @@ def index() -> rx.Component:
             margin_top="calc(50px + 2em)",
             padding="4em",
         ),
-        # font_family="Inter",
-        font_family = "Times New Roman",
+        font_family='sans serif'
     )
 
-
-# Create app instance and add index page.
 app = rx.App(
     theme=rx.theme(
         appearance="light", has_background=True, radius="large", accent_color="grass"
@@ -399,5 +332,12 @@ app.add_page(
     description="Try Competition Math Problem sets Here!",
 )
 
+from mathapp.pages.about import about
+from mathapp.pages.userdashboard import userdashboard
+from mathapp.pages.allproblems import allproblems
+
 app.add_page(about)
-app.add_page(custom, route="/custom-route")
+app.add_page(userdashboard, route="/userdashboard")
+app.add_page(allproblems, route="/allproblems")
+app.add_page(login, route="/login")
+app.add_page(signup, route="/signup")
