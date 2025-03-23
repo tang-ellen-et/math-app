@@ -7,6 +7,7 @@ from mathapp.data_graph import UserStats
 from mathapp.state import State, USER_MATH_MODEL, MATH_MODEL
 
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
+USER_DISPLAY_FIELDS = list(['Problem', 'Response', 'Result'])
 
 def add_fields(field):
     return rx.flex(
@@ -198,13 +199,14 @@ def show_item(item: USER_MATH_MODEL):
     """Show an item in a table row."""
     return rx.table.row(
         rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "ProblemId")}')),
-        rx.table.cell(rx.markdown (getattr(item, "Problem"))),
         *[
-            rx.table.cell(getattr(item, field))
-            for field in USER_MATH_MODEL.get_fields()
-            if field not in ["id", "Problem", "ProblemId", "User", "TestDate", "ProblemSet", "Result", "Source", "Year", "Type", "Competition", "Difficulty"]
+            rx.table.cell(
+                rx.markdown(getattr(item, field)) if field == "Problem" 
+                else rx.avatar(src=f'{getattr(item, field)}.png', fallback=getattr(item, field)) if field == "Result"
+                else getattr(item, field)
+            )
+            for field in USER_DISPLAY_FIELDS
         ],
-        rx.table.cell( rx.avatar(src=f'{getattr(item, "Result")}.png', fallback=getattr(item, "Result")) ),
         rx.table.cell(
             update_item_ui(item),
         )
@@ -241,8 +243,7 @@ def content():
                         rx.table.column_header_cell("Id#"),
                         *[
                             rx.table.column_header_cell(field)
-                            for field in USER_MATH_MODEL.get_fields()
-                            if field not in ["id", "ProblemId", "User", "TestDate", "ProblemSet", "Result", "Source", "Year", "Type", "Competition", "Difficulty"]
+                            for field in USER_DISPLAY_FIELDS
                         ],
                         rx.table.column_header_cell("Try"),
                     ),
