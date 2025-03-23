@@ -65,7 +65,7 @@ def update_item_ui(item):
                 rx.flex(
                     *[
                         update_fields_and_attrs(
-                            field, getattr(State.current_item, field)
+                            field, getattr(item, field)
                         )
                         for field in USER_MATH_MODEL.get_fields()
                         if field == "Response" 
