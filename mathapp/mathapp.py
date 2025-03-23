@@ -5,6 +5,11 @@ import reflex as rx
 from mathapp.models import UserMathItem, MathProblem
 from mathapp.data_graph import UserStats
 from mathapp.state import State, USER_MATH_MODEL, MATH_MODEL
+from mathapp.pages.about import about
+from mathapp.pages.userdashboard import userdashboard
+from mathapp.pages.allproblems import allproblems
+from mathapp.pages.login import login
+from mathapp.pages.signup import signup
 
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
 USER_DISPLAY_FIELDS = list(['Problem', 'Response', 'Result'])
@@ -255,58 +260,6 @@ def content():
         ),
     )
 
-def login():
-    return rx.box(
-        rx.vstack(
-            rx.heading("Login", size="8"),
-            rx.form(
-                rx.vstack(
-                    rx.input(placeholder="Username", name="username"),
-                    rx.input(placeholder="Password", name="password", type="password"),
-                    rx.cond(
-                        State.error_message != "",
-                        rx.text(State.error_message, color="red"),
-                        None,
-                    ),
-                    rx.button("Login", type="submit"),
-                    spacing="4",
-                ),
-                on_submit=State.handle_login,
-            ),
-            spacing="4",
-            align="center",
-            padding="2em",
-        ),
-        margin_top="calc(50px + 2em)",
-    )
-
-def signup():
-    return rx.box(
-        rx.vstack(
-            rx.heading("Sign Up", size="8"),
-            rx.form(
-                rx.vstack(
-                    rx.input(placeholder="Username", name="username"),
-                    rx.input(placeholder="Email", name="email", type="email"),
-                    rx.input(placeholder="Password", name="password", type="password"),
-                    rx.input(placeholder="Confirm Password", name="confirm_password", type="password"),
-                    rx.cond(
-                        State.signup_error_message != "",
-                        rx.text(State.signup_error_message, color="red"),
-                        None,
-                    ),
-                    rx.button("Sign Up", type="submit"),
-                    spacing="4",
-                ),
-                on_submit=State.handle_signup,
-            ),
-            spacing="4",
-            align="center",
-            padding="2em",
-        ),
-        margin_top="calc(50px + 2em)",
-    )
-
 def index() -> rx.Component:
     return rx.box(
         navbar(),
@@ -331,10 +284,6 @@ app.add_page(
     title="Math App",
     description="Try Competition Math Problem sets Here!",
 )
-
-from mathapp.pages.about import about
-from mathapp.pages.userdashboard import userdashboard
-from mathapp.pages.allproblems import allproblems
 
 app.add_page(about)
 app.add_page(userdashboard, route="/userdashboard")
