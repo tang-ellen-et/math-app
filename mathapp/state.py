@@ -1,11 +1,12 @@
 from sqlmodel import select
 import reflex as rx
 
-from mathapp.models import   UserMathItem, MathProblem, User
-
+from mathapp.models import UserMathItem, MathProblem, User
+from mathapp.user_state import UserState
 from mathapp.data_loading import load_user_problems, load_all_problems
 from pandas import DataFrame 
 from mathapp.data_graph import UserStats
+from mathapp.user_state import UserState
 
 USER_MATH_MODEL = UserMathItem
 MATH_MODEL = MathProblem 
@@ -65,13 +66,29 @@ class State(rx.State):
         if(self.current_item.Response.strip()==''):
             self.current_item.Result =  RESULT_NA
         elif(self.current_item.Response == self.current_math_problem.Answer):
-
             self.current_item.Result = RESULT_CORRECT
         else:
             print('$$ - Result: Wrong!')
             self.current_item.Result = RESULT_WRONG
         
         print(f'$$ - Result: {self.current_item.Result}!')
+        
+        # Update the item in the database
+        with rx.session() as session:
+            print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {USER_MATH_MODEL.id}')
+            
+            item = session.exec(
+                select(USER_MATH_MODEL).where(USER_MATH_MODEL.id == self.current_item.id)
+            ).first()
+
+            item.Response = self.current_item.Response 
+            item.Result = self.current_item.Result
+            
+            session.add(item)
+            session.commit()
+        
+        # Refresh the entries to update the UI
+        self.load_entries()
 
     def load_entries(self) -> list[USER_MATH_MODEL]:
         """Get all items from the database."""
@@ -101,31 +118,12 @@ class State(rx.State):
         self.current_item = item
 
     def update_item(self):
-
-        """Update an item in the database."""
-        with rx.session() as session:
-            print (f'@@@@@@@@@@ update_item current_item: {str(self.current_item)} model: {USER_MATH_MODEL.id}')
-            
-            item = session.exec(
-                select(USER_MATH_MODEL).where(USER_MATH_MODEL.id == self.current_item.id)
-            ).first()
-
-            # for field in MODEL.get_fields():
-            #     # if field != "id":
-            #     if field == "Response":
-            #         setattr(item, field, self.current_item[field])
-            item.Response = self.current_item.Response 
-            item.Result = self.current_item.Result
-            
-            
-            session.add(item)
-            session.commit()
-        
-            self.load_entries()
-            # content()
-
+        """This is now a no-op since we handle the update in handle_update_submit"""
+        pass
 
     def generate_new_problemset(self):
+        # Check authentication using the current state's values
+        print (f'@@@@@@@@@@ generate_new_problemset is_authenticated: {self.is_authenticated}')
         if not self.is_authenticated:
             return
             

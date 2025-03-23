@@ -73,6 +73,7 @@ def update_item_ui(item):
                         rx.button(
                             "Update",
                             type="submit",
+                            on_click=State.update_item,
                         ),
                     ),
                     direction="column",
@@ -84,16 +85,9 @@ def update_item_ui(item):
             rx.flex(
                 rx.dialog.close(
                     rx.button(
-                        "Cancel",
+                        "Close",
                         variant="soft",
                         color_scheme="gray",
-                    ),
-                ),
-                rx.dialog.close(
-                    rx.button(
-                        "Submit Answer",
-                        on_click=State.update_item,
-                        variant="solid",
                     ),
                 ),
                 padding_top="1em",
@@ -208,7 +202,7 @@ def show_item(item: USER_MATH_MODEL):
         *[
             rx.table.cell(getattr(item, field))
             for field in USER_MATH_MODEL.get_fields()
-            if field != "id" and field != "Problem"  and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet" and field != "Result"
+            if field not in ["id", "Problem", "ProblemId", "User", "TestDate", "ProblemSet", "Result", "Source", "Year", "Type", "Competition", "Difficulty"]
         ],
         rx.table.cell( rx.avatar(src=f'{getattr(item, "Result")}.png', fallback=getattr(item, "Result")) ),
         rx.table.cell(
@@ -248,7 +242,7 @@ def content():
                         *[
                             rx.table.column_header_cell(field)
                             for field in USER_MATH_MODEL.get_fields()
-                            if field != "id" and field !="ProblemId" and field!="User" and field !="TestDate" and field != "ProblemSet" 
+                            if field not in ["id", "ProblemId", "User", "TestDate", "ProblemSet", "Result", "Source", "Year", "Type", "Competition", "Difficulty"]
                         ],
                         rx.table.column_header_cell("Try"),
                     ),
