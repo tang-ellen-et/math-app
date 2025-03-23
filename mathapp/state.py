@@ -1,7 +1,7 @@
 from sqlmodel import select
 import reflex as rx
 
-from mathapp.models import   UserMathItem, MathProblem
+from mathapp.models import   UserMathItem, MathProblem, User
 
 from mathapp.data_loading import load_user_problems, load_all_problems
 from pandas import DataFrame 
@@ -17,9 +17,6 @@ RESULT_WRONG="wrong"
 RESULT_NA=""
 
 data_file_path = "data_sources/mathv4_processed_3.csv"
-
-USER = 'Ellen'
-
 
 class State(rx.State):
     """The app state."""
@@ -129,9 +126,12 @@ class State(rx.State):
 
 
     def generate_new_problemset(self):
+        if not self.is_authenticated:
+            return
+            
         with rx.session() as session:            
-            # always regnerate user problems when page load or relad
-            self.current_problemset = load_user_problems(user=USER, df_problems= self.df_problems, user_problems_model= USER_MATH_MODEL)
+            # always regenerate user problems when page load or reload
+            self.current_problemset = load_user_problems(user=self.current_user, df_problems=self.df_problems, user_problems_model=USER_MATH_MODEL)
             first_entry = session.exec(USER_MATH_MODEL.select().where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).first()
             
             self.load_entries()
@@ -188,16 +188,29 @@ class State(rx.State):
         username = form_data.get("username", "").strip()
         password = form_data.get("password", "").strip()
         
-        # For demo purposes, accept any non-empty username/password
-        # In a real app, you would validate against a database
-        if username and password:
-            self.is_authenticated = True
-            self.current_user = username
-            self.error_message = ""
-            return rx.redirect("/")
-        else:
+        if not username or not password:
             self.error_message = "Please enter both username and password"
             return None
+            
+        # Hash the password for comparison
+        import hashlib
+        password_hash = hashlib.sha256(password.encode()).hexdigest()
+        
+        with rx.session() as session:
+            user = session.exec(
+                select(User).where(
+                    (User.username == username) & (User.password_hash == password_hash)
+                )
+            ).first()
+            
+            if user:
+                self.is_authenticated = True
+                self.current_user = username
+                self.error_message = ""
+                return rx.redirect("/")
+            else:
+                self.error_message = "Invalid username or password"
+                return None
 
     def handle_signup(self, form_data: dict):
         """Handle user signup."""
@@ -218,14 +231,46 @@ class State(rx.State):
         if len(password) < 6:
             self.signup_error_message = "Password must be at least 6 characters long"
             return None
+
+        # Check if username or email already exists
+        with rx.session() as session:
+            existing_user = session.exec(
+                select(User).where(
+                    (User.username == username) | (User.email == email)
+                )
+            ).first()
             
-        # For demo purposes, we'll just set the user as authenticated
-        # In a real app, you would:
-        # 1. Check if username/email already exists
-        # 2. Hash the password
-        # 3. Create a new user record in the database
-        self.is_authenticated = True
-        self.current_user = username
-        self.signup_error_message = ""
+            if existing_user:
+                self.signup_error_message = "Username or email already exists"
+                return None
+
+            # Create new user
+            from datetime import datetime
+            import hashlib
+            
+            # Hash the password (in a real app, use a proper password hashing library)
+            password_hash = hashlib.sha256(password.encode()).hexdigest()
+            
+            new_user = User(
+                username=username,
+                email=email,
+                password_hash=password_hash,
+                created_at=datetime.now().isoformat()
+            )
+            
+            session.add(new_user)
+            session.commit()
+            
+            # Set user as authenticated
+            self.is_authenticated = True
+            self.current_user = username
+            self.signup_error_message = ""
+            return rx.redirect("/")
+
+    def handle_logout(self):
+        """Handle user logout."""
+        self.is_authenticated = False
+        self.current_user = ""
         return rx.redirect("/")
+
 
