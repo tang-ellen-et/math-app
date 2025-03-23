@@ -1,8 +1,9 @@
 from collections import Counter 
 from mathapp.models import UserMathItem
 import reflex as rx
+ 
 
-class UserStats :
+class UserMetricStats :
     @classmethod
     def transform_problems_by_type( cls, user_problems: list[UserMathItem])->list[dict]:
         problem_type_counts = Counter(problem.Type for problem in user_problems)
@@ -37,7 +38,7 @@ class UserStats :
             {
                 "name": t,
                 "value": count,
-                "fill": UserStats.get_color(t, keys)
+                "fill": UserMetricStats.get_color(t, keys)
             }
             for t, count in problem_type_counts.items()
             

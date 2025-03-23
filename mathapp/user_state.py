@@ -2,6 +2,7 @@ import reflex as rx
 from sqlmodel import select
 from datetime import datetime
 import hashlib
+import json
 
 from mathapp.models import User
 
@@ -12,6 +13,35 @@ class UserState(rx.State):
     current_user: str = ""
     error_message: str = ""
     signup_error_message: str = ""
+    auth_state: str = rx.LocalStorage("")
+
+    def on_load(self):
+        """Check authentication state when the app loads."""
+        self.check_auth_storage()
+
+    def check_auth_storage(self):
+        """Check for authentication in state and localStorage."""
+        try:
+            if self.auth_state:
+                auth_state = json.loads(self.auth_state)
+                self.is_authenticated = auth_state.get("is_authenticated", False)
+                self.current_user = auth_state.get("current_user", "")
+                return self.is_authenticated and self.current_user != ""
+        except:
+            pass
+        return False
+
+    def save_auth_state(self):
+        """Save authentication state to localStorage."""
+        auth_state = {
+            "is_authenticated": self.is_authenticated,
+            "current_user": self.current_user
+        }
+        self.auth_state = json.dumps(auth_state)
+
+    def clear_auth_state(self):
+        """Clear authentication state from localStorage."""
+        self.auth_state = ""
 
     def handle_login(self, form_data: dict):
         """Handle user login."""
@@ -36,6 +66,7 @@ class UserState(rx.State):
                 self.is_authenticated = True
                 self.current_user = username
                 self.error_message = ""
+                self.save_auth_state()  # Save auth state to localStorage
                 return rx.redirect("/")
             else:
                 self.error_message = "Invalid username or password"
@@ -96,4 +127,5 @@ class UserState(rx.State):
         """Handle user logout."""
         self.is_authenticated = False
         self.current_user = ""
-        return rx.redirect("/") 
+        self.clear_auth_state()  # Clear auth state from localStorage
+        return rx.redirect("/login") 

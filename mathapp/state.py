@@ -1,12 +1,12 @@
 from sqlmodel import select
 import reflex as rx
+import json
 
-from mathapp.models import UserMathItem, MathProblem, User
+from mathapp.models import UserMathItem, MathProblem
 from mathapp.user_state import UserState
 from mathapp.data_loading import load_user_problems, load_all_problems
 from pandas import DataFrame 
-from mathapp.data_graph import UserStats
-from mathapp.user_state import UserState
+from mathapp.data_graph import UserMetricStats
 
 USER_MATH_MODEL = UserMathItem
 MATH_MODEL = MathProblem 
@@ -35,18 +35,11 @@ class State(rx.State):
     current_problemset = ''
     
     df_problems: DataFrame = DataFrame()
-    
-    # User authentication state
-    is_authenticated: bool = False
-    current_user: str = ""
-    error_message: str = ""
-    signup_error_message: str = ""
 
     def handle_add_submit(self, form_data: dict):
         """Handle the form submit."""
         print(f'###### handle_add_submit: {form_data}')
         self.current_item = form_data
-
 
     def handle_update_submit(self, form_data: dict):
         """Handle the form submit."""
@@ -106,8 +99,8 @@ class State(rx.State):
                 )
             
             self.problems = session.exec(select(MATH_MODEL)).all()
-            self.items_by_type= UserStats.transform_problems_by_type(self.items)
-            self.items_by_result = UserStats.transform_problems_by_result(self.items)
+            self.items_by_type= UserMetricStats.transform_problems_by_type(self.items)
+            self.items_by_result = UserMetricStats.transform_problems_by_result(self.items)
             
     
     def sort_values(self, sort_value: str):
@@ -122,14 +115,13 @@ class State(rx.State):
         pass
 
     def generate_new_problemset(self):
-        # Check authentication using the current state's values
-        print (f'@@@@@@@@@@ generate_new_problemset is_authenticated: {self.is_authenticated}')
-        if not self.is_authenticated:
+        # Check authentication using UserState
+        if not UserState.is_authenticated:
             return
             
         with rx.session() as session:            
             # always regenerate user problems when page load or reload
-            self.current_problemset = load_user_problems(user=self.current_user, df_problems=self.df_problems, user_problems_model=USER_MATH_MODEL)
+            self.current_problemset = load_user_problems(user=UserState.current_user, df_problems=self.df_problems, user_problems_model=USER_MATH_MODEL)
             first_entry = session.exec(USER_MATH_MODEL.select().where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).first()
             
             self.load_entries()
@@ -155,120 +147,25 @@ class State(rx.State):
         
 
     def on_load(self):
-        # Check if the database is empty
-        
-        with rx.session() as session:
-            # Attempt to retrieve the first entry in the MODEL table
-            first_problem = session.exec (select(MATH_MODEL)).first()
-            if first_problem is None and data_file_path != "":
-                self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=True)
-            else:
-                self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=False)
-            
-            # always regnerate user problems when page load or relad
-            # load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
-            first_entry = session.exec(select(USER_MATH_MODEL)).first()
-            if first_entry is None:
-                self.generate_new_problemset()
-            else:
-                # find the max problemset
-                self.set_last_problemset()
+        """Check authentication on page load."""
+        # Check if user is authenticated using UserState
+        if UserState.check_auth_storage():
+            # Check if the database is empty
+            with rx.session() as session:
+                # Attempt to retrieve the first entry in the MODEL table
+                first_problem = session.exec(select(MATH_MODEL)).first()
+                if first_problem is None and data_file_path != "":
+                    self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=True)
+                else:
+                    self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=False)
+                
+                first_entry = session.exec(select(USER_MATH_MODEL)).first()
+                if first_entry is None:
+                    self.generate_new_problemset()
+                else:
+                    # find the max problemset
+                    self.set_last_problemset()
 
-
-            # # If nothing was returned load data from the csv file
-            # if first_entry is None:
-            #     load_user_problems(user=USER, df_problems=df_problems, user_problems_model= USER_MATH_MODEL)
-
-        self.load_entries()
-
-    def handle_login(self, form_data: dict):
-        """Handle user login."""
-        username = form_data.get("username", "").strip()
-        password = form_data.get("password", "").strip()
-        
-        if not username or not password:
-            self.error_message = "Please enter both username and password"
-            return None
-            
-        # Hash the password for comparison
-        import hashlib
-        password_hash = hashlib.sha256(password.encode()).hexdigest()
-        
-        with rx.session() as session:
-            user = session.exec(
-                select(User).where(
-                    (User.username == username) & (User.password_hash == password_hash)
-                )
-            ).first()
-            
-            if user:
-                self.is_authenticated = True
-                self.current_user = username
-                self.error_message = ""
-                return rx.redirect("/")
-            else:
-                self.error_message = "Invalid username or password"
-                return None
-
-    def handle_signup(self, form_data: dict):
-        """Handle user signup."""
-        username = form_data.get("username", "").strip()
-        email = form_data.get("email", "").strip()
-        password = form_data.get("password", "").strip()
-        confirm_password = form_data.get("confirm_password", "").strip()
-        
-        # Basic validation
-        if not username or not email or not password or not confirm_password:
-            self.signup_error_message = "All fields are required"
-            return None
-            
-        if password != confirm_password:
-            self.signup_error_message = "Passwords do not match"
-            return None
-            
-        if len(password) < 6:
-            self.signup_error_message = "Password must be at least 6 characters long"
-            return None
-
-        # Check if username or email already exists
-        with rx.session() as session:
-            existing_user = session.exec(
-                select(User).where(
-                    (User.username == username) | (User.email == email)
-                )
-            ).first()
-            
-            if existing_user:
-                self.signup_error_message = "Username or email already exists"
-                return None
-
-            # Create new user
-            from datetime import datetime
-            import hashlib
-            
-            # Hash the password (in a real app, use a proper password hashing library)
-            password_hash = hashlib.sha256(password.encode()).hexdigest()
-            
-            new_user = User(
-                username=username,
-                email=email,
-                password_hash=password_hash,
-                created_at=datetime.now().isoformat()
-            )
-            
-            session.add(new_user)
-            session.commit()
-            
-            # Set user as authenticated
-            self.is_authenticated = True
-            self.current_user = username
-            self.signup_error_message = ""
-            return rx.redirect("/")
-
-    def handle_logout(self):
-        """Handle user logout."""
-        self.is_authenticated = False
-        self.current_user = ""
-        return rx.redirect("/")
+            self.load_entries()
 
 

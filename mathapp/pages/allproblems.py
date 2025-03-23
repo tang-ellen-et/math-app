@@ -1,5 +1,6 @@
 import reflex as rx
-from mathapp.data_graph import UserStats
+from mathapp.data_graph import UserMetricStats
+
 from mathapp.state import State, MATH_MODEL
 # from ..state import AuthState
 

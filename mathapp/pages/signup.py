@@ -1,5 +1,5 @@
 import reflex as rx
-from mathapp.state import State
+from mathapp.state import UserState
 
 def signup():
     return rx.box(
@@ -12,14 +12,14 @@ def signup():
                     rx.input(placeholder="Password", name="password", type="password"),
                     rx.input(placeholder="Confirm Password", name="confirm_password", type="password"),
                     rx.cond(
-                        State.signup_error_message != "",
-                        rx.text(State.signup_error_message, color="red"),
+                        UserState.signup_error_message != "",
+                        rx.text(UserState.signup_error_message, color="red"),
                         None,
                     ),
                     rx.button("Sign Up", type="submit"),
                     spacing="4",
                 ),
-                on_submit=State.handle_signup,
+                on_submit=UserState.handle_signup,
             ),
             spacing="4",
             align="center",

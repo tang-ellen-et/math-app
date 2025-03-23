@@ -3,13 +3,15 @@
 import reflex as rx
 
 from mathapp.models import UserMathItem, MathProblem
-from mathapp.data_graph import UserStats
+from mathapp.data_graph import UserMetricStats
 from mathapp.state import State, USER_MATH_MODEL, MATH_MODEL
 from mathapp.pages.about import about
 from mathapp.pages.userdashboard import userdashboard
 from mathapp.pages.allproblems import allproblems
 from mathapp.pages.login import login
 from mathapp.pages.signup import signup
+from mathapp.state import State
+from mathapp.user_state import UserState
 
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
 USER_DISPLAY_FIELDS = list(['Problem', 'Response', 'Result'])
@@ -142,17 +144,17 @@ def navbar():
             rx.hstack(
                 rx.color_mode.button(),
                 rx.cond(
-                    State.is_authenticated,
+                    UserState.is_authenticated,
                     rx.hstack(
                         rx.text(
-                            f"Welcome, {State.current_user}",
+                            f"Welcome, {UserState.current_user}",
                             color="green",
                             font_weight="bold",
                             size="3",
                         ),
                         rx.button(
                             "Logout",
-                            on_click=State.handle_logout,
+                            on_click=UserState.handle_logout,
                             color_scheme="red",
                             size="3",
                         ),
@@ -241,7 +243,7 @@ def content():
                 padding_top="2em",
                 padding_bottom="1em",
             ),
-            UserStats.graph(State.items_by_type),
+            UserMetricStats.graph(State.items_by_type),
             rx.table.root(
                 rx.table.header(
                     rx.table.row(

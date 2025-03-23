@@ -1,5 +1,5 @@
 import reflex as rx
-from mathapp.state import State
+from mathapp.state import UserState
 
 def login():
     return rx.box(
@@ -10,14 +10,14 @@ def login():
                     rx.input(placeholder="Username", name="username"),
                     rx.input(placeholder="Password", name="password", type="password"),
                     rx.cond(
-                        State.error_message != "",
-                        rx.text(State.error_message, color="red"),
+                        UserState.error_message != "",
+                        rx.text(UserState.error_message, color="red"),
                         None,
                     ),
                     rx.button("Login", type="submit"),
                     spacing="4",
                 ),
-                on_submit=State.handle_login,
+                on_submit=UserState.handle_login,
             ),
             spacing="4",
             align="center",
