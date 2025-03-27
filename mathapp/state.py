@@ -19,7 +19,7 @@ RESULT_NA=""
 
 data_file_path = "data_sources/mathv4_processed_3.csv"
 
-class State(rx.State):
+class State(UserState):
     """The app state."""
 
     items: list[USER_MATH_MODEL] = []
@@ -116,12 +116,12 @@ class State(rx.State):
 
     def generate_new_problemset(self):
         # Check authentication using UserState
-        if not UserState.is_authenticated:
+        if not self.is_authenticated:
             return
             
         with rx.session() as session:            
             # always regenerate user problems when page load or reload
-            self.current_problemset = load_user_problems(user=UserState.current_user, df_problems=self.df_problems, user_problems_model=USER_MATH_MODEL)
+            self.current_problemset = load_user_problems(user=self.current_user, df_problems=self.df_problems, user_problems_model=USER_MATH_MODEL)
             first_entry = session.exec(USER_MATH_MODEL.select().where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).first()
             
             self.load_entries()

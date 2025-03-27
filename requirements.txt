@@ -4,3 +4,4 @@ reflex-chakra
 pandas
 plotly
 statsmodels
+reflex-ag-grid
