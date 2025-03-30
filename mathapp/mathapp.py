@@ -12,9 +12,10 @@ from mathapp.pages.login import login
 from mathapp.pages.signup import signup
 from mathapp.state import State
 from mathapp.user_state import UserState
-from mathapp.pages.aime import aime_page
-from mathapp.pages.aimev2 import aimev2_page
+# from mathapp.pages.aime import aime_page
+# from mathapp.pages.aimev2 import aimev2_page
 from mathapp.pages.welcome import welcome_page
+from mathapp.pages.quiz import quiz_page
 
 
 app = rx.App(
@@ -32,22 +33,9 @@ app.add_page(
     description="Explore competition math problems and track your progress.",
 )
 
-app.add_page(
-    aime_page,
-    route="/aime",
-    title="AIME Test",
-    description="Try AIME competition math problems.",
-)
-
-app.add_page(
-    aimev2_page,
-    route="/aimev2",
-    title="AIME v2",
-    description="Try AIME competition math problems v2.",
-)
-
-app.add_page(about)
-app.add_page(userdashboard, route="/userdashboard")
-app.add_page(allproblems, route="/allproblems")
-app.add_page(login, route="/login")
-app.add_page(signup, route="/signup")
+app.add_page(about, route="/about", title="About", description="Learn more about the Math App.")
+app.add_page(userdashboard, route="/userdashboard", title="User Dashboard", description="Track your progress.")
+app.add_page(allproblems, route="/allproblems", title="All Problems", description="Explore all problems.")
+app.add_page(login, route="/login", title="Login", description="Login to your account.")
+app.add_page(signup, route="/signup", title="Signup", description="Create an account.")
+app.add_page(quiz_page, route="/quiz", title="AIME Quiz", description="Try AIME level competition math problems.")
