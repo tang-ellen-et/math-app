@@ -46,6 +46,16 @@ def welcome_page() -> rx.Component:
                 ),
                 rx.link(
                     rx.button(
+                        "AIME v2",
+                        size="4",
+                        color_scheme="cyan",
+                        font_weight="600",
+                        padding_x="2em",
+                    ),
+                    href="/aimev2",
+                ),
+                rx.link(
+                    rx.button(
                         "All Problems",
                         size="4",
                         color_scheme="green",

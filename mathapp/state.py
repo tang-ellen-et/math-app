@@ -74,14 +74,20 @@ class State(UserState):
                 select(USER_MATH_MODEL).where(USER_MATH_MODEL.id == self.current_item.id)
             ).first()
 
-            item.Response = self.current_item.Response 
-            item.Result = self.current_item.Result
-            
-            session.add(item)
-            session.commit()
+            if item:
+                item.Response = self.current_item.Response 
+                item.Result = self.current_item.Result
+                session.add(item)
+                session.commit()
+                
+                # Update the current item in memory to match the database
+                self.current_item = item
         
         # Refresh the entries to update the UI
         self.load_entries()
+        
+        # Force a UI refresh by updating a state variable
+        self.num_items = len(self.items)  # This will trigger a UI update
 
     def load_entries(self) -> list[USER_MATH_MODEL]:
         """Get all items from the database."""
@@ -167,5 +173,39 @@ class State(UserState):
                     self.set_last_problemset()
 
             self.load_entries()
+
+    def validate_all_results(self, form_data: dict):
+        """Validate all answers and update their results."""
+        print('$$ - validate_all_results - {form_data}-- $$ ')
+        
+        with rx.session() as session:
+            for item in self.items:
+                # Get the response from form data using the new field name format
+                response = form_data.get(f"response_{item.ProblemId}", '')
+                item.Response = response
+                if item.Response.strip() == '':
+                    item.Result = RESULT_NA
+                else:
+                    print(f'$$ - validate_all_results -- item: {item}')
+                    math_problem = session.exec(
+                        select(MATH_MODEL).where(MATH_MODEL.id == item.ProblemId)
+                    ).first()
+                    if item.Response == math_problem.Answer:
+                        item.Result = RESULT_CORRECT
+                    else:
+                        item.Result = RESULT_WRONG
+                session.add(item)
+            session.commit()
+        self.load_entries()
+
+    def submit_all_answers(self, form_data: dict):
+        """Submit all answers and redirect to user dashboard."""
+        print(f'$$ - submit_all_answers -- form_data: {form_data} -- $$ ')
+
+        
+        # Validate all answers and update their results
+        self.validate_all_results(form_data)
+        self.load_entries()
+        return rx.redirect("/userdashboard")
 
 

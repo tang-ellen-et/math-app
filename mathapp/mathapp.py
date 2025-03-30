@@ -13,6 +13,7 @@ from mathapp.pages.signup import signup
 from mathapp.state import State
 from mathapp.user_state import UserState
 from mathapp.pages.aime import aime_page
+from mathapp.pages.aimev2 import aimev2_page
 from mathapp.pages.welcome import welcome_page
 
 
@@ -36,6 +37,13 @@ app.add_page(
     route="/aime",
     title="AIME Test",
     description="Try AIME competition math problems.",
+)
+
+app.add_page(
+    aimev2_page,
+    route="/aimev2",
+    title="AIME v2",
+    description="Try AIME competition math problems v2.",
 )
 
 app.add_page(about)
