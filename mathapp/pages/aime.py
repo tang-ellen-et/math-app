@@ -3,6 +3,7 @@ import reflex as rx
 from mathapp.data_graph import UserMetricStats
 from mathapp.state import State
 from mathapp.state import State, USER_MATH_MODEL
+from mathapp.components.navbar import navbar
 
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
 USER_DISPLAY_FIELDS = list(['Problem', 'Response', 'Result'])
@@ -143,4 +144,15 @@ def aime_content():
                 width="100%",
             ),
         ),
+    )
+
+def aime_page() -> rx.Component:
+    return rx.box(
+        navbar(),
+        rx.box(
+            aime_content(),
+            margin_top="calc(50px + 2em)",
+            padding="4em",
+        ),
+        font_family='sans serif'
     )
