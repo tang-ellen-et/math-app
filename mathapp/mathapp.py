@@ -182,6 +182,7 @@ app = rx.App(
 app.add_page(
     welcome_page,
     route="/",
+    on_load=State.on_load,
     title="Welcome to Math App",
     description="Explore competition math problems and track your progress.",
 )

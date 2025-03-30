@@ -121,7 +121,7 @@ class State(UserState):
             
         with rx.session() as session:            
             # always regenerate user problems when page load or reload
-            self.current_problemset = load_user_problems(user=UserState.current_user, df_problems=self.df_problems, user_problems_model=USER_MATH_MODEL)
+            self.current_problemset = load_user_problems(user=self.current_user, df_problems=self.df_problems, user_problems_model=USER_MATH_MODEL)
             first_entry = session.exec(USER_MATH_MODEL.select().where(USER_MATH_MODEL.ProblemSet == self.current_problemset)).first()
             
             self.load_entries()
@@ -149,7 +149,7 @@ class State(UserState):
     def on_load(self):
         """Check authentication on page load."""
         # Check if user is authenticated using UserState
-        if UserState.check_auth_storage():
+        if self.check_auth_storage():
             # Check if the database is empty
             with rx.session() as session:
                 # Attempt to retrieve the first entry in the MODEL table
