@@ -149,7 +149,7 @@ class State(UserState):
     def on_load(self):
         """Check authentication on page load."""
         # Check if user is authenticated using UserState
-        if UserState.check_auth_storage():
+        if self.check_auth_storage():
             # Check if the database is empty
             with rx.session() as session:
                 # Attempt to retrieve the first entry in the MODEL table
