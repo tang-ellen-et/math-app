@@ -16,8 +16,14 @@ def userdashboard():
                     margin_top="1em",
                 )
             ),
-            rx.center(rx.link("Home", href="/", size="8", bold=True, color_scheme="blue")),
-            padding="2em"
+            rx.center(
+                rx.hstack(
+                    rx.link("Home", href="/", size="8", bold=True, color_scheme="blue"),
+                    rx.link("Back to Quiz", href="/quiz", size="8", bold=True, color_scheme="blue"),
+                    spacing="5",
+                )
+            ),
+            padding="2"
         ),
         rx.section(
             rx.flex(

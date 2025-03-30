@@ -34,15 +34,25 @@ def welcome_page() -> rx.Component:
                 text_overflow="ellipsis",
             ),
             rx.hstack(
+                # rx.link(
+                #     rx.button(
+                #         "AIME Test",
+                #         size="4",
+                #         color_scheme="blue",
+                #         font_weight="600",
+                #         padding_x="2em",
+                #     ),
+                #     href="/aime",
+                # ),
                 rx.link(
                     rx.button(
-                        "AIME Test",
+                        "AIME Quiz",
                         size="4",
-                        color_scheme="blue",
+                        color_scheme="cyan",
                         font_weight="600",
                         padding_x="2em",
                     ),
-                    href="/aime",
+                    href="/quiz",
                 ),
                 rx.link(
                     rx.button(
