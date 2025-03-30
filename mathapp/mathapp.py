@@ -13,6 +13,7 @@ from mathapp.pages.signup import signup
 from mathapp.state import State
 from mathapp.user_state import UserState
 from mathapp.pages.aime import aime_content
+from mathapp.pages.welcome import welcome_page
 
 def add_fields(field):
     return rx.flex(
@@ -121,44 +122,6 @@ def navbar():
                 z_index="-1",
             ),
         ),
-    )
-
-def welcome_page() -> rx.Component:
-    """Welcome page with links to other pages."""
-    return rx.box(
-        rx.vstack(
-            rx.heading("Welcome to Math App - WELCOME!", size="4", font_family="Inter", mb="1em"),
-            rx.text(
-                "Explore competition math problems, generate exercises, and track your progress.",
-                size="4",  # Changed from "lg" to "4"
-                font_family="Inter",
-                mb="2em",
-            ),
-            rx.hstack(
-                rx.link(
-                    rx.button("AIME Test", size="3", color_scheme="blue"),  # Changed from "lg" to "3"
-                    href="/aime",
-                ),
-                rx.link(
-                    rx.button("All Problems", size="3", color_scheme="green"),  # Changed from "lg" to "3"
-                    href="/allproblems",
-                ),
-                rx.link(
-                    rx.button("Login / Signup", size="3", color_scheme="teal"),  # Changed from "lg" to "3"
-                    href="/login",
-                ),
-                rx.link(
-                    rx.button("About", size="3", color_scheme="purple"),  # Changed from "lg" to "3"
-                    href="/about",
-                ),
-                spacing="3",  # Changed from "1em" to "3"
-            ),
-            justify="center",
-            align="center",
-            padding="4em",
-        ),
-        font_family="sans serif",
-        text_align="center",
     )
 
 def index() -> rx.Component:
