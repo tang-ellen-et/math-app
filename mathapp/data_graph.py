@@ -20,7 +20,7 @@ class UserMetricStats :
     @classmethod
     def get_color(cls, name: str, names: list[str]=list([]))->str:
         print (f"{name}, {names}")
-        COLORS = list(['yellow', 'red', 'green','blue','white','brown', 'orange'])
+        COLORS = list(['red', 'lightblue', 'green','blue','white','yellow', 'orange'])
         for i, n in enumerate(names):
             if n == name:
                 return COLORS[i]
@@ -75,8 +75,6 @@ class UserMetricStats :
         
     @classmethod
     def graph_pie(cls, data_for_graph: list[dict]):
-
-        
         return rx.recharts.pie_chart(
             rx.recharts.pie(
                 data=data_for_graph,
@@ -84,8 +82,9 @@ class UserMetricStats :
                 name_key="name",
                 fill="#8884d8",
                 label=True,
-                label_line= False
+                label_line=False
             ),
+            rx.recharts.legend(),
             width="100%",
             height=300,
         )
