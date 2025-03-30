@@ -15,22 +15,6 @@ from mathapp.user_state import UserState
 from mathapp.pages.aime import aime_page
 from mathapp.pages.welcome import welcome_page
 
-def add_fields(field):
-    return rx.flex(
-        rx.text(
-            field,
-            as_="div", 
-            size="2",
-            mb="1",
-            weight="bold",
-        ),
-        rx.input(
-            placeholder=field,
-            name=field,
-        ),
-        direction="column",
-        spacing="2",
-    )
 
 app = rx.App(
     theme=rx.theme(
