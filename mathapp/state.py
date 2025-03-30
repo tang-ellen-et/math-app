@@ -19,7 +19,7 @@ RESULT_NA=""
 
 data_file_path = "data_sources/mathv4_processed_3.csv"
 
-class State(rx.State):
+class State(UserState):
     """The app state."""
 
     items: list[USER_MATH_MODEL] = []
@@ -116,7 +116,7 @@ class State(rx.State):
 
     def generate_new_problemset(self):
         # Check authentication using UserState
-        if not UserState.is_authenticated:
+        if not self.is_authenticated:
             return
             
         with rx.session() as session:            
