@@ -4,7 +4,7 @@ import reflex as rx
 
 from mathapp.models import UserMathItem, MathProblem
 from mathapp.data_graph import UserMetricStats
-from mathapp.state import State, USER_MATH_MODEL, MATH_MODEL
+from mathapp.state import State
 from mathapp.pages.about import about
 from mathapp.pages.userdashboard import userdashboard
 from mathapp.pages.allproblems import allproblems
@@ -12,9 +12,7 @@ from mathapp.pages.login import login
 from mathapp.pages.signup import signup
 from mathapp.state import State
 from mathapp.user_state import UserState
-
-USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
-USER_DISPLAY_FIELDS = list(['Problem', 'Response', 'Result'])
+from mathapp.pages.aime import aime_content
 
 def add_fields(field):
     return rx.flex(
@@ -33,83 +31,6 @@ def add_fields(field):
         spacing="2",
     )
 
-def update_fields_and_attrs(field, attr):
-    return rx.flex(
-        rx.text(
-            field,
-            as_="div",
-            size="2", 
-            mb="1",
-            weight="bold",
-        ),
-        rx.input(
-            placeholder=attr,
-            name=field,
-            default_value=attr,
-        ),
-        direction="column",
-        spacing="2",
-    )
-
-def update_item_ui(item):
-    return rx.dialog.root(
-        rx.dialog.trigger(
-            rx.button(
-                rx.icon("square_pen", width=24, height=24),
-                color="white",
-                on_click=lambda: State.get_item(item),
-            ),
-        ),
-        rx.dialog.content(
-            rx.dialog.title(f"Try Problem #{getattr(item, 'ProblemId')}"),
-            rx.dialog.description(
-                rx.markdown(getattr(item,"Problem")),
-                size="4",
-                mb="4",
-                padding_bottom="1em",
-            ),
-            rx.form(
-                rx.flex(
-                    *[
-                        update_fields_and_attrs(
-                            field, getattr(item, field)
-                        )
-                        for field in USER_MATH_MODEL.get_fields()
-                        if field == "Response" 
-                    ],
-                    rx.box(
-                        rx.button(
-                            "Update",
-                            type="submit",
-                            on_click=State.update_item,
-                        ),
-                    ),
-                    direction="column",
-                    spacing="3",
-                ),
-                on_submit=State.handle_update_submit,
-                reset_on_submit=True,
-            ),
-            rx.flex(
-                rx.dialog.close(
-                    rx.button(
-                        "Close",
-                        variant="soft",
-                        color_scheme="gray",
-                    ),
-                ),
-                padding_top="1em",
-                spacing="3",
-                mt="4",
-                justify="end",
-            ),
-            style={"max_width": 450},
-            box_shadow="lg",
-            padding="1em",
-            border_radius="25px",
-        ),
-    )
-
 def navbar():
     return rx.box(
         rx.hstack(
@@ -119,7 +40,7 @@ def navbar():
                     rx.link("Math App - Problems", href="/allproblems"),
                     size="8",
                     font_family="sans serif",
-                    color='green',
+                    color='black',
                 ),
                 spacing="4",
             ),
@@ -202,71 +123,49 @@ def navbar():
         ),
     )
 
-def show_item(item: USER_MATH_MODEL):
-    """Show an item in a table row."""
-    return rx.table.row(
-        rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "ProblemId")}')),
-        *[
-            rx.table.cell(
-                rx.markdown(getattr(item, field)) if field == "Problem" 
-                else rx.avatar(src=f'{getattr(item, field)}.png', fallback=getattr(item, field)) if field == "Result"
-                else getattr(item, field)
-            )
-            for field in USER_DISPLAY_FIELDS
-        ],
-        rx.table.cell(
-            update_item_ui(item),
-        )
-    )
-
-def content():
-    return rx.fragment(
+def welcome_page() -> rx.Component:
+    """Welcome page with links to other pages."""
+    return rx.box(
         rx.vstack(
-            rx.divider(),
+            rx.heading("Welcome to Math App - WELCOME!", size="4", font_family="Inter", mb="1em"),
+            rx.text(
+                "Explore competition math problems, generate exercises, and track your progress.",
+                size="4",  # Changed from "lg" to "4"
+                font_family="Inter",
+                mb="2em",
+            ),
             rx.hstack(
-                rx.heading(
-                    f"Total: {State.num_items} Problems - Exercise#_{State.current_problemset}",
-                    size="5",
-                    font_family="Inter",
+                rx.link(
+                    rx.button("AIME Test", size="3", color_scheme="blue"),  # Changed from "lg" to "3"
+                    href="/aime",
                 ),
-                rx.link("User Dashboard", href="/userdashboard"),
-                rx.spacer(),
-                rx.select(
-                    [*[field for field in USER_SORT_FIELDS ]],
-                    placeholder="Sort By: Problem Type",
-                    size="3",
-                    on_change=lambda sort_value: State.sort_values(sort_value),
-                    font_family="Inter",
+                rx.link(
+                    rx.button("All Problems", size="3", color_scheme="green"),  # Changed from "lg" to "3"
+                    href="/allproblems",
                 ),
-                width="100%",
-                padding_x="2em",
-                padding_top="2em",
-                padding_bottom="1em",
+                rx.link(
+                    rx.button("Login / Signup", size="3", color_scheme="teal"),  # Changed from "lg" to "3"
+                    href="/login",
+                ),
+                rx.link(
+                    rx.button("About", size="3", color_scheme="purple"),  # Changed from "lg" to "3"
+                    href="/about",
+                ),
+                spacing="3",  # Changed from "1em" to "3"
             ),
-            UserMetricStats.graph(State.items_by_type),
-            rx.table.root(
-                rx.table.header(
-                    rx.table.row(
-                        rx.table.column_header_cell("Id#"),
-                        *[
-                            rx.table.column_header_cell(field)
-                            for field in USER_DISPLAY_FIELDS
-                        ],
-                        rx.table.column_header_cell("Try"),
-                    ),
-                ),
-                rx.table.body(rx.foreach(State.items, show_item)),
-                size="3",
-                width="100%",
-            ),
+            justify="center",
+            align="center",
+            padding="4em",
         ),
+        font_family="sans serif",
+        text_align="center",
     )
 
 def index() -> rx.Component:
     return rx.box(
         navbar(),
         rx.box(
-            content(),
+            aime_content(),
             margin_top="calc(50px + 2em)",
             padding="4em",
         ),
@@ -275,16 +174,23 @@ def index() -> rx.Component:
 
 app = rx.App(
     theme=rx.theme(
-        appearance="light", has_background=True, radius="large", accent_color="grass"
+        appearance="light", has_background=True, radius="large", accent_color="cyan"
     ),
     stylesheets=["https://fonts.googleapis.com/css?family=Inter"],
 )
 
 app.add_page(
+    welcome_page,
+    route="/",
+    title="Welcome to Math App",
+    description="Explore competition math problems and track your progress.",
+)
+
+app.add_page(
     index,
-    on_load=State.on_load,
-    title="Math App",
-    description="Try Competition Math Problem sets Here!",
+    route="/aime",
+    title="AIME Test",
+    description="Try AIME competition math problems.",
 )
 
 app.add_page(about)
