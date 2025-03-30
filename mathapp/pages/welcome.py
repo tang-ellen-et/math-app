@@ -4,15 +4,21 @@ def welcome_page() -> rx.Component:
     """Welcome page with links to other pages."""
     return rx.center(
         rx.vstack(
-            rx.heading(
-                "Welcome to Math App",
-                size="9",
-                font_family="Inter",
-                font_weight="900",
+            rx.container(
+                rx.heading(
+                    "Math App",
+                    size="9",
+                    font_family="Inter",
+                    font_weight="900",
+                    color="white",
+                    text_align="center",
+                    letter_spacing="-0.03em",
+                ),
+                width="100%",
+                padding="2em",
+                background="linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)",
+                border_radius="lg",
                 mb="2em",
-                text_align="center",
-                letter_spacing="-0.03em",
-                color="gray.900",
             ),
             rx.text(
                 "Explore competition math problems, generate exercises, and track your progress.",
