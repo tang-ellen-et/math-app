@@ -56,6 +56,7 @@ def load_all_problems(data_file_path: str, math_model: rx.Model, load_to_db: boo
     return df_problems
 
 def load_user_problems(user: str, df_problems: pd.DataFrame, user_problems_model: rx.Model) -> str:
+    # current_user= 'ellentang'
     problem_set = str(round(datetime.now().timestamp() * 1000))
     user_problems_df = generate_user_problem_sets(user, problem_set, df_problems)
     add_pandas_data_to_db(user_problems_df, user_problems_model)
