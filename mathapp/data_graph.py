@@ -1,5 +1,5 @@
 from collections import Counter 
-from mathapp.models import UserMathItem
+from mathapp.models import UserMathItem, MathProblem
 import reflex as rx
  
 
@@ -87,4 +87,40 @@ class UserMetricStats :
             rx.recharts.legend(),
             width="100%",
             height=300,
+        )
+
+    @classmethod
+    def transform_problems_by_type_and_difficulty(cls, problems: list[MathProblem]) -> list[dict]:
+        # Create a nested dictionary to store counts
+        type_difficulty_counts = {}
+        
+        # Count problems by type and difficulty
+        for problem in problems:
+            if problem.Type not in type_difficulty_counts:
+                type_difficulty_counts[problem.Type] = {}
+            if problem.Difficulty not in type_difficulty_counts[problem.Type]:
+                type_difficulty_counts[problem.Type][problem.Difficulty] = 0
+            type_difficulty_counts[problem.Type][problem.Difficulty] += 1
+            
+        # Transform into list format for visualization
+        result = []
+        for problem_type, difficulties in type_difficulty_counts.items():
+            for difficulty, count in difficulties.items():
+                result.append({
+                    "name": f"{problem_type} - {difficulty}",
+                    "value": count,
+                    "type": problem_type,
+                    "difficulty": difficulty
+                })
+                
+        return result
+
+    @classmethod
+    def graph_table_by_type_and_difficulty(cls, data_for_graph: list[dict]):
+        return rx.data_table(
+            data=data_for_graph,
+            columns=["type", "difficulty", "value"],
+            pagination=True,
+            search=True,
+            sort=True,
         )

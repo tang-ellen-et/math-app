@@ -50,7 +50,7 @@ def content():
                 padding_top="2em",
                 padding_bottom="1em",
             ),
-            # UserStats.graph(State.items_by_type),
+            UserMetricStats.graph_table_by_type_and_difficulty(State.problems_by_type_difficulty),
             rx.table.root(
                 rx.table.header(
                     rx.table.row(

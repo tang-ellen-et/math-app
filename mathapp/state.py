@@ -26,6 +26,7 @@ class State(UserState):
     problems: list[MATH_MODEL] = []
     items_by_type: list[dict] = []
     items_by_result: list[dict] = []
+    problems_by_type_difficulty: list[dict] = []
     
     sort_value: str = ""
     num_items: int
@@ -105,6 +106,7 @@ class State(UserState):
                 )
             
             self.problems = session.exec(select(MATH_MODEL)).all()
+            self.problems_by_type_difficulty = UserMetricStats.transform_problems_by_type_and_difficulty(self.problems)
             self.items_by_type= UserMetricStats.transform_problems_by_type(self.items)
             self.items_by_result = UserMetricStats.transform_problems_by_result(self.items)
             
