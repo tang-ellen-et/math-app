@@ -50,6 +50,9 @@ class UserMetricStats :
 
         return rx.recharts.bar_chart(
             rx.recharts.bar(
+                rx.recharts.label_list(
+                    data_key="value", position="top"
+                ),
                 data_key="value",
                 stroke=rx.color("accent", 9),
                 fill=rx.color("accent", 8),
