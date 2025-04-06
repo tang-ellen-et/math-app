@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+pre.report-monospaced {
+	font-family:
+      Consolas, Monaco, Lucida Console, Liberation Mono,
+			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+</style>
+<body>
+<pre class="report-monospaced">
+ .----------------.  .----------------.  .----------------.  .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. |
+| |  ____  ____  | || | ____    ____ | || | ____    ____ | || |  _________   | |
+| | |_   ||   _| | || ||_   \  /   _|| || ||_   \  /   _|| || | |  _   _  |  | |
+| |   | |__| |   | || |  |   \/   |  | || |  |   \/   |  | || | |_/ | | \_|  | |
+| |   |  __  |   | || |  | |\  /| |  | || |  | |\  /| |  | || |     | |      | |
+| |  _| |  | |_  | || | _| |_\/_| |_ | || | _| |_\/_| |_ | || |    _| |_     | |
+| | |____||____| | || ||_____||_____|| || ||_____||_____|| || |   |_____|    | |
+| |              | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------' 
+
+See <a href="https://hmmt-prod.s3.amazonaws.com/static/scoring_algorithm.pdf">https://hmmt-prod.s3.amazonaws.com/static/scoring_algorithm.pdf</a> for a
+description of the scoring algorithm used on the individual tests.
+
+
+OVERALL INDIVIDUAL AWARDS
+============================================================
+O    1. 82.89 | 51.30 31.59 | Sicheng Zhou (PRISMS Falcons)
+O    2. 67.83 | 42.65 25.17 | David Taehee Lee (PRISMS Falcons)
+O    2. 67.83 | 42.65 25.17 | Michael Lu (Ward Melville Math Team D)
+O    4. 64.52 | 25.43 39.08 | Vincent Wang (All Aces Spade)
+O    5. 63.59 | 35.08 28.50 | Richard Wang (Texas Thunder)
+O    6. 62.57 | 30.98 31.59 | Hanqin Gu (fun math)
+O    7. 60.58 | 39.57 21.01 | Aaron Le (Lion Valley Alpha)
+O    8. 60.42 | 28.83 31.59 | Alan Cheng (Math 4 Fun)
+O    9. 58.35 | 30.92 27.43 | Evan Zhang (Lion Valley Alpha)
+O   10. 58.28 | 25.54 32.73 | Eric Zang (Texas Typhoon)
+
+
+GENERAL ROUND
+============================================================
+G    1. 51.30 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 7.57 8.65 | Sicheng Zhou (PRISMS Falcons)
+G    2. 42.65 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 7.57 0.00 | David Taehee Lee (PRISMS Falcons)
+G    2. 42.65 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 7.57 0.00 | Michael Lu (Ward Melville Math Team D)
+G    4. 39.57 | 4.05 4.11 0.00 4.22 4.28 4.35 4.42 5.49 0.00 8.65 | Aaron Le (Lion Valley Alpha)
+G    5. 38.55 | 4.05 0.00 4.16 4.22 4.28 4.35 4.42 5.49 7.57 0.00 | Yeyin Zhu (PRISMS Young Falcons)
+G    6. 38.49 | 4.05 4.11 0.00 4.22 4.28 4.35 4.42 5.49 7.57 0.00 | Kevin Xuanhao Liu (Lion Valley Alpha)
+G    7. 37.16 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 0.00 7.57 0.00 | Matthew Qian (CCHS Math)
+G    7. 37.16 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 0.00 7.57 0.00 | Luca Pieleanu (Russian School of Mathematics Team A)
+G    9. 35.34 | 4.05 0.00 4.16 4.22 0.00 4.35 4.42 5.49 0.00 8.65 | Henry Zheng (MN gold)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | William Qian (Maryland United)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | Sophia Hou (LS Math Team B)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | David Kim (Clarke Middle School Math Team)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | Sophia Zhang (PRISMS Falcons)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | David Zhang (Traditional Salad)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | Aidan Le (Lion Valley Alpha)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | Richard Wang (Texas Thunder)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | Xinyi Li (Texas Thunder)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | Brandon Ni (Lexington Armadillo)
+G   10. 35.08 | 4.05 4.11 4.16 4.22 4.28 4.35 4.42 5.49 0.00 0.00 | Jonathan Liu (Lexington Banana)
+
+
+THEME ROUND
+============================================================
+T    1. 39.08 | 3.05 4.11 4.16 4.22 3.28 6.35 6.42 7.49 0.00 0.00 | Vincent Wang (All Aces Spade)
+T    2. 32.73 | 3.05 4.11 4.16 4.22 3.28 0.00 6.42 7.49 0.00 0.00 | Eric Zang (Texas Typhoon)
+T    3. 31.59 | 3.05 4.11 4.16 4.22 3.28 6.35 6.42 0.00 0.00 0.00 | Alan Cheng (Math 4 Fun)
+T    3. 31.59 | 3.05 4.11 4.16 4.22 3.28 6.35 6.42 0.00 0.00 0.00 | Sicheng Zhou (PRISMS Falcons)
+T    3. 31.59 | 3.05 4.11 4.16 4.22 3.28 6.35 6.42 0.00 0.00 0.00 | Hanqin Gu (fun math)
+T    3. 31.59 | 3.05 4.11 4.16 4.22 3.28 6.35 6.42 0.00 0.00 0.00 | Peyton Li (Choate Math Team)
+T    3. 31.59 | 3.05 4.11 4.16 4.22 3.28 6.35 6.42 0.00 0.00 0.00 | Susie Lu (Individuals 2)
+T    8. 28.56 | 3.05 0.00 4.16 4.22 3.28 6.35 0.00 7.49 0.00 0.00 | Jeremy  Yang (Maryland United)
+T    9. 28.50 | 3.05 4.11 0.00 4.22 3.28 6.35 0.00 7.49 0.00 0.00 | Richard Wang (Texas Thunder)
+T   10. 27.43 | 3.05 4.11 0.00 4.22 3.28 6.35 6.42 0.00 0.00 0.00 | Evan Zhang (Lion Valley Alpha)
+
+
+TEAM ROUND
+============================================================
+T    1. 400.00 |  20  20  25  30  35  45  45  55  60  65 | PRISMS Falcons
+T    2. 335.00 |  20  20  25  30  35  45  45  55  60   0 | UCC Math Society Team C
+T    3. 310.00 |  20  20  25   0  35  45  45  55   0  65 | MN gold
+T    4. 305.00 |  20  20  25  30   0  45  45  55   0  65 | Russian School of Mathematics Team A
+T    5. 275.00 |  20  20  25  30  35  45  45  55   0   0 | Math 4 Fun
+T    5. 275.00 |  20  20  25  30  35  45  45  55   0   0 | Yu's Alligator
+T    5. 275.00 |  20  20  25  30  35  45  45  55   0   0 | Choate Math Team
+T    5. 275.00 |  20  20  25  30  35  45  45  55   0   0 | Lion Valley Alpha
+T    5. 275.00 |  20  20  25  30  35  45  45  55   0   0 | All Aces Spade
+T    5. 275.00 |  20  20  25  30  35  45  45  55   0   0 | Texas Typhoon
+T    5. 275.00 |  20  20  25  30  35  45  45  55   0   0 | PRISMS Young Falcons
+
+
+GUTS ROUND
+============================================================
+G    1. 260.00 |   5   5   5   6   6   6   7   7   7   8   8   8   9   9   9  10  10  10  11  11  11  12  12  12   0  13  13  15   0  15   0   0   0   0   0   0 | PRISMS Falcons
+G       258.00 |   5   5   5   6   6   6   0   0   7   0   8   8   9   9   9  10  10  10  11  11  11  12  12   0  13   0  13  15  15  15  17   0   0   0   0   0 | Individuals 5
+G    2. 199.00 |   5   5   5   6   6   6   7   7   7   8   8   8   9   9   9   0  10  10  11  11   0  12   0  12  13   0   0  15   0   0   0   0   0   0   0   0 | Lion Valley Alpha
+G    3. 197.00 |   5   5   5   6   6   6   7   7   7   8   8   8   9   9   9  10   0  10  11  11   0  12   0  12  13   0  13   0   0   0   0   0   0   0   0   0 | Texas Tornado
+G    4. 185.00 |   5   5   5   6   6   6   7   7   7   0   8   8   9   9   9  10  10  10  11  11  11   0   0  12  13   0   0   0   0   0   0   0   0   0   0   0 | Maryland United
+G    5. 179.00 |   5   5   5   6   6   6   7   0   7   8   8   8   9   9   9  10  10  10  11  11   0  12   0  12   0   0   0   0   0   0   0   0   0   0   0   5 | Math 4 Fun
+G    6. 175.00 |   5   5   5   6   6   0   7   7   7   8   0   8   9   9   0  10  10  10  11   0   0  12   0  12  13   0   0  15   0   0   0   0   0   0   0   0 | Clarke Middle School Math Team
+G    7. 173.00 |   5   5   0   6   6   6   7   0   7   8   8   8   9   9   0  10  10  10  11   0  11  12   0  12  13   0   0   0   0   0   0   0   0   0   0   0 | Lexington Armadillo
+G    8. 167.00 |   5   5   5   6   6   6   0   7   7   8   0   8   9   9   9  10  10  10  11  11   0   0   0  12  13   0   0   0   0   0   0   0   0   0   0   0 | Ward Melville Math Team D
+G    9. 165.00 |   5   5   5   6   6   6   0   7   7   8   8   8   9   9   0  10  10   0  11  11   0  12   0  12   0   0   0   0   0   0   0   0   0   0   0  10 | Texas Thunder
+G   10. 162.00 |   5   5   5   6   6   6   0   7   7   8   8   8   9   9   9  10  10  10  11  11   0   0   0  12   0   0   0   0   0   0   0   0   0   0   0   0 | Lexington Banana
+
+
+SWEEPSTAKES
+============================================================
+S    1. 1600.00 | 800.00 400.00 400.00 | PRISMS Falcons
+S    2. 1245.51 | 715.90 245.00 284.62 | Maryland United
+S    3. 1227.15 | 645.99 275.00 306.15 | Lion Valley Alpha
+S    4. 1169.56 | 616.49 250.00 303.08 | Texas Tornado
+S    5. 1160.28 | 704.12 190.00 266.15 | Lexington Armadillo
+S    6. 1146.44 | 640.67 275.00 230.77 | Texas Typhoon
+S    7. 1124.37 | 573.99 275.00 275.38 | Math 4 Fun
+S    8. 1109.07 | 594.07 275.00 240.00 | All Aces Spade
+S    9. 1087.23 | 560.31 310.00 216.92 | MN gold
+S   10. 1085.54 | 597.47 245.00 243.08 | University of Toronto Schools A
+
+
+This report was generated by Helium at Mon Nov 13 01:13:20 2023 UTC
+for HMMT November 2023, held on November 11, 2023.
+
+ ('-. .-.   ('-.                               _   .-')    
+( OO )  / _(  OO)                             ( '.( OO )_  
+,--. ,--.(,------.,--.      ,-.-') ,--. ,--.   ,--.   ,--.)
+|  | |  | |  .---'|  |.-')  |  |OO)|  | |  |   |   `.'   | 
+|   .|  | |  |    |  | OO ) |  |  \|  | | .-') |         | 
+|       |(|  '--. |  |`-' | |  |(_/|  |_|( OO )|  |'.'|  | 
+|  .-.  | |  .--'(|  '---.',|  |_.'|  | | `-' /|  |   |  | 
+|  | |  | |  `---.|      |(_|  |  ('  '-'(_.-' |  |   |  | 
+`--' `--' `------'`------'  `--'    `-----'    `--'   `--' 
+
+HELIUM 2 (c) 2018 Evan Chen
+Helium-4/He-4 (c) 2019 HMMT Team
+</pre>

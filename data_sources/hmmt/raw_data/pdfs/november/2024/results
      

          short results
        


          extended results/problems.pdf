@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+pre.report-monospaced {
+	font-family:
+      Consolas, Monaco, Lucida Console, Liberation Mono,
+			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+</style>
+<body>
+<pre class="report-monospaced">
+ .----------------.  .----------------.  .----------------.  .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. |
+| |  ____  ____  | || | ____    ____ | || | ____    ____ | || |  _________   | |
+| | |_   ||   _| | || ||_   \  /   _|| || ||_   \  /   _|| || | |  _   _  |  | |
+| |   | |__| |   | || |  |   \/   |  | || |  |   \/   |  | || | |_/ | | \_|  | |
+| |   |  __  |   | || |  | |\  /| |  | || |  | |\  /| |  | || |     | |      | |
+| |  _| |  | |_  | || | _| |_\/_| |_ | || | _| |_\/_| |_ | || |    _| |_     | |
+| | |____||____| | || ||_____||_____|| || ||_____||_____|| || |   |_____|    | |
+| |              | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------' 
+
+See <a href="https://hmmt-prod.s3.amazonaws.com/static/scoring_algorithm.pdf">https://hmmt-prod.s3.amazonaws.com/static/scoring_algorithm.pdf</a> for a
+description of the scoring algorithm used on the individual tests.
+
+* An unranked team is ineligible for team prizes and rankings because their team
+composition does not satisfy HMMT's team registration policies.
+
+
+OVERALL INDIVIDUAL AWARDS
+============================================================
+O    1. 89.36 | 31.59 32.59 25.17 | Xiaohan Zhang (Beijing Loong)
+O    2. 79.91 | 26.31 32.59 21.01 | Jordan Lefkowitz (Connecticut Cyborgs)
+O    3. 76.59 | 31.59 19.82 25.17 | Rohan Das (AlphaStar Academy AIR)
+O    4. 75.52 | 25.17 25.17 25.17 | Lerchen Zhong (Texas Momentum A)
+O    5. 73.56 | 31.59 25.17 16.79 | Andrew Lin (Lehigh Valley Fire)
+O    6. 72.49 | 22.15 25.17 25.17 | Marvin Mao (Bergen County Academies Team 1)
+O    7. 72.45 | 22.09 32.59 17.77 | Jessica Wan (Florida Alligators)
+O    8. 72.29 | 32.67 16.67 22.96 | Zongshu Wu (Beijing Loong)
+O    9. 71.38 | 32.67 19.82 18.89 | Razzi H. Masroor (Individuals 4)
+O   10. 71.31 | 19.82 32.59 18.89 | Qiao Zhang (Individuals 6)
+O   10. 71.31 | 20.96 25.17 25.17 | Eric Wang (Phillips Academy 1778)
+O   10. 71.31 | 19.82 32.59 18.89 | Elliott Liu (San Diego A1)
+
+
+ALGEBRA AND NUMBER THEORY ROUND
+============================================================
+A    1. 39.08 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 7.49 0.00 0.00 | Rohan Bodke (AlphaStar Academy AIR)
+A    2. 32.67 | 3.05 3.10 4.16 4.22 5.28 5.35 0.00 7.49 0.00 0.00 | Zongshu Wu (Beijing Loong)
+A    2. 32.67 | 3.05 3.10 4.16 4.22 5.28 5.35 0.00 7.49 0.00 0.00 | Yusuf Sheikh (Florida Alligators)
+A    2. 32.67 | 3.05 3.10 4.16 4.22 5.28 5.35 0.00 7.49 0.00 0.00 | Razzi H. Masroor (Individuals 4)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Andrew Lin (Lehigh Valley Fire)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Xiaohan Zhang (Beijing Loong)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Langkun Yu (Beijing Loong)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Aaron Hu (Florida Alligators)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Rohan Das (AlphaStar Academy AIR)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Rohan Garg (AlphaStar Academy FIRE)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Ruilin Wang (Thomas Jefferson High School for Science and Technology A)
+A    5. 31.59 | 3.05 3.10 4.16 4.22 5.28 5.35 6.42 0.00 0.00 0.00 | Oron Wang (Exeter Red)
+
+
+GEOMETRY ROUND
+============================================================
+G    1. 42.16 | 3.05 4.11 4.16 4.22 4.28 5.35 7.42 0.00 9.57 0.00 | Yibo(Tom) Zhang (Florida Beaches)
+G    2. 32.59 | 3.05 4.11 4.16 4.22 4.28 5.35 7.42 0.00 0.00 0.00 | Jordan Lefkowitz (Connecticut Cyborgs)
+G    2. 32.59 | 3.05 4.11 4.16 4.22 4.28 5.35 7.42 0.00 0.00 0.00 | Qiao Zhang (Individuals 6)
+G    2. 32.59 | 3.05 4.11 4.16 4.22 4.28 5.35 7.42 0.00 0.00 0.00 | Xiaohan Zhang (Beijing Loong)
+G    2. 32.59 | 3.05 4.11 4.16 4.22 4.28 5.35 7.42 0.00 0.00 0.00 | Jessica Wan (Florida Alligators)
+G    2. 32.59 | 3.05 4.11 4.16 4.22 4.28 5.35 7.42 0.00 0.00 0.00 | Elliott Liu (San Diego A1)
+G    7. 28.37 | 3.05 4.11 4.16 0.00 4.28 5.35 7.42 0.00 0.00 0.00 | Isaac Chen (Lehigh Valley Fire)
+G    7. 28.37 | 3.05 4.11 4.16 0.00 4.28 5.35 7.42 0.00 0.00 0.00 | Vasawat Rawangwong (CA Minmus)
+G    7. 28.37 | 3.05 4.11 4.16 0.00 4.28 5.35 7.42 0.00 0.00 0.00 | Boris Tsvetanov Gachevski (Bulgaria Mixed)
+G   10. 28.31 | 3.05 4.11 4.16 4.22 0.00 5.35 7.42 0.00 0.00 0.00 | Ray Zhao (Texas Momentum A)
+G   10. 28.31 | 3.05 4.11 4.16 4.22 0.00 5.35 7.42 0.00 0.00 0.00 | Oron Wang (Exeter Red)
+
+
+COMBINATORICS ROUND
+============================================================
+C    1. 28.54 | 3.05 3.10 4.16 4.22 0.00 4.35 0.00 0.00 0.00 9.65 | Linus Tang (AlphaStar Academy AIR)
+C    2. 27.31 | 3.05 3.10 4.16 4.22 0.00 4.35 8.42 0.00 0.00 0.00 | Yifan Kang (Phillips Academy 1778)
+C    2. 27.31 | 3.05 3.10 4.16 4.22 0.00 4.35 8.42 0.00 0.00 0.00 | Ziyi Yang (Beijing Loong)
+C    4. 25.33 | 0.00 3.10 4.16 4.22 0.00 4.35 0.00 9.49 0.00 0.00 | Andrew Li (Tin Man)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Zachary Jacob Perry (Lexington Alpha)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Alexander Wang (Lehigh Valley Fire)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Eric Wang (Phillips Academy 1778)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Feodor Yevtushenko (Random Math Team A)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Annabel Ge (Washington Gold 1)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Owen J Zhang (Washington Gold 1)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Vesselin Nikolaev Markovich (MG VARNA A)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Xiaohan Zhang (Beijing Loong)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Lerchen Zhong (Texas Momentum A)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Rohan Das (AlphaStar Academy AIR)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Ryan Bai (San Diego A1)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Rohan Nayak Mallick (San Diego A2)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Marvin Mao (Bergen County Academies Team 1)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Zani Xu (Thomas Jefferson High School for Science and Technology A)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | Myungbeen Choi (Cougars B)
+C    5. 25.17 | 3.05 3.10 4.16 4.22 6.28 4.35 0.00 0.00 0.00 0.00 | David Fox (AlphaStar Academy EARTH)
+
+
+TEAM ROUND
+============================================================
+T    1. 231.00 |  20  21  25  20  40  40  50   5   0  10 | Lehigh Valley Fire
+T    2. 210.00 |  20  25  25   0  40  20  50   5  25   0 | AlphaStar Academy AIR
+T    3. 201.00 |  10  21  25   0   0  45  50  50   0   0 | Beijing Loong
+T    4. 199.00 |  20  25  25  20   0  14  45  50   0   0 | No Coast Best Coast
+T    5. 198.00 |  20  25  25  18   0  45  50   0   0  15 | Exeter Red
+T    6. 190.00 |  20  25  25  20  40   0  50   0  10   0 | Thomas Jefferson High School for Science and Technology A
+T    7. 189.00 |  20  25  25  12   0   7  50  50   0   0 | Tin Man
+T       174.00 |  20  21  25   8   0   0  50  50   0   0 | Individuals 6 (Unranked *)
+T    8. 173.00 |  20  16  25  20  40  45   0   7   0   0 | Phillips Academy 1778
+T    9. 171.00 |  20  25  25   6   0  40  50   5   0   0 | Bulgaria Mixed
+T    9. 171.00 |  20  21  25   0   0   0  50  50   0   5 | WWP A
+
+
+GUTS ROUND
+============================================================
+G    1. 255.00 |   5   5   0   5   6   6   6   6   7   7   7   7   9   9   9   9  11  11  11  11  12  12   0  12  14  14  14  14   0   0  16   0   0   0   0   0 | Lehigh Valley Fire
+G    2. 205.00 |   5   5   5   5   6   6   6   6   7   7   7   7   9   9   0   9  11  11  11  11  12  12  12  12   0   0  14   0   0   0   0   0   0   0   0   0 | Washington Gold 1
+G    3. 196.00 |   5   5   5   5   6   6   6   6   7   7   7   7   9   9   9   0  11  11   0  11  12  12   0  12  14   0  14   0   0   0   0   0   0   0   0   0 | AlphaStar Academy AIR
+G    4. 189.00 |   5   5   5   5   0   6   6   6   7   0   7   7   9   9   9   9  11  11  11  11  12  12   0  12   0  14   0   0   0   0   0   0   0   0   0   0 | Exeter Red
+G       181.00 |   5   5   5   5   6   6   6   6   7   7   7   0   9   9   9   0   0   0  11  11  12  12   0  12   0   0   0  14   0   0   0   0  17   0   0   0 | Individuals 7 (Unranked *)
+G       181.00 |   5   5   5   5   6   6   6   6   7   0   7   7   9   9   9   9  11  11  11  11   0  12  12  12   0   0   0   0   0   0   0   0   0   0   0   0 | Individuals 6 (Unranked *)
+G    5. 170.00 |   5   5   5   5   6   6   6   6   7   7   7   7   9   9   9   0  11   0  11  11   0  12   0  12  14   0   0   0   0   0   0   0   0   0   0   0 | Washington Gold 2
+G    6. 163.00 |   5   5   5   5   6   6   6   6   7   0   7   7   9   9   0   9  11  11   0  11  12   0   0  12   0   0  14   0   0   0   0   0   0   0   0   0 | San Diego A1
+G    7. 159.00 |   5   5   5   5   6   6   6   6   7   7   7   7   9   9   9   0   0  11  11  11  12   0   0  12   0   0   0   0   0   0   0   0   0   3   0   0 | Lexington Alpha
+G    8. 158.00 |   5   5   5   5   6   6   6   6   7   7   7   7   9   0   9   9   0  11  11  11   0   0   0  12  14   0   0   0   0   0   0   0   0   0   0   0 | Florida Alligators
+G    9. 157.00 |   5   5   5   5   6   6   6   6   7   7   7   7   9   9   9   0   0  11   0  11  12  12   0  12   0   0   0   0   0   0   0   0   0   0   0   0 | Thomas Jefferson High School for Science and Technology A
+G    9. 157.00 |   5   5   5   5   6   6   6   6   7   7   7   7   9   9   0   9   0  11   0  11  12  12   0  12   0   0   0   0   0   0   0   0   0   0   0   0 | WWP A
+
+
+SWEEPSTAKES
+============================================================
+S    1. 1535.56 | 735.56 400.00 400.00 | Lehigh Valley Fire
+S    2. 1433.28 | 762.19 363.64 307.45 | AlphaStar Academy AIR
+S    3. 1341.80 | 702.47 342.86 296.47 | Exeter Red
+S    4. 1319.03 | 800.00 348.05 170.98 | Beijing Loong
+S    5. 1253.98 | 639.77 292.64 321.57 | Washington Gold 1
+S    6. 1233.95 | 709.86 268.40 255.69 | San Diego A1
+S    7. 1203.78 | 710.05 245.89 247.84 | Florida Alligators
+S       1196.00 | 610.78 301.30 283.92 | Individuals 6 (Unranked *)
+S    8. 1192.34 | 643.83 344.59 203.92 | No Coast Best Coast
+S    9. 1160.49 | 661.73 249.35 249.41 | Lexington Alpha
+S   10. 1154.29 | 579.01 329.00 246.27 | Thomas Jefferson High School for Science and Technology A
+
+
+* An unranked team is ineligible for team prizes and rankings because their team
+composition does not satisfy HMMT's team registration policies.
+
+This report was generated by Helium at Tue Feb 20 06:05:12 2024 UTC
+for HMMT February 2024, held on February 17, 2024.
+
+ ('-. .-.   ('-.                               _   .-')    
+( OO )  / _(  OO)                             ( '.( OO )_  
+,--. ,--.(,------.,--.      ,-.-') ,--. ,--.   ,--.   ,--.)
+|  | |  | |  .---'|  |.-')  |  |OO)|  | |  |   |   `.'   | 
+|   .|  | |  |    |  | OO ) |  |  \|  | | .-') |         | 
+|       |(|  '--. |  |`-' | |  |(_/|  |_|( OO )|  |'.'|  | 
+|  .-.  | |  .--'(|  '---.',|  |_.'|  | | `-' /|  |   |  | 
+|  | |  | |  `---.|      |(_|  |  ('  '-'(_.-' |  |   |  | 
+`--' `--' `------'`------'  `--'    `-----'    `--'   `--' 
+
+HELIUM 2 (c) 2018 Evan Chen
+Helium-4/He-4 (c) 2019 HMMT Team
+</pre>

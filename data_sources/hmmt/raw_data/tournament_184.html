@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HMIC 2015 | HMMT
+</title>
+
+  <link rel="icon" type="image/png" href="//hmmt-prod.s3.amazonaws.com/static/img/favicon.ico">
+  <link href="//hmmt-assets.s3.amazonaws.com/head/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="//hmmt-assets.s3.amazonaws.com/head/fonts/fonts.css" rel="stylesheet">
+  <link href="//hmmt-assets.s3.amazonaws.com/head/fonts/font-awesome.min.css" rel="stylesheet">
+  <link href="//hmmt-assets.s3.amazonaws.com/head/jquery/jquery-ui.css" rel="stylesheet">
+  <link href="//hmmt-prod.s3.amazonaws.com/static/css/constants.css" rel="stylesheet">
+  <link href="//hmmt-prod.s3.amazonaws.com/static/css/layout.css" rel="stylesheet">
+<link href="//hmmt-prod.s3.amazonaws.com/static/css/www.css" rel="stylesheet">
+
+  <script src="//hmmt-assets.s3.amazonaws.com/head/jquery/jquery-3.3.1.min.js"></script>
+  <script src="//hmmt-assets.s3.amazonaws.com/head/jquery/jquery-ui.min.js"></script>
+  <script src="//hmmt-assets.s3.amazonaws.com/head/popper.min.js"></script>
+  <script src="//hmmt-assets.s3.amazonaws.com/head/bootstrap/bootstrap.min.js"></script>
+  <script src="//sdk.amazonaws.com/js/aws-sdk-2.699.0.min.js"></script>
+
+  <script src="//hmmt-prod.s3.amazonaws.com/static/js/setup.js"></script>
+
+  <script src="//hmmt-prod.s3.amazonaws.com/static/js/libasync.js"></script>
+  <script src="//hmmt-prod.s3.amazonaws.com/static/js/libfluent.js"></script>
+  <script src="//hmmt-prod.s3.amazonaws.com/static/js/libfs.js"></script>
+
+  <script src="//hmmt-prod.s3.amazonaws.com/static/js/hmmt-katex.js"></script>
+  <link href="//hmmt-assets.s3.amazonaws.com/head/katex/katex-0.13.13.min.css" rel="stylesheet">
+  <script src="//hmmt-assets.s3.amazonaws.com/head/katex/katex-0.13.13.min.js" defer></script>
+  <script src="//hmmt-assets.s3.amazonaws.com/head/katex/auto-render.min.js" defer onload="TexifyLoader.init();"></script>
+  <link href="//hmmt-assets.s3.amazonaws.com/head/katex/copy-tex.min.css" rel="stylesheet">
+  <script src="//hmmt-assets.s3.amazonaws.com/head/katex/copy-tex.min.js"></script>
+
+
+  <div id="warning-container">
+  </div>
+
+
+  <div id="page-wrapper">
+<!-- Collect the nav links, forms, and other content for toggling -->
+<nav class="navbar navbar-light navbar-expand-md sticky-top" id="main-navbar" role="navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="//hmmt-prod.s3.amazonaws.com/static/img/logo/hmmt/logo.png">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mr-auto" id="navbar">
+      <div class="navbar-nav">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbar-reg-menu" role="button" data-toggle="dropdown">Registration</a>
+          <div class="dropdown-menu" aria-labelledby="navbar-reg-menu">
+            <a class="dropdown-item" href="/rg/info">General Information</a>
+            <a class="dropdown-item" href="/rg/finaid">Financial Aid</a>
+            <a class="dropdown-item" href="/rg/deadlines">Deadlines</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/rg/guide">Video Guides</a>
+            <a class="dropdown-item" href="/rg/nu">Apply</a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-nav">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbar-tournament-menu" role="button" data-toggle="dropdown">Tournament</a>
+          <div class="dropdown-menu" aria-labelledby="navbar-tournament-menu">
+            <a class="dropdown-item" href="/www/tournaments/novfeb">November vs February</a>
+            <a class="dropdown-item" href="/www/tournaments/info">General Information</a>
+            <a class="dropdown-item" href="/www/tournaments/testing">Test Information</a>
+            <a class="dropdown-item" href="/www/tournaments/schedule">Schedule</a>
+            <a class="dropdown-item" href="/www/tournaments/travel">Travel Info</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/www/tournaments/online">Online Tournament</a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-nav">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbar-archive-menu" role="button" data-toggle="dropdown">Archive</a>
+          <div class="dropdown-menu" aria-labelledby="navbar-archive-menu">
+            <a class="dropdown-item" href="/www/archive/problems">Problems and Results</a>
+            <a class="dropdown-item" href="/www/archive/education">Education</a>
+            <a class="dropdown-item" href="/www/archive/photos">Photos</a>
+            <a class="dropdown-item" href="/www/potw/archive">POTW</a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-nav">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbar-about-menu" role="button" data-toggle="dropdown">About</a>
+          <div class="dropdown-menu" aria-labelledby="navbar-about-menu">
+            <a class="dropdown-item" href="/www/about/us">Our Mission</a>
+            <a class="dropdown-item" href="/www/about/organizers">Current Organizers</a>
+            <a class="dropdown-item" href="/www/about/past">Past Organizers</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/www/about/contact">Contact</a>
+            <a class="dropdown-item" href="/www/about/volunteer">Volunteer</a>
+            <a class="dropdown-item" href="/www/privacy">Privacy Policy</a>
+            <a class="dropdown-item" href="/www/data-use">Data Use Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-nav">
+        <div class="nav-item dropdown">
+          <a class="nav-link" href="/www/faq" role="button">FAQ</a>
+        </div>
+      </div>
+
+
+      <div class="navbar-nav ml-auto" id="navbar-identity">
+        <div class="nav-item dropdown unauthenticated">
+          <span><a href="/me">Log in</a></span> | <span><a href="/me/new">New user</a></span>
+        </div>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><section id="banner">
+  <img src="//hmmt-prod.s3.amazonaws.com/static/img/banner/banner.jpg">
+</section>
+
+<section id="body-form">
+<div id="content">
+  <h1> Archive of HMIC 2015</h1>
+  <div class="row">
+    <div class="col-2">
+      <a href="//hmmt-archive.s3.amazonaws.com/tournaments/2015/hmic/problems.pdf">
+        Problems
+      </a>
+    </div>
+    <div class="col-2">
+      <a href="//hmmt-archive.s3.amazonaws.com/tournaments/2015/hmic/solutions.pdf">
+        Solutions
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="footer">
+  <ul class="footer-info">
+  <li>
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="footer-links">
+          <li>
+            <h4>Registration</h4>
+            <a href="/rg/info">
+              <li>
+                <h6>General Information</h6>
+            </a>
+            <a href="/rg/finaid">
+              <li>
+                <h6>Financial Aid</h6>
+            </a>
+            <a href="/rg/deadlines">
+              <li>
+                <h6>Deadlines</h6>
+            </a>
+            <a href="/rg/hotels">
+              <li>
+                <h6>Hotels</h6>
+            </a>
+            <a href="/rg/guide">
+              <li>
+                <h6>Video Guides</h6>
+            </a>
+            <a href="/rg/nu">
+              <li>
+                <h6>Apply</h6>
+            </a>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="footer-links">
+          <li>
+            <h4>Tournaments</h4>
+            <a href="/www/tournaments/novfeb">
+              <li>
+                <h6>November vs February</h6>
+            </a>
+            <a href="/www/tournaments/info">
+              <li>
+                <h6>General Information</h6>
+            </a>
+            <a href="/www/tournaments/testing">
+              <li>
+                <h6>Testing Information</h6>
+            </a>
+            <a href="/www/tournaments/schedule">
+              <li>
+                <h6>Schedule</h6>
+            </a>
+            <a href="/www/tournaments/travel">
+              <li>
+                <h6>Travel Information</h6>
+            </a>
+            <a href="/www/tournaments/online">
+              <li>
+                <h6>Online Tournament</h6>
+            </a>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="footer-links">
+          <li>
+            <h4>Archive</h4>
+            <a href="/www/archive/problems">
+              <li>
+                <h6>Problems</h6>
+            </a>
+            <a href="/www/archive/results">
+              <li>
+                <h6>Results</h6>
+            </a>
+            <a href="/www/archive/education">
+              <li>
+                <h6>Education</h6>
+            </a>
+            <a href="/www/archive/photos">
+              <li>
+                <h6>Photos</h6>
+            </a>
+            <a href="/www/potw/archive">
+              <li>
+                <h6>POTW</h6>
+            </a>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="footer-links">
+          <li>
+            <h4>About Us</h4>
+            <a href="/www/about/organizers">
+              <li>
+                <h6>Current Organizers</h6>
+            </a>
+            <a href="/www/about/past">
+              <li>
+                <h6>Past Organizers</h6>
+            </a>
+            <a href="/www/about/volunteer">
+              <li>
+                <h6>Volunteer</h6>
+            </a>
+            <a href="/www/privacy">
+              <li>
+                <h6>Privacy Policy</h6>
+            </a>
+            <a href="/www/data-use">
+              <li>
+                <h6>Data Use Policy</h6>
+            </a>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <ul class="footer-links">
+          <li>
+            <h4>Questions</h4>
+            <a href="/www/faq">
+              <li>
+                <h6>FAQ</h6>
+            </a>
+        </ul>
+      </div>
+      <div class="col-md-2" id="contact">
+        <h4>Contact us</h4>
+        <div>
+          <a href="mailto:request@hmmt.org">
+            <i class="fa fa-envelope"></i>
+            <span class="icon">Contact us</span>
+          </a>
+        </div>
+        <div>
+          <a href="//www.facebook.com/hmmt.info">
+            <i class="fa fa-facebook-square"></i>
+            <span class="icon">Like us</span>
+          </a>
+        </div>
+        <div>
+          <a href="//twitter.com/mathtournament">
+            <i class="fa fa-twitter"></i>
+            <span class="icon">Follow us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <li class="divider">
+    <li class="footnote">HMMT
+  </ul>
+</section>  </div>
+

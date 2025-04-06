@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.hmmt.co/helium/reports/short/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>
+<pre style="font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;">.----------------.  .----------------.  .----------------.  .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. |
+| |  ____  ____  | || | ____    ____ | || | ____    ____ | || |  _________   | |
+| | |_   ||   _| | || ||_   \  /   _|| || ||_   \  /   _|| || | |  _   _  |  | |
+| |   | |__| |   | || |  |   \/   |  | || |  |   \/   |  | || | |_/ | | \_|  | |
+| |   |  __  |   | || |  | |\  /| |  | || |  | |\  /| |  | || |     | |      | |
+| |  _| |  | |_  | || | _| |_\/_| |_ | || | _| |_\/_| |_ | || |    _| |_     | |
+| | |____||____| | || ||_____||_____|| || ||_____||_____|| || |   |_____|    | |
+| |              | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------' 
+
+See <a href="https://hmmt-prod.s3.amazonaws.com/static/scoring_algorithm.pdf">https://hmmt-prod.s3.amazonaws.com/static/scoring_algorithm.pdf</a> for a description
+of the scoring algorithm used on the individual tests.
+
+OVERALL INDIVIDUAL AWARDS
+============================================================
+O   1.   64.476  |  31.73 32.74  |  Raymond Feng (AlphaStar Academy Lightning)
+O   2.   58.528  |  37.46 21.07  |  Jay Leeds (Texas Tornado)
+O   3.   58.273  |  30.89 27.38  |  Greg Zelevinsky (Sharon Alpha)
+O   4.   56.908  |  27.32 29.59  |  Yuxuan "Wendy" Zheng (PRISMS Falcons)
+O   5.   55.908  |  24.24 31.67  |  Lucas Chen (G-Y United Alligator)
+O   6.   54.114  |  28.68 25.43  |  Jingdong "Daniel" Xiang (PRISMS Falcons)
+O   7.   54.109  |  29.94 24.17  |  Jerry Tan (ABRHS)
+O   8.   54.060  |  31.73 22.33  |  Albert Zhang (North Georgia A)
+O   9.   52.872  |  31.73 21.14  |  William Shi (North Georgia A)
+O   9.   52.872  |  24.24 28.63  |  Daniel Mai (IDEA MATH E)
+
+
+GENERAL ROUND
+============================================================
+G   1.   37.46  |  3.05 3.11 5.16 4.22 4.28    0 4.42    0 6.57 6.65  |  Jay Leeds (Texas Tornado)
+G   1.   37.46  |  3.05 3.11 5.16 4.22 4.28    0 4.42    0 6.57 6.65  |  Zachary Feng (PEA Kindergarteners in Khakis)
+G   3.   35.28  |  3.05    0 5.16 4.22 4.28    0 4.42 7.49    0 6.65  |  Andrew Wen (AlphaStar Academy Lightning)
+G   4.   31.73  |  3.05 3.11 5.16 4.22 4.28    0 4.42 7.49    0    0  |  Albert Zhang (North Georgia A)
+G   4.   31.73  |  3.05 3.11 5.16 4.22 4.28    0 4.42 7.49    0    0  |  William Shi (North Georgia A)
+G   4.   31.73  |  3.05 3.11 5.16 4.22 4.28    0 4.42 7.49    0    0  |  Raymond Feng (AlphaStar Academy Lightning)
+G   7.   30.89  |  3.05 3.11 5.16 4.22 4.28    0 4.42    0    0 6.65  |  Rithvik Ganesh (Texas Thunder)
+G   7.   30.89  |  3.05 3.11 5.16 4.22 4.28    0 4.42    0    0 6.65  |  Greg Zelevinsky (Sharon Alpha)
+G   7.   30.89  |  3.05 3.11 5.16 4.22 4.28    0 4.42    0    0 6.65  |  Ethan Zhang (Long Island Super)
+G  10.   30.81  |  3.05 3.11 5.16 4.22 4.28    0 4.42    0 6.57    0  |  Allen Ryu (Mississippi)
+
+THEME ROUND
+============================================================
+T   1.   33.98  |  3.05    0 4.16 4.22 4.28 5.35 5.42 7.49    0    0  |  William Lin (TAS Varsity Math Team)
+T   2.   33.94  |  3.05 3.11 4.16    0 4.28 5.35 5.42    0 8.57    0  |  Allen Wang (AB Red Duck)
+T   3.   32.86  |  3.05    0 4.16 4.22 4.28    0    0 7.49    0 9.65  |  Linus Tang (AlphaStar Academy Lightning)
+T   4.   32.74  |  3.05 3.11 4.16 4.22 4.28 5.35    0    0 8.57    0  |  Raymond Feng (AlphaStar Academy Lightning)
+T   5.   31.67  |  3.05 3.11 4.16 4.22 4.28 5.35    0 7.49    0    0  |  Ashish Kalakuntla (Las Vegas Math Circle)
+T   5.   31.67  |  3.05 3.11 4.16 4.22 4.28 5.35    0 7.49    0    0  |  Alex Wang (Ohio B)
+T   5.   31.67  |  3.05 3.11 4.16 4.22 4.28 5.35    0 7.49    0    0  |  Lucas Chen (G-Y United Alligator)
+T   8.   29.59  |  3.05 3.11 4.16 4.22 4.28 5.35 5.42    0    0    0  |  Kevin Wu (Wu Shu Crew)
+T   8.   29.59  |  3.05 3.11 4.16 4.22 4.28 5.35 5.42    0    0    0  |  Yuxuan "Wendy" Zheng (PRISMS Falcons)
+T   8.   29.59  |  3.05 3.11 4.16 4.22 4.28 5.35 5.42    0    0    0  |  Eric Yang (PEA Red)
+T   8.   29.59  |  3.05 3.11 4.16 4.22 4.28 5.35 5.42    0    0    0  |  Powell Zhang (Lexington Delta)
+T   8.   29.59  |  3.05 3.11 4.16 4.22 4.28 5.35 5.42    0    0    0  |  Tsan "Kenny" He (PRISMS Eyas)
+
+
+TEAM ROUND
+============================================================
+T   1.   285  |  15 20 25 30 35 45 50  0  0 65  |  Texas Tornado
+T   2.   255  |  15  0 25 30 35 45 50 55  0  0  |  Las Vegas Math Circle
+T   3.   245  |  15 20 25 30  0 45 50  0 60  0  |  PEA Kindergarteners in Khakis
+T   4.   235  |  15 20 25 30 35  0 50  0 60  0  |  Triangle Math Circle
+T   5.   230  |  15 20 25 30 35 45  0  0 60  0  |  Bobcats
+T   6.   225  |  15 20 25 30 35 45  0 55  0  0  |  Long Island Super
+T   6.   225  |  15 20 25 30 35 45  0 55  0  0  |  RSM I
+T   6.   225  |  15 20 25 30 35 45  0 55  0  0  |  PRISMS Falcons
+T   6.   225  |  15 20 25 30 35 45  0 55  0  0  |  PEA Red
+T   6.   225  |  15 20 25 30 35 45  0 55  0  0  |  AB Red Duck
+
+
+GUTS
+============================================================
+G   1.   197  |   5  5  5  6  6  6  7  7  7  8  8  8  9  0  9 10 10 10 11 11  0 12 12 12  0  0 13  0  0  0  0  0  0  0  0  0  |  Texas Tornado
+G   2.   194  |   5  5  5  6  6  6  7  7  7  8  8  8  9  0  9  0 10 10 11  0  0  0 12 12  0 13 13  0  0  0 17  0  0  0  0  0  |  G-Y United Alligator
+G   2.   194  |   5  5  5  6  6  6  7  7  7  8  8  8  9  9  9 10 10 10 11 11  0 12  0 12  0  0 13  0  0  0  0  0  0  0  0  0  |  Las Vegas Math Circle
+G   4.   191  |   5  5  5  6  6  6  7  0  7  8  8  8  9  9  0  0 10 10 11 11 11 12 12 12 13  0  0  0  0  0  0  0  0  0  0  0  |  Ohio A
+G   5.   167  |   5  5  5  6  6  0  7  7  7  8  8  8  9  9  9  0 10  0 11  0 11 12 12 12  0  0  0  0  0  0  0  0  0  0  0  0  |  PEA Red
+G   6.   161  |   5  5  5  6  6  6  7  7  7  8  8  8  9  0  9 10 10 10 11  0  0 12 12  0  0  0  0  0  0  0  0  0  0  0  0  0  |  Western Mass ARML Stars
+G   7.   159  |   5  5  5  6  6  6  7  7  7  8  8  8  9  0  9 10 10  0  0  0  0 12 12 12  0  0  0  0  0  0  0  0  0  7  0  0  |  Glenbrook North Green
+G   8.   156  |   5  0  5  6  6  0  7  7  7  8  0  8  9  9  9 10  0 10 11  0  0 12 12  0  0  0  0  0  0 15  0  0  0  0  0  0  |  Sharon Alpha
+G   9.   155  |   5  5  5  6  6  6  7  7  7  8  8  8  9  9  9 10 10  0 11  0  0 12  0  0  0  0  0  0  0  0  0  0  0  7  0  0  |  University of Toronto Schools A
+G   9.   155  |   5  5  5  6  6  6  7  7  7  0  8  8  9  0  9 10 10  0 11 11  0  0 12  0  0 13  0  0  0  0  0  0  0  0  0  0  |  szmmmms
+
+
+MATHLETE AGGREGATE
+============================================================
+M   1.  277.809  |   56.91  54.11  47.75  43.08  41.09  34.87  |  PRISMS Falcons
+M   2.  264.118  |   64.48  49.82  48.89  45.25  30.58  25.10  |  AlphaStar Academy Lightning
+M   3.  252.303  |   58.53  46.42  45.31  40.15  31.46  30.43  |  Texas Tornado
+M   4.  250.325  |   54.06  52.87  44.13  41.14  32.76  25.36  |  North Georgia A
+M   5.  245.581  |   51.88  48.49  46.27  41.15  33.68  24.11  |  PEA Red
+M   6.  235.116  |   48.42  45.31  44.13  39.58  30.33  27.34  |  Ohio A
+M   7.  225.209  |   42.91  39.94  37.92  37.90  33.82  32.71  |  Glenbrook North Green
+M   8.  219.218  |   49.92  46.75  44.00  29.20  27.40  21.95  |  Long Island Super
+M   9.  217.976  |   47.52  41.08  38.07  33.75  30.52  27.04  |  Midwest Math Circle A
+M  10.  211.730  |   55.91  34.68  32.87  31.52  30.66  26.10  |  G-Y United Alligator
+
+
+SWEEPSTAKES
+============================================================
+S   1. 1526.551  |   400.00  400.00  726.55  |  Texas Tornado
+S   2. 1398.023  |   315.79  282.23  800.00  |  PRISMS Falcons
+S   3. 1373.646  |   308.77  387.82  677.06  |  Ohio A
+S   4. 1362.070  |   315.79  339.09  707.19  |  PEA Red
+S   5. 1312.392  |   308.77  393.91  609.71  |  G-Y United Alligator
+S   6. 1272.711  |   203.51  308.63  760.57  |  AlphaStar Academy Lightning
+S   7. 1243.069  |   308.77  306.60  627.70  |  Midwest Math Circle A
+S   8. 1234.959  |   343.86  298.48  592.62  |  PEA Kindergarteners in Khakis
+S   9. 1220.806  |   357.89  393.91  469.00  |  Las Vegas Math Circle
+S  10. 1209.967  |   238.60  322.84  648.53  |  Glenbrook North Green
+
+
+This report was generated by Helium at Mon Nov 12 00:34:18 2018.
+
+('-. .-.   ('-.                               _   .-')    
+( OO )  / _(  OO)                             ( '.( OO )_  
+,--. ,--.(,------.,--.      ,-.-') ,--. ,--.   ,--.   ,--.)
+|  | |  | |  .---'|  |.-')  |  |OO)|  | |  |   |   `.'   | 
+|   .|  | |  |    |  | OO ) |  |  \|  | | .-') |         | 
+|       |(|  '--. |  |`-' | |  |(_/|  |_|( OO )|  |'.'|  | 
+|  .-.  | |  .--'(|  '---.',|  |_.'|  | | `-' /|  |   |  | 
+|  | |  | |  `---.|      |(_|  |  ('  '-'(_.-' |  |   |  | 
+`--' `--' `------'`------'  `--'    `-----'    `--'   `--' 
+
+HELIUM 2 (c) 2018 Evan Chen
+</pre></body></html>
