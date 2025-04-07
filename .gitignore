@@ -12,3 +12,5 @@ reflex.db
 .crossnote/
 venv01/
 node_modules/
+model_responses/
+.DS_Store

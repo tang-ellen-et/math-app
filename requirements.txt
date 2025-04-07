@@ -1,9 +1,13 @@
+PyPDF2==3.0.1
+pandas==2.2.0
+openai==1.70.0
+requests>=2.31.0
+# Additional dependencies that might be needed for the full application
+# but are not directly used by the extract_hmmt_problems.py script
 psycopg2-binary
 reflex>=0.4.8
 reflex-chakra
-pandas
 plotly
 statsmodels
 reflex-ag-grid
-requests>=2.31.0
 beautifulsoup4>=4.12.0

@@ -70,27 +70,55 @@ class HMMTProblemDownloader:
         soup = BeautifulSoup(html_content, 'html.parser')
         tournaments = []
         
-        # Find all rows with tournament links
-        rows = soup.find_all('div', class_='row')
-        for row in rows:
-            links = row.find_all('a')
-            for link in links:
-                if not link.text.strip():
-                    continue
-                
-                href = link.get('href')
-                if not href:
-                    continue
-                
-                year = link.text.strip()
-                tournament_type = self._determine_tournament_type(row)
-                
-                if tournament_type:
-                    tournaments.append({
-                        'year': year,
-                        'type': tournament_type,
-                        'url': f"{self.base_url}{href}",
-                    })
+        # Find all links that contain years
+        all_links = soup.find_all('a')
+        logger.info(f"Found {len(all_links)} total links")
+        
+        # First, find all year links
+        for link in all_links:
+            year = link.text.strip()
+            if not year.isdigit() or len(year) != 4:  # Ensure it's a 4-digit year
+                continue
+            
+            href = link.get('href')
+            if not href:
+                continue
+            
+            # Debug: Print link information
+            logger.info(f"Found year link: {year} with href: {href}")
+            
+            # Get the tournament page
+            tournament_url = urljoin(self.base_url, href)
+            tournament_html = self.download_page(tournament_url)
+            
+            if not tournament_html:
+                continue
+            
+            # Look for tournament type in the page content
+            tournament_type = None
+            tournament_soup = BeautifulSoup(tournament_html, 'html.parser')
+            
+            # Look for PDF links to determine tournament type
+            pdf_links = tournament_soup.find_all('a', href=lambda href: href and href.endswith('.pdf'))
+            for pdf_link in pdf_links:
+                pdf_href = pdf_link.get('href', '').lower()
+                if '/feb/' in pdf_href:
+                    tournament_type = 'February'
+                    break
+                elif '/nov/' in pdf_href:
+                    tournament_type = 'November'
+                    break
+                elif '/hmic/' in pdf_href:
+                    tournament_type = 'Invitational'
+                    break
+            
+            if tournament_type:
+                tournaments.append({
+                    'year': year,
+                    'type': tournament_type,
+                    'url': tournament_url,
+                })
+                logger.info(f"Found tournament: {year} {tournament_type}")
         
         return tournaments
 
@@ -138,7 +166,7 @@ class HMMTProblemDownloader:
         
         return path
 
-    def parse_tournament_problems(self, tournament_html: str) -> List[Dict[str, str]]:
+    def parse_tournament_problems(self, tournament_html: str, tournament_type: str, year: str) -> List[Dict[str, str]]:
         """Parse problem and solution links from tournament HTML."""
         soup = BeautifulSoup(tournament_html, 'html.parser')
         problems = []
@@ -162,22 +190,24 @@ class HMMTProblemDownloader:
             problems.append({
                 'url': url,
                 'category': category,
-                'type': 'solutions' if is_solution else 'problems'
+                'type': 'solutions' if is_solution else 'problems',
+                'tournament_type': tournament_type.lower(),
+                'year': year
             })
         
         return problems
 
-    def download_tournament_problems(self, tournament_id: int, tournament_html: str, year: int, tournament_type: str) -> None:
+    def download_tournament_problems(self, tournament_id: int, tournament_html: str, year: str, tournament_type: str) -> None:
         """Download all problems and solutions for a tournament."""
-        problems = self.parse_tournament_problems(tournament_html)
+        problems = self.parse_tournament_problems(tournament_html, tournament_type, year)
         
         for problem in problems:
             # Create the directory path
             dir_path = os.path.join(
                 self.raw_data_dir,
                 'pdfs',
-                tournament_type,
-                str(year),
+                tournament_type.lower(),
+                year,
                 problem['category']
             )
             
@@ -224,7 +254,7 @@ class HMMTProblemDownloader:
                 tournament_id=int(tournament_id.group(1)) if tournament_id else 0,
                 tournament_html=html_content,
                 year=tournament['year'],
-                tournament_type=tournament['type'].lower()
+                tournament_type=tournament['type']
             )
             
             processed_tournaments.append({
