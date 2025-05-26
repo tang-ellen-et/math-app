@@ -9,15 +9,6 @@ import urllib.parse
 USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 'Result'])
 USER_DISPLAY_FIELDS = list(['Problem', 'My Answer', 'Result'])
 
-
-
-def latex_image(latex_string: str) -> rx.Component:
-    # URL encode the LaTeX string for use in the URL
-    encoded = urllib.parse.quote(latex_string)
-    # Construct the image URL for rendering LaTeX as PNG
-    url = f"https://latex.codecogs.com/png.latex?{encoded}"
-    # Return Reflex image component
-    return rx.image(src=url, alt=latex_string, style={"maxWidth": "100%", "height": "auto"})
 def show_item(item: USER_MATH_MODEL):
     """Show an item in a table row."""
     return rx.table.row(
