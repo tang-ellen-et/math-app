@@ -58,7 +58,12 @@ def latex_image_save(latex_string: str, filename: str) -> str:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     # Download the image content
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise error if download failed
+    except requests.RequestException as e:
+        print(f"❌ Failed to download image for LaTeX string: {latex_string}. Error: {e}")
+        return None
     response.raise_for_status()  # Raise error if download failed
 
     # Save the image to file
