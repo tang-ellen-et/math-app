@@ -10,23 +10,17 @@ USER_SORT_FIELDS = list(['Source', 'Year', 'Type', 'Competition', 'Difficulty', 
 USER_DISPLAY_FIELDS = list(['Problem', 'My Answer', 'Result'])
 
 
-
-def latex_image(latex_string: str) -> rx.Component:
-    # URL encode the LaTeX string for use in the URL
-    encoded = urllib.parse.quote(latex_string)
-    # Construct the image URL for rendering LaTeX as PNG
-    url = f"https://latex.codecogs.com/png.latex?{encoded}"
-    # Return Reflex image component
-    return rx.image(src=url, alt=latex_string, style={"maxWidth": "100%", "height": "auto"})
 def show_item(item: USER_MATH_MODEL):
     """Show an item in a table row."""
     return rx.table.row(
         rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "ProblemId")}')),
         *[
             rx.table.cell(
-                rx.markdown(getattr(item, field)) if field == "Problem" 
-                else rx.avatar(src=f'{getattr(item, field)}.png', fallback=getattr(item, field)) if field == "Result"
-                else getattr(item, field)
+                rx.badge(
+                    getattr(item, "Result"),
+                    color_scheme="green" if getattr(item, "Result") == "Correct" else "red",
+                    variant="solid",
+                )
             )
             for field in USER_DISPLAY_FIELDS
         ]
@@ -63,29 +57,29 @@ def response_input(item: USER_MATH_MODEL):
 def quiz_content():
     return rx.fragment(
         rx.vstack(
-            latex_image(r"\int_0^\infty x^2 e^{-x} dx = 2"),
             rx.divider(),
             rx.hstack(
                 rx.heading(
-                    f"Total: {State.num_items} Problems - Exercise#_{State.current_problemset}",
-                    size="5",
-                    font_family="Inter",
-                ),
-                rx.link("User Dashboard", href="/userdashboard"),
-                rx.spacer(),
-                rx.select(
-                    [*[field for field in USER_SORT_FIELDS ]],
-                    placeholder="Sort By: Problem Type",
+                    f"Exercise ID: {State.current_problemset}",
                     size="3",
-                    on_change=lambda sort_value: State.sort_values(sort_value),
                     font_family="Inter",
                 ),
+                rx.link(
+                rx.button(
+                    "User Dashboard",
+                    size="2",
+                    color_scheme="gray",
+                    variant="soft",
+                ),
+                href="/userdashboard",
+                style={"textDecoration": "none"},
+            ), 
+                rx.spacer(),
                 width="100%",
                 padding_x="2em",
                 padding_top="2em",
                 padding_bottom="1em",
             ),
-            UserMetricStats.graph(State.items_by_type),
             rx.form(
                 rx.vstack(
                     rx.hstack(
@@ -99,6 +93,7 @@ def quiz_content():
                             background="blue.500",
                             _hover={"background": "blue.600"},
                             box_shadow="lg",
+                            style={"marginTop": "-4em"},
                         ),
                         width="100%",
                         padding_x="2em",
@@ -108,10 +103,10 @@ def quiz_content():
                     rx.table.root(
                         rx.table.header(
                             rx.table.row(
-                                rx.table.column_header_cell("Id#"),
-                                rx.table.column_header_cell("Problem"),
-                                rx.table.column_header_cell("My Answer"),
-                                rx.table.column_header_cell("Result"),
+                                rx.table.column_header_cell("Id#", style={"fontSize": "20px", "fontWeight": "bold"}),
+                                rx.table.column_header_cell("Source", style={"fontSize": "20px", "fontWeight": "bold"}),
+                                rx.table.column_header_cell("Problem", style={"fontSize": "20px", "fontWeight": "bold"}),
+                                rx.table.column_header_cell("Answer", style={"fontSize": "20px", "fontWeight": "bold"}),
                             ),
                         ),
                         rx.table.body(
@@ -119,24 +114,40 @@ def quiz_content():
                                 State.items,
                                 lambda item: rx.table.row(
                                     rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "ProblemId")}')),
-                                    rx.table.cell(rx.markdown(getattr(item, "Problem"))),
+                                    rx.table.cell(
+                                        rx.text(getattr(item, "Source"), style={"fontSize": "18px"})
+                                    ),
+                                    rx.table.cell(
+                                        rx.box(
+                                            rx.markdown(
+                                                getattr(item, "Problem"),
+                                                font_size="22px",  # or use a specific size like "20px"
+                                                line_height="1.6",  # optional: improves readability
+                                            ),  
+                                            max_width="900px",
+                                            white_space="normal",
+                                            word_break="break-word",
+                                            padding_y="2",
+                                        )
+                                    ),
                                     rx.table.cell(
                                         rx.input(
                                             placeholder="Enter your answer",
                                             name=f"response_{item.ProblemId}",
                                             default_value=item.Response,
                                             width="100%",
-                                            size="2",
+                                            size="3",
                                         )
                                     ),
-                                    rx.table.cell(rx.avatar(src=f'{getattr(item, "Result")}.png', fallback=getattr(item, "Result"))),
                                 )
                             )
                         ),
                         size="3",
                         width="100%",
+                        sticky_header=True,
                     ),
                     width="100%",
+                    mx="auto",
                     spacing="4",
                 ),
                 on_submit=State.submit_all_answers,

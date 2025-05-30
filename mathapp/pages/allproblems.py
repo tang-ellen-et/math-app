@@ -12,7 +12,9 @@ def show_item(item: MATH_MODEL):
     return rx.table.row(
         # rx.table.cell(rx.avatar(fallback="DA")),
         rx.table.cell(rx.avatar(fallback=f'#{getattr(item, "id")}')),
-        rx.table.cell(rx.markdown (getattr(item, "Problem"))),
+        rx.table.cell(
+            rx.markdown(getattr(item, "Problem"), font_size="large")  # or "xl", "2xl", or "20px"
+        ),
         *[
             rx.table.cell(getattr(item, field))
             for field in MATH_MODEL.get_fields()
