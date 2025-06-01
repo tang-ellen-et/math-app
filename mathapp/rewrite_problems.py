@@ -21,12 +21,11 @@ prompt_map = prompt_map = {
     "large_integers": (
         "This problem's answer is a large integer (over 1000). Do not change the core computation or mathematical structure of the problem. "
         "Modify the original problem statement as little as possible—ideally only the final instruction. "
-        "If the problem already defines a variable (such as x) and the final instruction asks you to compute something based on that variable "
-        "(e.g., the sum of its prime factors), then let n be that final quantity (not x itself). "
-        "Generally, replace the final instruction with: 'Let n be [the final quantity asked for]. Find the remainder when n is divided by 1000.' "
-        "Do not say 'which we'll denote as n' or 'denote this quantity as n' — directly use 'Let n be...'. "
-        "Make sure the rephrasing is natural and flows smoothly within the original problem context. "
-        "Do not invent new scenarios or reword anything other than the final sentence."
+        "If the original problem ends by asking for a specific named value (such as T(15), a count of things, a variable already defined in the problem, or a function evaluation), "
+        "do not introduce a new variable. Simply rephrase the problem naturally to send with: 'Find the remainder when [that quantity] is divided by 1000.'"
+        "Only introduce a variable such as n if the quantity being asked for is not already explicitly named or defined as a function or a variable in the problem. "
+        "Generally, if you introduce a variable, modify the original problem statement so that you set a variable, such as n, equal to the answer. Try to integrate this into the problem statement and not just append it at the end. Then ask, find the remainder when n is divided by 1000.'"
+        "Do not say 'which we’ll denote as n.' or other informal language. It should be to the point. Make sure the revised problem flows naturally and does not add unnecessary words. "
     ),
 
     "negative_integers": (
@@ -98,7 +97,7 @@ types_to_exclude = ["aime_ready_integers", "misc"]
 modified_problems = []
 processed_count = 0
 
-for i, row in df.iloc[221:235].iterrows():
+for i, row in df.iloc[700:750].iterrows():
     ans_type = row["AnswerType"]
     if ans_type in types_to_exclude:
         modified_problems.append("N/A")
