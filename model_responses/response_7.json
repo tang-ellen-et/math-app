@@ -1,8 +1,0 @@
-
-    {
-        "id": "6",
-        "problem": "The number $99^{88} \\div 1001$ is an integer. Compute the sum of its prime factors.",
-        "answer": "231",
-        "solution": "Observe $99^{88} = 27^6 - 16^6 = (27^2 - 16^2)(27^4 + 27^2 \\cdot 16^2 + 16^4) = (27 - 16)(27 + 16)(27^2 - 27 \\cdot 16 + 16^2)(27^2 + 27 \\cdot 16 + 16^2) = 11 \\cdot 43 \\cdot 553 \\cdot 1417$. The remaining factorizations are motivated by the fact that $1001 = 7 \\cdot 11 \\cdot 13$. We see that $553 = 7 \\cdot 79$ and $1417 = 13 \\cdot 109$, so the answer is $43 + 79 + 109 = 231$."
-    }
-  

@@ -1,8 +1,0 @@
-    
-    {
-        "id": "9",
-        "problem": "Let $P$ and $Q$ be points selected uniformly and independently at random inside a regular hexagon $ABCDEF$. Compute the probability that segment $PQ$ is entirely contained in at least one of the quadrilaterals $ABCD$, $BCDE$, $CDEF$, $DEFA$, $EFAB$, or $FABC$.",
-        "answer": "$\frac{7}{9}$",
-        "solution": "If $f(1) \neq 1$, then $f(1)$ is equally likely to be any of $2$ through $9$ by symmetry, averaging $5.5$. Therefore, the expected value of $f(1)$ is $\frac{4}{9} \times 1 + \frac{5}{9} \times 5.5 = \frac{7}{9}$."
-    }
-    

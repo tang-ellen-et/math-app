@@ -1,9 +1,0 @@
-
-    
-    {
-        "id": "15",
-        "problem": "Right triangle $\\triangle DEF$ with $\\angle D= 90^\\circ$ and $\\angle F= 30^\\circ$ is inscribed in equilateral triangle $\\triangle ABC$ such that $D$, $E$, and $F$ lie on segments $BC$, $CA$, and $AB$, respectively. Given that $BD= 7$ and $DC= 4$, compute $DE$.",
-        "answer": "$\\sqrt{13}$",
-        "solution": "From $\\angle E= 60^\\circ$, we get that $\\angle AEF = 120^\\circ-\\angle CED =\\angle CDE$. Therefore, $\\triangle AEF\\sim \\triangle CDE$. Since $EF:DE= 2 : 1$, the ratio of similarity must be $2 : 1$, so $AE= 2CD= 8$. Recall $ABC$ has side length $7 + 4 = 11$, so $EC= 11-8 = 3$. Law of Cosines on $\\triangle CDE$ gives $DE^2=\\sqrt{3^2+ 4^2-3\\cdot4} = \\sqrt{13}$."
-    }
-    

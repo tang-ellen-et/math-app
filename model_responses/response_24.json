@@ -1,6 +1,0 @@
-{  
-  "id": "24",
-  "problem": "For any integer $x$, let \n$$f(x) = 100! \\left(1 + \\frac{x}{1!} + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\cdots + \\frac{x^{100}}{100!} \\right).$$\nA positive integer $a$ is chosen such that $f(a) - 20$ is divisible by $101^2$. Compute the remainder when $f(a + 101)$ is divided by $101^2$.",
-  "answer": "1939",
-  "solution": "Solution 1: By employing the binomial theorem, it's found that $(a + 101)^n \\equiv a^n + \\binom{n}{1} a^{n-1} \\times 101 = a^n + 101 n a^{n-1} \\pmod{101^2}$. Applying this, we have \n$$f(a + 101) = 100! \\sum_{n=0}^{100} \\frac{(a + 101)^n}{n!} \\equiv 100! \\sum_{n=0}^{100} \\left( \\frac{a^n}{n!} + \\frac{101 n a^{n-1}}{n!} \\right) \\equiv f(a) + 100! \\cdot 101 \\sum_{n=1}^{100} \\frac{a^{n-1}}{(n-1)!} \\equiv f(a) + 101 (f(a) - 1) \\equiv 20 + 101(20 - 1) = 1939 \\pmod{101^2}.$$\n\nSolution 2: Via Hensel's lemma, given $101$ is prime and for any integer $x$ not divisible by $101$, $f'(x) = 100! \\left( 1 + x + \\frac{x^2}{2!} + \\cdots + \\frac{x^{99}}{99!} \\right) = f(x) - \\frac{x^{100}}{100!} \\equiv f(x) - 1 \\pmod{101}$. Thus $f(a + 101) \\equiv f(a) + 101 f'(a) \\equiv 20 + 101 \\times 19 \\equiv 1939 \\pmod{101^2}$. Remark adds that all feasible $a$ values lead to the same answer."
-}

@@ -1,6 +1,0 @@
-{
-    "id": "30",
-    "problem": "Let $a,b$, and $c$ be real numbers satisfying the system of equations $$\\frac{a}{1 +b^2}+\\frac{b}{1 +a^2}=\\frac{3}{4},$$ $$\\frac{b}{1 +c^2}+\\frac{c}{1 +b^2}=\\frac{5}{12},$$ and $$\\frac{c}{1 +a^2}+\\frac{a}{1 +c^2}=\\frac{21}{20}.$$ Compute $a$.",
-    "answer": "Solution not provided",
-    "solution": "Solution not provided"
-}

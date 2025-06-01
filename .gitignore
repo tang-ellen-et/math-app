@@ -13,3 +13,4 @@ reflex.db
 venv01/
 node_modules/
 .env
+model_responses/

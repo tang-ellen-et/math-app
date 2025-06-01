@@ -1,9 +1,0 @@
-
-    
-    {
-        "id": "28",
-        "problem": "Let $f$ be a function from nonnegative integers to nonnegative integers such that $f(0) = 0$ and $f(m) = f\\left(\\left\\lfloor\\frac{m}{2}\\right\\rfloor\\right) + \\left\\lceil\\frac{m}{2}\\right\\rceil^2$ for all positive integers $m$. Compute $$\\frac{f(1)}{1\\cdot2}+\\frac{f(2)}{2\\cdot3}+\\frac{f(3)}{3\\cdot4}+\\cdots+\\frac{f(31)}{31\\cdot32}.$$ (Here, $\\left\\lfloor z \\right\\rfloor$ is the greatest integer less than or equal to $z$, and $\\left\\lceil z \\right\\rceil$ is the least positive integer greater than or equal to $z$.)",
-        "answer": "$\\frac{341}{32}$",
-        "solution": "Solution 1: For all positive integers $n$, let $\\omega(n) = f(n) - f(n-1)$. We claim that $\\omega(n)$ is the largest odd divisor of $n$ for all $n > 0$. Indeed, for all positive integers $k$, we have \n\n$\n\\omega(2k) = f(2k) - f(2k - 1) = f(k) + k^2 - (f(k-1) + k^2) = f(k) - f(k-1) = \\omega(k),\n$\n\nand \n\n$\n\\omega(2k + 1) = f(2k + 1) - f(2k) = f(k) + (k+1)^2 - (f(k) + k^2) = 2k + 1.\n$\n\nInducting on the positive integers implies that $\\omega(n)$ is indeed the largest odd divisor of $n$. We can now rewrite the sum as \n\n$\n\\sum_{n=1}^{31}\\frac{f(n)}{n(n+1)} = \\sum_{n=1}^{31}\\left(\\frac{f(n)}{n} - \\frac{f(n)}{n+1}\\right) \n$\n\n$= \\sum_{n=1}^{30}\\frac{f(n) - f(n-1)}{n} - \\frac{f(31)}{32}.$"
-    }
-    

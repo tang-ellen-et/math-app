@@ -1,9 +1,0 @@
-
-   
-        {
-            "id": "14",
-            "problem": "A parallelogram $P$ can be folded over a straight line so that the resulting shape is a regular pentagon with side length 1. Compute the perimeter of $P$.",
-            "answer": "$5 + \\sqrt{5}$",
-            "solution": "In regular pentagon $ABCDE$ (labeled clockwise), reflect $ABDE$ across $AB$ to obtain $ABD'E'$. Then, $CDE'D'$ is one such parallelogram $P$. The length of $CD'$ is $CB + BD = 1 + 2 \\cos \\angle CBD = 1 + 2 \\cos(\\frac{\\pi}{5}) = 1 + \\frac{\\sqrt{5}+1}{2} = \\sqrt{5}+3$. Thus, the perimeter of $P$ is the sum of the lengths of its sides, which is $5 + \\sqrt{5}$."
-        }
-   

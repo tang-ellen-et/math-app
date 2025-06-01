@@ -1,8 +1,0 @@
-    
-    {
-        "id": "17",
-        "problem": "Let $f$ be a quadratic polynomial with real coefficients, and let $g_1,g_2,g_3,...$ be a geometric progression of real numbers. Define $a_n=f(n) + g_n$. Given that $a_1,a_2,a_3,a_4,$ and $a_5$ are equal to $1$, $2$, $3$, $14$, and $16$, respectively, compute $\frac{g_2}{g_1}$.",
-        "answer": "$\\frac{-19}{10}$",
-        "solution": "We will use the method of finite differences. Define $b_n=a_{n+3}−3a_{n+2}+ 3a_{n+1}−a_n$. Since $f$ is quadratic, the third finite difference of $f$ is zero. So, $b_n=g_{n+3}−3g_{n+2}+ 3g_{n+1}−g_n$. Letting the common ratio of the geometric sequence be $r$, we get that $b_n= (r^3−3r^2+ 3r−1)g_n$. So, $b_n$ is a constant multiple of $g_n$. Thus the ratio $\frac{g_2}{g_1}=\frac{b_2}{b_1}$. Computing $b_1= 14−3\\cdot 3 + 3\\cdot 2−1 = 10$ and $b_2= 16−3\\cdot 14 + 3 \\cdot 3−3\\cdot 2 =−19$, we get $\frac{g_2}{g_1}=\frac{b_2}{b_1}=\frac{-19}{10}$"
-    }
-    

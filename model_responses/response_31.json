@@ -1,7 +1,0 @@
-
-    {
-        "id": "31",
-        "problem": "There exists a unique circle that is both tangent to the parabola $y = x^2$ at two points and tangent to the curve $x = \frac{q y^3}{1-y}$. Compute the radius of this circle.",
-        "answer": "\frac{\frac{\root 4 \\\\sqrt{5}}{2}}",
-        "solution": "We can square both sides of the second curve to get $x^2 = \frac{y^3}{1-y}$, which further rearranges to $$x^2 (x^2 + y^2)^2 = y (x^2 + y^2).$$ This relation implies that curves $y = x^2$ and $x^2 = \frac{y^3}{1-y}$ map to each other under inversion about the unit circle $x^2 + y^2 = 1$. Therefore, the unique circle we seek must be invariant under inversion about $x^2 + y^2 = 1$. Since the circle is tangent to $y = x^2$, we know that the circle is of the form $x^2 + (y - y_0)^2 = r^2$. We know that the length of the tangent from $(0, 0)$ to this circle is 1. Since the distance from $(0,0)$ to the center of the circle is $y_0$, using the Pythagorean Theorem gives $r^2 + 1 = y_0^2$."
-    }

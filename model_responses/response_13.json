@@ -1,6 +1,0 @@
-    {
-        "id": "13",
-        "problem": "A number is upwards if its digits in base 10 are nondecreasing when read from left to right. Compute the number of positive integers less than $10^6$ that are both upwards and multiples of 11.",
-        "answer": "The solution has not been provided.",
-        "solution": "The solution has not been provided."
-    }

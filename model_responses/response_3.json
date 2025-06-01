@@ -1,6 +1,0 @@
-    {
-        "id": "3",
-        "problem": "Jacob rolls two fair six-sided dice. If the outcomes of these dice rolls are the same, he rolls a third fair six-sided die. Compute the probability that the sum of outcomes of all the dice he rolls is even.",
-        "answer": "\frac{\frac{3}{2}\times \text{AO}}{3\frac{3}{2}-3}",
-        "solution": "The desired answer is then $\frac{\frac{3}{2}\times \text{AO}}{3\frac{3}{2}-3}$"
-    }
