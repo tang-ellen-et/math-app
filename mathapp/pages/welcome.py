@@ -33,6 +33,7 @@ def welcome_page() -> rx.Component:
                     rx.link(rx.button("Dashboard", size="4", color_scheme="teal", variant="ghost", font_weight="bold"), href="/userdashboard"),
                     rx.link(rx.button("Resources", size="4", color_scheme="teal", variant="ghost", font_weight="bold"), href="/resources"),
                     rx.link(rx.button("Report a Bug", size="4", color_scheme="teal", variant="ghost", font_weight="bold"), href="/bug"),
+                    rx.link(rx.button("Problems Preparation", size="4", color_scheme="teal", variant="ghost", font_weight="bold"), href="/prepare_problem"),
                     rx.cond(
                         State.is_authenticated,
                         rx.link(

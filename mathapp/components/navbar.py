@@ -68,6 +68,12 @@ def navbar():
                         spacing="4",
                     ),
                 ),
+                rx.link(
+                    "Problems Preparation",
+                    href="/prepare_problem",
+                    padding="0.5em 1em",
+                    size="3",
+                ),
                 spacing="4",
             ),
             position="fixed",

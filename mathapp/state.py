@@ -2,7 +2,7 @@ from sqlmodel import select
 import reflex as rx
 import json
 
-from mathapp.models import UserMathItem, MathProblem
+from mathapp.models import UserMathItem, MathProblem, ProblemCompare
 from mathapp.user_state import UserState
 from mathapp.data_loading import load_user_problems, load_all_problems
 from pandas import DataFrame 
@@ -18,6 +18,7 @@ RESULT_WRONG="wrong"
 RESULT_NA=""
 
 data_file_path = "data_sources/problems_list_v1.csv"
+PROBLEM_COMPARE_CSV = "data_sources/final_final_problems_list.csv"
 
 class State(UserState):
     """The app state."""
@@ -36,6 +37,7 @@ class State(UserState):
     current_problemset = ''
     
     df_problems: DataFrame = DataFrame()
+    problem_compare: list[ProblemCompare] = []
 
     def handle_add_submit(self, form_data: dict):
         """Handle the form submit."""
@@ -166,6 +168,10 @@ class State(UserState):
                     self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=True)
                 else:
                     self.df_problems = load_all_problems(data_file_path=data_file_path, math_model=MATH_MODEL, load_to_db=False)
+                # Load ProblemCompare data
+                load_all_problems(data_file_path=PROBLEM_COMPARE_CSV, math_model=ProblemCompare, load_to_db=True)
+                self.problem_compare = session.exec(select(ProblemCompare)).all()
+                print(f'$$ - problem_compare: {self.problem_compare.count}')
                 
                 first_entry = session.exec(select(USER_MATH_MODEL)).first()
                 if first_entry is None:
