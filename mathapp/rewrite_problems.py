@@ -30,37 +30,52 @@ prompt_map = prompt_map = {
     ),
 
     "negative_integers": (
+        "Your goal is to rewrite a problem so that it matches the AIME format. "
         "This problem's answer is a negative integer. Modify the original problem statement so that you set a variable, such as n, equal to the answer "
         "and then ask the user to find the absolute value of n. "
         "If the absolute value is greater than 1000, instead ask: 'Find the remainder when the variable is divided by 1000.' "
+        "Do not say 'which we'll denote as n' or 'denote this quantity as n' — directly use 'Let n be...' or 'denote by n...'. "
         "Do not alter the core context or intent of the problem."
     ),
 
     "fractions": (
-        "This problem's answer is a reduced fraction. Do not change the setting or add fictional contexts. Modify the original problem statement as little as possible—ideally only the final question. "
-        "Rephrase the final sentence so that it naturally introduces a variable (such as 'Let s be the [quantity]') and states that it can be expressed as m/n, "
+        "This problem's answer is a reduced fraction. Do not change the setting or add fictional contexts. "
+        "Modify the original problem statement as little as possible—ideally only the final sentence. "
+        "Rewrite the final sentence so that it naturally introduces a variable (such as 'Let s be the [quantity]') and states that s can be expressed as m/n, "
         "where m and n are relatively prime positive integers. Then ask for m + n. "
-        "If m + n is greater than 1000, ask for the remainder when m + n is divided by 1000. "
-        "Do not append a new sentence starting with 'The answer can be expressed as...'; instead, integrate this information smoothly into the existing question."
+        "If m + n exceeds 1000, ask instead for the remainder when m + n is divided by 1000.\n\n"
+
+        "Do not start a sentence with 'This [quantity] s can be expressed as...' or 'The answer can be expressed as...'. "
+        "Integrate the phrasing smoothly by using: 'Let s be the [quantity]. If s can be expressed as m/n, where m and n are...' — use that exact structure.\n\n"
+
+        "Avoid phrases like 'this probability p' or 'this value s'; always refer to the variable by its name alone."
     ),
 
+
     "roots": (
-        "This problem's answer involves square roots. Modify the original problem statement as little as possible so that the square root form arises naturally from the context. "
-        "Use the appropriate final question based on the form of the answer:\n"
-        "- If the answer is √n and n is square-free, ask: 'Find n.'\n"
-        "- If the answer is m√n/k, ask: 'Find m + n + k.'\n"
-        "- If the answer is m√n ± c, ask: 'Find m + n + c.'\n"
-        "- In general, if the answer is a sum/difference/fraction involving square roots, extract all constants and radicals and ask for the sum of all components involved. "
-        "Do not change the core setup or mathematical structure of the problem."
+        "Your task is to rewrite a math problem in the style of an AIME problem. "
+        "You must not solve, explain, or comment on the problem. Your goal is to minimally edit the original problem so that its answer naturally involves a square root, and it matches AIME formatting.\n\n"
+        "Keep the original problem's mathematical context and structure intact. Do not add new elements such as extra diagrams, labels, commentary, or clarification. "
+        "Modify only what is necessary—ideally just the final sentence—to introduce a variable (e.g., x) and ask for a quantity derived from its square root form.\n\n"
+        "Use one of the following formats, depending on the form of the answer:\n"
+        "- If the answer is √n and n is square-free, end with: 'Let x be [what the problem is asking for]. If x can be written as √n, where n is not divisible by the square of a prime, find n.'\n"
+        "- If the answer is m√n/k, end with: 'Let x be [what the problem is asking for]. If x can be written as m√n/k, where m and k are relatively prime positive integers and n is not divisible by the square of a prime, find m + n + k.'\n"
+        "- If the answer is of the form m√n ± c, end with: 'Let x be [what the problem is asking for]. If x can be written as m√n ± c, where m, n, and c are positive integers and n is not divisible by the square of a prime, find m + n + c.'\n"
+        "- For any other square root expression, define x accordingly and ask for the sum of all constants and radicals involved.\n\n"
+        "Always begin the final instruction with 'Let x be [what the problem is asking for].' Place this sentence at the end of the problem. "
+        "Do not use informal language such as 'we are interested in...' and do not say 'the answer is' or 'denote as'. Keep the voice formal and concise."
     ),
 
     "pi": (
-        "This problem's answer involves a simple expression with π (such as π, 2π + 1, or π√3). Modify the original problem statement as little as possible—preferably just the final question—so that the form arises naturally. "
-        "In general, set a variable such as n equal to the answer and then ask for the sum of all components. "
-        "If the answer can be written as aπ + b, where a and b are real numbers, ask: 'Find a + b.' "
-        "If the answer is aπ√n, treat it as aπ with b = 0. Only use this format if the components are clearly defined and the sum is meaningful. "
-        "Define the components of the answer and ask for the sum of all components. "
-        "If the answer is greater than 1000, ask for the remainder when the sum is divided by 1000. "
+        "Your task is to rewrite a problem to match the AIME format."
+        "This problem's answer involves a simple expression with π (such as π, 2π + 1, or π√3). "
+        "Modify the original problem statement as little as possible—preferably just the final sentence—so that the form arises naturally. "
+        "Introduce a variable (such as n) to represent the quantity the problem is asking for, then specify how it can be written. "
+        "If the answer can be written as aπ + b, say 'Let n be [the quantity]. If n can be written as aπ + b, where a and b are positive integers, find a + b.' "
+        "If the answer can be written as aπ/b + c, say 'Let n be [the quantity]. If n can be written as aπ/b + c, where a, b, and c are positive integers, find a + b + c.' "
+        "Avoid stating 'where the answer can be written as aπ + b' within the question itself. "
+        "Instead, write something like: 'Let n be the surface area. If n = aπ + b, where a and b are positive integers, find a + b.' "
+        "If the sum a + b exceeds 1000, ask for the remainder when a + b is divided by 1000. "
         "Do not change the mathematical structure or create a fictional context."
     ),
 
@@ -71,6 +86,7 @@ prompt_map = prompt_map = {
     ),
 
     "misc": ""
+
 }
 
 # Set how many problems to process
@@ -82,7 +98,7 @@ types_to_exclude = ["aime_ready_integers", "misc"]
 modified_problems = []
 processed_count = 0
 
-for i, row in df.iterrows():
+for i, row in df.iloc[221:235].iterrows():
     ans_type = row["AnswerType"]
     if ans_type in types_to_exclude:
         modified_problems.append("N/A")
@@ -111,11 +127,11 @@ for i, row in df.iterrows():
         # If we've already processed top_n, fill the rest with To be Processed
         modified_problems.append("To be Processed")
 
-df["modified_problem"] = modified_problems
+#df["modified_problem"] = modified_problems
 
 # Save to new CSV
-output_path = "data_sources/problems_list_v1_with_modified.csv"
-df.to_csv(output_path, index=False)
-print(f"Saved modified problems to {output_path}")
+#output_path = "data_sources/problems_list_v1_with_modified.csv"
+#df.to_csv(output_path, index=False)
+#print(f"Saved modified problems to {output_path}")
  
     
