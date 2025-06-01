@@ -1,0 +1,64 @@
+
+    Extract math problems and their solutions from this section of the HMMT November 2025 Guts round.
+    IMPORTANT RULES:
+    1. ONLY extract the solution from the solutions text, DO NOT try to solve the problems
+    2. For geometry problems with diagrams, mark them as "geometry problem, to be processed"
+    3. Format ALL mathematical expressions in proper LaTeX:
+       - Use $ for inline math and $$ for display math
+       - Use \frac{numerator}{denominator} for fractions
+       - Use \sqrt{expression} for square roots
+       - Use proper LaTeX commands for Greek letters (e.g., \alpha, \beta)
+       - Use proper LaTeX commands for operators (e.g., \sum, \int, \lim)
+       - Use proper LaTeX commands for subscripts and superscripts
+       - Use proper LaTeX commands for special symbols (e.g., \times, \div, \pm)
+    4. Extract ALL problems in the chunk, not just a few
+    5. Make sure problem numbers match between problems and solutions
+
+    Return an array of problems, where each problem has:
+    1. Problem number (as a string)
+    2. Complete problem text with proper LaTeX formatting
+    3. The final answer (from solutions only) with proper LaTeX formatting
+    4. The detailed solution (from solutions only) with proper LaTeX formatting
+
+    The response MUST be a JSON array of objects with this exact structure:
+    [
+        {
+            "id": "1",
+            "problem": "Problem text here with $\LaTeX$ formatting",
+            "answer": "Answer here with $\LaTeX$ formatting",
+            "solution": "Solution here with $\LaTeX$ formatting"
+        }
+    ]
+
+    Problems text:
+    26.[14]Isabella has a bag with 20 blue diamonds and 25 purple diamonds. She repeats the following process
+44 times: she removes a diamond from the bag uniformly at random, then puts one blue diamond and
+one purple diamond into the bag. Compute the expected number of blue diamonds in the bag after all
+44 repetitions.
+
+    Solutions text:
+    26.[14] Isabella has a bag with 20 blue diamonds and 25 purple diamonds. She repeats the following
+process 44 times: she removes a diamond from the bag uniformly at random, then puts one blue
+diamond and one purple diamond into the bag. Compute the expected number of blue diamonds in
+the bag after all 44 repetitions.
+Proposed by: Henrick Rabinovitz, Srinivas Arun
+Answer:173
+4
+Solution: Leta= 20 and b= 25 be the initial numbers of blue and purple diamonds, respectively,
+and let c= 44 be the number of times Isabella performs the operation. Suppose that at some point,
+the bag contains xblue diamonds and ypurple diamonds, for x+y=ztotal diamonds. After one step,
+the bag will have z+ 1 diamonds. The expected change in the number of blue diamonds in this step is
+(−x/z)+1 = y/z, and likewise this quantity for purple diamonds is x/z. Thus, the expected change in
+the difference between the number of blue and purple diamonds is ( y−x)/z. Since this difference was
+initially x−y, the expected value of this difference is multiplied by ( z−1)/zat each step (regardless
+ofx−y). Since zstarts at a+band ends at a+b+c, the expected difference after coperations is
+(a−b)·a+b+c−1Y
+z=a+bz−1
+z=(a+b−1)(a−b)
+(a+b+c−1),
+and as the total number of diamonds is a+b+c, the expected number of blue diamonds at the end is
+a+b+c
+2+(a+b−1)(a−b)
+2(a+b+c−1).
+Plugging in a= 20, b= 25, and c= 44 gives us the answer,173
+    

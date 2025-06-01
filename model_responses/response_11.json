@@ -1,0 +1,8 @@
+
+    {
+        "id": "11",
+        "problem": "Let $f(n) = n^2 + 100$. Compute the remainder when $f(f(\text{{···}}f(f(\text{{\textbar}2025 f's\textbar}} 1))\text{{···}}))$ is divided by 104.",
+        "answer": "3101",
+        "solution": "We claim that $f_k(n) \not\text{{equiv}} 1 + 100(2n-1) \text{{ mod }} 104$. We can see this by induction: \n\\[\nf(1 + 100(2n-1)) = (1 + 100(2n-1))^2 + 100 \\\\ \n\\equiv 1 + 200(2n-1) + 100 \text{{ (mod 104)}} \\\\ \\equiv 1 + 100(2n+1-1) \text{{ (mod 104)}}.\n\\] \nThus, it suffices to compute $2^{2025} \text{{ mod }} 100$. We note that $2^{2025} \not\text{{equiv}} 0 \text{{ (mod 4)}}$ and by Euler's Totient theorem, $2^{2025} \not\text{{equiv}} 25\text{{ mod }} 25$, so $2^{2025} \not\text{{equiv}} 32$ (mod 100). Hence, we can compute \n\\[\nf_{2025}(1) \not\text{{equiv}} 1 + 100(31) \not\text{{equiv}} 3101 \text{{ mod }} 104.\n\\]"
+    }
+   

@@ -1,0 +1,74 @@
+
+    Extract math problems and their solutions from this section of the HMMT November 2025 Guts round.
+    IMPORTANT RULES:
+    1. ONLY extract the solution from the solutions text, DO NOT try to solve the problems
+    2. For geometry problems with diagrams, mark them as "geometry problem, to be processed"
+    3. Format ALL mathematical expressions in proper LaTeX:
+       - Use $ for inline math and $$ for display math
+       - Use \frac{numerator}{denominator} for fractions
+       - Use \sqrt{expression} for square roots
+       - Use proper LaTeX commands for Greek letters (e.g., \alpha, \beta)
+       - Use proper LaTeX commands for operators (e.g., \sum, \int, \lim)
+       - Use proper LaTeX commands for subscripts and superscripts
+       - Use proper LaTeX commands for special symbols (e.g., \times, \div, \pm)
+    4. Extract ALL problems in the chunk, not just a few
+    5. Make sure problem numbers match between problems and solutions
+
+    Return an array of problems, where each problem has:
+    1. Problem number (as a string)
+    2. Complete problem text with proper LaTeX formatting
+    3. The final answer (from solutions only) with proper LaTeX formatting
+    4. The detailed solution (from solutions only) with proper LaTeX formatting
+
+    The response MUST be a JSON array of objects with this exact structure:
+    [
+        {
+            "id": "1",
+            "problem": "Problem text here with $\LaTeX$ formatting",
+            "answer": "Answer here with $\LaTeX$ formatting",
+            "solution": "Solution here with $\LaTeX$ formatting"
+        }
+    ]
+
+    Problems text:
+    19.[11] A subset Sof{1,2,3, . . . , 2025}is called balanced if for all elements aandbboth in S, there exists
+an element cinSsuch that 2025 divides a+b−2c. Compute the number of nonempty balanced subsets.
+
+    Solutions text:
+    19.[11] A subset Sof{1,2,3, . . . , 2025}is called balanced if for all elements aandbboth in S, there
+exists an element cinSsuch that 2025 divides a+b−2c. Compute the number of nonempty balanced
+subsets.
+Proposed by: Jacob Paltrowitz
+Answer: 3751
+Solution: We work mod 2025, so the condition becomes that for any a,b∈S, we havea+b
+2∈S.
+First, we prove that Smust be an arithmetic sequence. Observe that if Sis balanced, then so is the
+shift S+k={s+k|s∈S}for all k, so we can assume 0 ∈S. Let sbe an element of Ssuch that
+d= gcd( s,2025) is minimal. Observe that for any t∈S, we havet
+2=0+t
+2∈S. Thus,s
+2nis inSfor all
+n. Because gcd(2 ,2025) = 1, this implies 2nsmod 2025 ∈Sfor all n. We prove the following claim.
+Claim 1. For all positive integers m, we have ms∈S.
+Proof. We proceed with induction on the number of 1’s in the binary representation of m.
+Base Case: mhas one 1 in binary, so mis a power of 2. Then ms∈Sas noted above.
+Induction Step: Assume the claim holds for all mwhich have k1’s in their binary representations.
+Suppose mhask+ 1 1’s in its binary representation. Let 2nbe the largest power of 2 which is at most
+m. Then m−2nhask1’s in its binary representation, so 2( m−2n) does as well. By the induction
+hypothesis, 2( m−2n)s∈S. Also, 2n+1s∈S, soms=2n+1s+2(m−2n)s
+2∈S, as desired.
+It follows that every multiple of sis in S. The multiples of sare precisely the multiples of d, soS
+contains every multiple of d. Now assume for sake of contradiction that Scontains some element t
+which is not a multiple of d, so we can write t=cd+rsuch that 0 < r < d . Then 2 t∈S, so
+r=2t+(−2c)d
+2∈S. But then gcd( r,2025) ≤r < d , contradicting the minimality of d. Thus Sis
+precisely the multiples of d.
+It can be verified that for any d|2025, the set of multiples of dis balanced. Indeed, as dis odd, for
+anyad,bd∈S, their average(a+b)d
+2is a multiple of dand hence also in S. Thus, any shift of such
+a set is also balanced; as seen above, these classify all balanced sets. For each d|2025, there are d
+choices for S, so the answer isP
+d|2025d=35−1
+2·53−1
+4= 3751 .
+    

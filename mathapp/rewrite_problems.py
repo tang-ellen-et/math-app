@@ -9,7 +9,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("OPENAI_API_KEY is not set.")
 # Load the data
-df = pd.read_csv("/Users/jasonyuan/Documents/git/math-app/data_sources/problems_list_v1_with_types.csv")
+df = pd.read_csv("data_sources/problems_list_v1_with_types.csv")
 
 # Create OpenAI client
 client = OpenAI(api_key=api_key)
@@ -73,28 +73,49 @@ prompt_map = prompt_map = {
     "misc": ""
 }
 
+# Set how many problems to process
+top_n = 5  # Change as needed
 
-# Loop through first 20
-for i, row in df.head(10).iterrows():
-    prob = row["Problem"]
-    ans = row["Answer"]
+# Exclude certain answer types
+types_to_exclude = ["aime_ready_integers", "misc"]
+
+modified_problems = []
+processed_count = 0
+
+for i, row in df.iterrows():
     ans_type = row["AnswerType"]
+    if ans_type in types_to_exclude:
+        modified_problems.append("N/A")
+    elif processed_count < top_n:
+        prob = row["Problem"]
+        ans = row["Answer"]
+        prompt = (
+            f"Original problem:\n{prob}\n\n"
+            f"The answer is: {ans}\n\n"
+            f"{prompt_map.get(ans_type, '')}"
+        )
+        print(f"------------------------------------------[{i}]------------------------------------------")
+        print(f"\nPrompt to GPT:\n{prompt}")
 
-    if ans_type in ["aime_ready_integers", "misc"]:
-        print("No prompt applied.")
-        continue
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.7
+        )
 
-    prompt = (
-        f"Original problem:\n{prob}\n\n"
-        f"The answer is: {ans}\n\n"
-        f"{prompt_map.get(ans_type, '')}"
-    )
-    print(f"\nPrompt to GPT:\n{prompt}")
+        print(f"\nOriginal Problem:\n{prob}")
+        print(f"\nModified Problem:\n{response.choices[0].message.content}")
+        modified_problems.append(response.choices[0].message.content)
+        processed_count += 1
+    else:
+        # If we've already processed top_n, fill the rest with To be Processed
+        modified_problems.append("To be Processed")
 
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.7
-    )
+df["modified_problem"] = modified_problems
 
-    print(f"\nModified Problem:\n{response.choices[0].message.content}")
+# Save to new CSV
+output_path = "data_sources/problems_list_v1_with_modified.csv"
+df.to_csv(output_path, index=False)
+print(f"Saved modified problems to {output_path}")
+ 
+    

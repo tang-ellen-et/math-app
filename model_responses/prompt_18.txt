@@ -1,0 +1,48 @@
+
+    Extract math problems and their solutions from this section of the HMMT November 2025 Guts round.
+    IMPORTANT RULES:
+    1. ONLY extract the solution from the solutions text, DO NOT try to solve the problems
+    2. For geometry problems with diagrams, mark them as "geometry problem, to be processed"
+    3. Format ALL mathematical expressions in proper LaTeX:
+       - Use $ for inline math and $$ for display math
+       - Use \frac{numerator}{denominator} for fractions
+       - Use \sqrt{expression} for square roots
+       - Use proper LaTeX commands for Greek letters (e.g., \alpha, \beta)
+       - Use proper LaTeX commands for operators (e.g., \sum, \int, \lim)
+       - Use proper LaTeX commands for subscripts and superscripts
+       - Use proper LaTeX commands for special symbols (e.g., \times, \div, \pm)
+    4. Extract ALL problems in the chunk, not just a few
+    5. Make sure problem numbers match between problems and solutions
+
+    Return an array of problems, where each problem has:
+    1. Problem number (as a string)
+    2. Complete problem text with proper LaTeX formatting
+    3. The final answer (from solutions only) with proper LaTeX formatting
+    4. The detailed solution (from solutions only) with proper LaTeX formatting
+
+    The response MUST be a JSON array of objects with this exact structure:
+    [
+        {
+            "id": "1",
+            "problem": "Problem text here with $\LaTeX$ formatting",
+            "answer": "Answer here with $\LaTeX$ formatting",
+            "solution": "Solution here with $\LaTeX$ formatting"
+        }
+    ]
+
+    Problems text:
+    18.[11] Letf:{1,2,3, . . . , 9} → { 1,2,3, . . . , 9}be a permutation chosen uniformly at random from the 9!
+possible permutations. Compute the expected value of f(f(···f(f(|{z}
+2025 f’s1))···)).
+
+    Solutions text:
+    18.[11] Letf:{1,2,3, . . . , 9} → { 1,2,3, . . . , 9}be a permutation chosen uniformly at random from the
+9! possible permutations. Compute the expected value of f(f(···f(f(|{z}
+2025 f’s1))···)).
+Proposed by: Linus Yifeng Tang
+Answer:7
+2
+Solution: We first compute the probability that f(1) = 1. Note that f(1) = 1 if and only if 1 is part
+of a cycle whose length divides 2025.
+We claim that for any given k, the probability that 1 is in a cycle of length kis1
+    

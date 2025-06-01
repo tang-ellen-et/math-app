@@ -1,0 +1,62 @@
+
+    Extract math problems and their solutions from this section of the HMMT November 2025 Guts round.
+    IMPORTANT RULES:
+    1. ONLY extract the solution from the solutions text, DO NOT try to solve the problems
+    2. For geometry problems with diagrams, mark them as "geometry problem, to be processed"
+    3. Format ALL mathematical expressions in proper LaTeX:
+       - Use $ for inline math and $$ for display math
+       - Use \frac{numerator}{denominator} for fractions
+       - Use \sqrt{expression} for square roots
+       - Use proper LaTeX commands for Greek letters (e.g., \alpha, \beta)
+       - Use proper LaTeX commands for operators (e.g., \sum, \int, \lim)
+       - Use proper LaTeX commands for subscripts and superscripts
+       - Use proper LaTeX commands for special symbols (e.g., \times, \div, \pm)
+    4. Extract ALL problems in the chunk, not just a few
+    5. Make sure problem numbers match between problems and solutions
+
+    Return an array of problems, where each problem has:
+    1. Problem number (as a string)
+    2. Complete problem text with proper LaTeX formatting
+    3. The final answer (from solutions only) with proper LaTeX formatting
+    4. The detailed solution (from solutions only) with proper LaTeX formatting
+
+    The response MUST be a JSON array of objects with this exact structure:
+    [
+        {
+            "id": "1",
+            "problem": "Problem text here with $\LaTeX$ formatting",
+            "answer": "Answer here with $\LaTeX$ formatting",
+            "solution": "Solution here with $\LaTeX$ formatting"
+        }
+    ]
+
+    Problems text:
+    20.[11] Compute the 100th smallest positive multiple of 7 whose digits in base 10 are all strictly less than 3.
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+    Solutions text:
+    20.
+Compute a.
+Proposed by: Pitchayut Saengrungkongka
+Answer:7
+2√
+30
+Solution 1: Recall that the functions sinh( x) =ex−e−x
+2and cosh( x) =e−x+e−x
+2satisfy the relation
+sinh(x+y) = sinh( x) cosh( y) + cosh( x) sinh( y) = sinh( x)p
+1 + sinh( y)2+ sinh( y)p
+1 + sinh( x)2.
+Since sinh is surjective, we can perform the substitution a= sinh( x),b= sinh( y), and c= sinh( z),
+which turns the equations into
+sinh(x+y) =2−1
+2
+2,
+sinh(y+z) =3
+2−2
+3
+2,
+sinh(z+x) =5
+2−2
+5
+    

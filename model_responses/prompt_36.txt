@@ -1,0 +1,59 @@
+
+    Extract math problems and their solutions from this section of the HMMT November 2025 Guts round.
+    IMPORTANT RULES:
+    1. ONLY extract the solution from the solutions text, DO NOT try to solve the problems
+    2. For geometry problems with diagrams, mark them as "geometry problem, to be processed"
+    3. Format ALL mathematical expressions in proper LaTeX:
+       - Use $ for inline math and $$ for display math
+       - Use \frac{numerator}{denominator} for fractions
+       - Use \sqrt{expression} for square roots
+       - Use proper LaTeX commands for Greek letters (e.g., \alpha, \beta)
+       - Use proper LaTeX commands for operators (e.g., \sum, \int, \lim)
+       - Use proper LaTeX commands for subscripts and superscripts
+       - Use proper LaTeX commands for special symbols (e.g., \times, \div, \pm)
+    4. Extract ALL problems in the chunk, not just a few
+    5. Make sure problem numbers match between problems and solutions
+
+    Return an array of problems, where each problem has:
+    1. Problem number (as a string)
+    2. Complete problem text with proper LaTeX formatting
+    3. The final answer (from solutions only) with proper LaTeX formatting
+    4. The detailed solution (from solutions only) with proper LaTeX formatting
+
+    The response MUST be a JSON array of objects with this exact structure:
+    [
+        {
+            "id": "1",
+            "problem": "Problem text here with $\LaTeX$ formatting",
+            "answer": "Answer here with $\LaTeX$ formatting",
+            "solution": "Solution here with $\LaTeX$ formatting"
+        }
+    ]
+
+    Problems text:
+    36.[20] Ethan initially writes some numbers on a blackboard, each of which is either a 3 or a 5. He then
+repeatedly picks two numbers and replaces them with their sum, difference, product, or quotient (if the
+divisor is nonzero). Let f(n) denote the minimum number of numbers Ethan must initially write for him
+to be able to eventually write the number n. For example, f(2025) ≤6 because Ethan could start with
+3, 3, 3, 3, 5, and 5 on the board, then repeatedly multiply two numbers at a time to eventually get 2025.
+Submit a comma-separated ordered 8-tuple of integers corresponding to the values of f(164), f(187),
+f(191), f(224), f(255), f(286), f(374), and f(479), in that order, or an X for any value you wish to leave
+blank. For instance, if you think f(164) = 9 and f(224) = 8, you should submit “9, X, X, 8, X, X, X,
+X”. You will earnj
+0.6W·(C+1)2
+4k
+points, where Cis the number of correct answers you submit and W
+is the number of incorrect (non-blank) answers.
+
+    Solutions text:
+    36.[20] Ethan initially writes some numbers on a blackboard, each of which is either a 3 or a 5. He then
+repeatedly picks two numbers and replaces them with their sum, difference, product, or quotient (if the
+divisor is nonzero). Let f(n) denote the minimum number of numbers Ethan must initially write for
+him to be able to eventually write the number n. For example, f(2025) ≤6 because Ethan could start
+with 3, 3, 3, 3, 5, and 5 on the board, then repeatedly multiply two numbers at a time to eventually
+get 2025.
+Submit a comma-separated ordered 8-tuple of integers corresponding to the values of f(164), f(187),
+f(191), f(224), f(255), f(286), f(374), and f(479), in that order, or an X for any value you wish to
+leave blank. For instance, if you think f(164) = 9 and f(224) = 8, you should submit “9, X, X, 8, X,
+X, X, X”. You will earnj
+    

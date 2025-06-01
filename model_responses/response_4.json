@@ -1,0 +1,6 @@
+{  
+   "id":"4",
+   "problem":"Let $\\triangle ABC$ be an equilateral triangle with side length 4. Across all points $P$ inside triangle $\\triangle ABC$ satisfying $[PAB] + [PAC] = [PBC]$, compute the minimum possible length of $PA$. (Here, $[XYZ]$ denotes the area of triangle $\\triangle XYZ$.)",
+   "answer":"geometry problem, to be processed",
+   "solution":"geometry problem, to be processed"
+}

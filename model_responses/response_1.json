@@ -1,0 +1,8 @@
+
+    {
+        "id": "1",
+        "problem": "Call a 9-digit number a cassowary if it uses each of the digits 1 through 9 exactly once. Compute the number of cassowaries that are prime.",
+        "answer": "0",
+        "solution": "Every cassowary is divisible by 3, as the sum of its digits is $1 + 2 + \text{···} + 9 = 45$. Since all such numbers are divisible by 3 and greater than 3, none of them are prime. So, there are 0 prime cassowaries."
+    }
+ 

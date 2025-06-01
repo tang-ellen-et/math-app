@@ -1,0 +1,10 @@
+
+
+    
+    {
+        "id": "12",
+        "problem": "Holden has a collection of polygons. He writes down a list containing the measure of each interior angle of each of his polygons. He writes down the list $30^\text{◦}$, $50^\text{◦}$, $60^\text{◦}$, $70^\text{◦}$, $90^\text{◦}$, $100^\text{◦}$, $120^\text{◦}$, $160^\text{◦}$, and $x^\text{◦}$, in some order. Compute $x$.",
+        "answer": "$220$",
+        "solution": "We work in degrees. The sum of all $9$ angles is $680 + x$. The sum of the angles in a polygon with $n$ sides is $180(n - 2) \\equiv 180n \\mod 360$. Since there are $9$ angles, the polygons have a total of $9$ sides, so the sum of the $9$ angles must be $9 \\times 180 \\equiv 180 \\mod 360$. Thus $680 + x \\equiv 180 \\mod 360$, so $x \\equiv 220 \\mod 360$. Since $0 < x < 360$, we know $x = 220$."
+    }
+    

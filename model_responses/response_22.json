@@ -1,0 +1,9 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+    
+
+    {
+        "id": "22",
+        "problem": "Let $a, b,$ and $c$ be real numbers such that $a^2(b+c) = 1, b^2(c+a) = 2,$ and $c^2(a+b) = 5$. Given that there are three possible values for $abc$, compute the minimum possible value of $abc$.",
+        "answer": "$-5 - \\frac{\\sqrt{5}}{2}$",
+        "solution": "Let $x = abc$. Multiplying all equations together and simplifying gives \n$$(abc)^2(a+b)(b+c)(c+a) = 10,$$\n$$(abc)^2\\left(a^2(b+c) +b^2(c+a) +c^2(a+b) + 2abc\\right) = 10,$$\n$$x^2(x+ 4) = 5.$$\nThe resulting cubic factors as $(x-1)(x^2+ 5x+ 5) = 0$. Therefore, the smallest possible value of $abc$ is $$-5 - \\frac{\\sqrt{5}}{2}.$$"
+    }

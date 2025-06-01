@@ -1,0 +1,59 @@
+
+    Extract math problems and their solutions from this section of the HMMT November 2025 Guts round.
+    IMPORTANT RULES:
+    1. ONLY extract the solution from the solutions text, DO NOT try to solve the problems
+    2. For geometry problems with diagrams, mark them as "geometry problem, to be processed"
+    3. Format ALL mathematical expressions in proper LaTeX:
+       - Use $ for inline math and $$ for display math
+       - Use \frac{numerator}{denominator} for fractions
+       - Use \sqrt{expression} for square roots
+       - Use proper LaTeX commands for Greek letters (e.g., \alpha, \beta)
+       - Use proper LaTeX commands for operators (e.g., \sum, \int, \lim)
+       - Use proper LaTeX commands for subscripts and superscripts
+       - Use proper LaTeX commands for special symbols (e.g., \times, \div, \pm)
+    4. Extract ALL problems in the chunk, not just a few
+    5. Make sure problem numbers match between problems and solutions
+
+    Return an array of problems, where each problem has:
+    1. Problem number (as a string)
+    2. Complete problem text with proper LaTeX formatting
+    3. The final answer (from solutions only) with proper LaTeX formatting
+    4. The detailed solution (from solutions only) with proper LaTeX formatting
+
+    The response MUST be a JSON array of objects with this exact structure:
+    [
+        {
+            "id": "1",
+            "problem": "Problem text here with $\LaTeX$ formatting",
+            "answer": "Answer here with $\LaTeX$ formatting",
+            "solution": "Solution here with $\LaTeX$ formatting"
+        }
+    ]
+
+    Problems text:
+    27.[14] Compute the number of ordered pairs ( m, n) ofoddpositive integers both less than 80 such that
+gcd(4m+ 2m+ 1,4n+ 2n+ 1)>1.
+
+    Solutions text:
+    27.[14] Compute the number of ordered pairs ( m, n) ofoddpositive integers both less than 80 such that
+gcd(4m+ 2m+ 1,4n+ 2n+ 1)>1.
+Proposed by: Pitchayut Saengrungkongka
+Answer: 820
+Solution: First, we characterize all ordered pairs of general (not necessarily odd) positive integers
+(m, n) such that gcd(4m+ 2m+ 1,4n+ 2n+ 1)>1. We claim that ( m, n) works if and only if either
+•mandnare both even, or
+•ν3(m) =ν3(n).
+Proof of necessity. Suppose that pis a prime that divides both 4m+ 2m+ 1 and 4n+ 2n+ 1. If
+p= 3, mandnmust both be even. Henceforth assume that p̸= 3. Let dbe the order of 2 modulo
+p. Then, as p|23m−1, we find that d|3m. Furthermore, we cannot have p|2m−1. Otherwise, by
+lifting the exponent (and p̸= 3),
+νp(23m−1) = νp(2m−1) +νp(3) = νp(2m−1) =⇒νp(4m+ 2m+ 1) = 0 .
+The previous two results imply ν3(d) =ν3(m) + 1. Similarly, ν3(d) =ν3(n) + 1, so ν3(m) =ν3(n).
+Proof of sufficiency. Ifmandnare both even, then 3 divides both 4m+ 2m+ 1 and 4n+ 2n+ 1.
+Ifν3(m) =ν3(n) =k, then we claim that 43k+ 23k+ 1 divides both 4m+ 2m+ 1 and 4n+ 2n+ 1.
+Indeed, note that as polynomials, x2+x+ 1 divides x2ℓ+xℓ+ 1 when 3 ∤ℓ. Plugging in x= 23kwith
+ℓ=m/3kandℓ=n/3kyields the desired result.
+Answer Extraction. We count pairs of odd integers ( m, n) less than 80 with ν3(m) =ν3(n). Of all
+integers in the set {1,3,5, . . . , 79}, there are 27, 9, 3, and 1 of them that have ν3equal to 0, 1, 2, and
+3, respectively. Hence, the answer is 272+ 92+ 32+ 12= 820 .
+    

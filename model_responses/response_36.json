@@ -1,0 +1,8 @@
+   
+    
+    {
+        "id": "36",
+        "problem": "Ethan initially writes some numbers on a blackboard, each of which is either a 3 or a 5. He then repeatedly picks two numbers and replaces them with their sum, difference, product, or quotient (if the divisor is nonzero). Let $f(n)$ denote the minimum number of numbers Ethan must initially write for him to be able to eventually write the number $n$. For example, $f(2025) \\leq 6$ because Ethan could start with 3, 3, 3, 3, 5, and 5 on the board, then repeatedly multiply two numbers at a time to eventually get 2025. Submit a comma-separated ordered 8-tuple of integers corresponding to the values of $f(164)$, $f(187)$, $f(191)$, $f(224)$, $f(255)$, $f(286)$, $f(374)$, and $f(479)$, in that order, or an X for any value you wish to leave blank. For instance, if you think $f(164) = 9$ and $f(224) = 8$, you should submit “9, X, X, 8, X, X, X, X”. You will earn $0.6W\\cdot(C+1)^2 / 4k$ points, where $C$ is the number of correct answers you submit and $W$ is the number of incorrect (non-blank) answers.",
+        "answer": "",
+        "solution": "This problem does not provide a detailed solution process for finding the values of $f(n)$ for the specified $n$. As the text implies a method without explicitly stating any solutions, no specific answers can be extracted from the given solution text. Participants are expected to determine their own strategies for finding the minimum number of numbers required."
+    }
