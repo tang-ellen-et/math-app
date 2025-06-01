@@ -2,10 +2,11 @@ import pandas as pd
 import openai  # Requires openai Python SDK
 from test_AIME_formatter import rewrite_problem
 import csv
+import os
 
 if __name__ == "__main__":
     # Set your API key here or export as environment variable
-    openai.api_key = "" 
+    openai.api_key = os.getenv("OPENAI_API_KEY")
     #change this later
     csv_filename = "data_sources/problems_list_v1.csv"
 

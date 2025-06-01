@@ -3,6 +3,7 @@ import os
 
 # Set your OpenAI API key from an environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
+print(openai.api_key)  # Ensure the key is set correctly
 
 def rewrite_problem(problem, answer):
     system_prompt = """

@@ -12,3 +12,4 @@ reflex.db
 .crossnote/
 venv01/
 node_modules/
+.env
