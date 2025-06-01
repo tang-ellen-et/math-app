@@ -90,7 +90,7 @@ prompt_map = prompt_map = {
 }
 
 # Set how many problems to process
-top_n = 5  # Change as needed
+top_n = -1  # Change as needed; set to -1 to process all
 
 # Exclude certain answer types
 types_to_exclude = ["aime_ready_integers", "misc"]
@@ -98,11 +98,11 @@ types_to_exclude = ["aime_ready_integers", "misc"]
 modified_problems = []
 processed_count = 0
 
-for i, row in df.iloc[221:235].iterrows():
+for i, row in df.iterrows():
     ans_type = row["AnswerType"]
     if ans_type in types_to_exclude:
         modified_problems.append("N/A")
-    elif processed_count < top_n:
+    elif top_n == -1 or processed_count < top_n:
         prob = row["Problem"]
         ans = row["Answer"]
         prompt = (
@@ -124,14 +124,13 @@ for i, row in df.iloc[221:235].iterrows():
         modified_problems.append(response.choices[0].message.content)
         processed_count += 1
     else:
-        # If we've already processed top_n, fill the rest with To be Processed
         modified_problems.append("To be Processed")
 
-#df["modified_problem"] = modified_problems
+df["modified_problem"] = modified_problems
 
 # Save to new CSV
-#output_path = "data_sources/problems_list_v1_with_modified.csv"
-#df.to_csv(output_path, index=False)
-#print(f"Saved modified problems to {output_path}")
+output_path = "data_sources/problems_list_v1_with_modified.csv"
+df.to_csv(output_path, index=False)
+print(f"Saved modified problems to {output_path}")
  
     
