@@ -1,0 +1,626 @@
+Answer,Solution,Source,Year,Type,Competition,Difficulty,Img,Problem,AnswerType
+4896,,BMT 2022 Guts #15,2022,Algebra,BMT,4.5,,"Let $f(x)$ be a function acting on a string of 0s and 1s, defined to be the number of substrings of $x$ that have at least one 1, where a substring is a contiguous sequence of characters in $x$.
+Let S be the set of binary strings with 24 ones and 100 total digits. Compute the maximum possible value of $f(s)$ over all $s\in S$
+For example, $f(110)=5$ as 1, 1, 0, 11, 10, and 110 are all substrings including a 1. Note that 0 is not such a substring.",large_integers
+60√3/7,,BMT 2022 Guts #16,2022,Geometry,BMT,5.0,,"Let triangle $\triangle ABC$ be a triangle with $AB=5$, $BC=7,$ and $CA=8,$ and let I be the incenter of $\triangle ABC$. Let circle $C_{A}$ denote the circle with center A and radius $\overline{AI}$ denote $C_{B}$ and circle $C_{C}$ similarly. Besides all intersecting at $I,$ the circles $C_{A}$, $C_{B}$, $C_{C}$ also intersect pairwise at F, G, and H. Compute the area of triangle $\triangle FGH.$",roots
+207,,BMT 2022 Guts #17,2022,Algebra,BMT,5.0,,"Compute the number of ordered triples (a, b, c) of integers between -100 and 100 inclusive satisfying the simultaneous equations
+$a^{3}-2a=abc-b-c$,
+$b^{3}-2b=bca-c-a$, and $c^{3}-2c=cab-a-b$.",aime_ready_integers
+17,,BMT 2022 Guts #18,2022,Number Theory,BMT,5.5,,"Nir finds integers $a_{0},a_{1},...,a_{208}$ such that $
+(x+2)^{208}=a_{0}x^{0}+a_{1}x^{1}+a_{2}x^{2}+\cdot\cdot\cdot+a_{208}x^{208}.
+$
+Let S be the sum of all $a_{n}$ such that $n-3$ is divisible by 5. Compute the remainder when S is divided by 103.",aime_ready_integers
+390050,,BMT 2022 Guts #22,2022,Number Theory,BMT,6.5,,"Set $n=425425$ Let S be the set of proper divisors of n. Compute the remainder when
+$
+\sum_{k\in S}\varphi(k)\binom{2n/k}{n/k}
+$
+is divided by $2n,$ where $\varphi(x)$ is the number of positive integers at most $x$ that are relatively prime to it.",large_integers
+115/33,,BMT 2022 Guts #23,2022,Counting,BMT,6.5,,"Carson the farmer has a plot of land full of crops in the shape of a $6\times6$ grid of squares. Each day, he uniformly at random chooses a row or a column of the plot that he hasn't chosen before and harvests all of the remaining crops in the row or column. Compute the expected number of connected components that the remaining crops form after 6 days. If all crops have been harvested, we say there are 0 connected components.",fractions
+3√3/16,,BMT 2022 Guts #24,2022,Geometry,BMT,7.5,,"Let $\triangle BCD$ be an equilateral triangle and A be a point on the circumcircle of ABCD such that A is on the minor arc $\hat{BD}.$ Then, let P be the intersection of AB with $CD_{1}$ Q be the intersection of $\overline{AC}$ with $\overline{DB},$ and R be the intersection of $\overline{AD}$ with $\overline{BC}$ Finally, let X, Y, and Z be the feet of the altitudes from P, $Q,$ and $R,$ respectively, in triangle APQR. Given $BQ=3-\sqrt{5}$ and $BC=2,$ compute the product of the areas $[\triangle XCD]\cdot[\triangle YDB]\cdot[\triangle ZBC]$.",roots
+0,,BmMT 2022 Individual #1,2022,Algebra,BmMT,1.0,,"Nikhil computes the sum of the first 10 positive integers, starting from 1. He then divides that sum by 5. What remainder does he get?",aime_ready_integers
+12,,BmMT 2022 Individual #2,2022,Number Theory,BmMT,1.0,,"In class, starting at 8:00, Ava claps her hands once every 4 minutes, while Ella claps her hands once every 6 minutes. What is the smallest number of minutes after 8:00 such that both Ava and Ella clap their hands at the same time?",aime_ready_integers
+4,,BmMT 2022 Individual #3,2022,Geometry,BmMT,1.0,,"A triangle has side lengths 3, 4, and 5. If all of the side lengths of the triangle are doubled, how many times larger is the area?",aime_ready_integers
+50,,BmMT 2022 Individual #4,2022,Algebra,BmMT,1.0,,"There are 50 students in a room. Every student is wearing either 0, 1, or 2 shoes. An even number of the students are wearing exactly 1 shoe. Of the remaining students, exactly half of them have 2 shoes and half of them have 0 shoes. How many shoes are worn in total by the 50 students?",aime_ready_integers
+4044,,BmMT 2022 Individual #5,2022,Algebra,BmMT,1.0,,What is the value of $-2+4-6+8-\cdot\cdot\cdot+8088?$,large_integers
+1/3,,BmMT 2022 Individual #6,2022,Counting,BmMT,1.0,,"Suppose Lauren has 2 cats and 2 dogs. If she chooses 2 of the 4 pets uniformly at random, what is the probability that the 2 chosen pets are either both cats or both dogs?",fractions
+3√3,,BmMT 2022 Individual #7,2022,Geometry,BmMT,1.5,,"Let triangle $\triangle ABC$ be equilateral with side length 6. Points E and F lie on $\overline{BC}$ such that E is closer to B than it is to C and F is closer to C than it is to B. If $BE=EF=FC$, what is the area of triangle $AAFE$?",roots
+3,,BmMT 2022 Individual #8,2022,Algebra,BmMT,1.5,,The two equations $x^{2}+ax-4=0$ and $x^{2}-4x+a=0$ share exactly one common solution for $x$. Compute the value of a.,aime_ready_integers
+7,,BmMT 2022 Individual #9,2022,Algebra,BmMT,1.5,,"At Shreymart, Shreyas sells apples at a price c. A customer who buys n apples pays nc dollars, rounded to the nearest integer, where we always round up if the cost ends in .5. For example, if the cost of the apples is 4.2 dollars, a customer pays 4 dollars. Similarly, if the cost of the apples is 4.5 dollars, a customer pays 5 dollars. If Justin buys 7 apples for 3 dollars and 4 apples for 1 dollar, how many dollars should he pay for 20 apples?",aime_ready_integers
+2,,BmMT 2022 Individual #10,2022,Geometry,BmMT,2.0,,"In triangle $\triangle ABC$ the angle trisector of $\angle BAC$ closer to $\overline{AC}$ than $\overline{AB}$ intersects $\overline{BC}$ at D. Given that triangle $\triangle ABD$ is equilateral with area 1, compute the area of triangle $\triangle ABC$.",aime_ready_integers
+5,,BmMT 2022 Individual #11,2022,Number Theory,BmMT,1.5,,"Wanda lists out all the primes less than 100 for which the last digit of that prime equals the last digit of that prime's square. For instance, 71 is in Wanda's list because its square, 5041, also has 1 as its last digit. What is the product of the last digits of all the primes in Wanda's list?",aime_ready_integers
+22,,BmMT 2022 Individual #12,2022,Counting,BmMT,2.0,,"How many ways are there to arrange the letters of SUSBUS such that SUS appears as a contiguous substring? For example, SUSBUS and USSUSB are both valid arrangements, but SUBSSU is not.",aime_ready_integers
+144,,BmMT 2022 Individual #13,2022,Algebra,BmMT,2.5,,"Suppose that $x$ and $y$ are integers such that $x\ge5$, $y\ge3$ and $\sqrt{x-5}+\sqrt{y-3}=\sqrt{x+y}.$ Compute the maximum possible value of $xy$.",aime_ready_integers
+2464,,BmMT 2022 Individual #14,2022,Algebra,BmMT,2.5,,What is the largest integer k divisible by 14 such that $x^{2}-100x+k=0$ has two distinct integer roots?,large_integers
+18888,,BmMT 2022 Individual #15,2022,Algebra,BmMT,2.5,,What is the sum of the first 16 positive integers whose digits consist of only 0s and 1s?,large_integers
+21/41,,BmMT 2022 Individual #16,2022,Counting,BmMT,2.5,,"Jonathan and Ajit are flipping two unfair coins. Jonathan's coin lands on heads with probability $\frac{1}{20}$ while Ajit's coin lands on heads with probability $\frac{1}{22}$. Each year , they flip their coins at the same time, independently of their previous flips. Compute the probability that Jonathan's coin lands on heads strictly before Ajit's coin does.",fractions
+√2-1,,BmMT 2022 Individual #17,2022,Geometry,BmMT,3.0,,A point is chosen uniformly at random in square ABCD. What is the probability that it is closer to one of the 4 sides than to one of the 2 diagonals?,roots
+5940,,BmMT 2022 Individual #18,2022,Number Theory,BmMT,2.5,,"Two integers are coprime if they share no common positive factors other than 1. For example, 3 and 5 are coprime because their only common factor is 1. Compute the sum of all positive integers that are coprime to 198 and less than 198.",large_integers
+308,,BmMT 2022 Individual #19,2022,Number Theory,BmMT,3.5,,"Sumith lists out the positive integer factors of 12 in a line, writing them out in increasing order as 1, 2, 3, 4, 6, 12. Luke, being the mischievious person he is, writes down a permutation of those factors and lists it right under Sumith's as $a_{1}$, $a_{2}$, $a_{3}$, $a_{4}$ $a_{5}$, $a_{6}$ Luke then calculates
+$
+gcd(a_1, 2a_2, 3a_3, 4a_4, 6a_5, 12a_6).
+$
+Given that Luke's result is greater than 1, how many possible permutations could he have written?",aime_ready_integers
+√5,,BmMT 2022 Individual #20,2022,Geometry,BmMT,4.0,,"Tetrahedron ABCD is drawn such that $DA=DB=DC=2$, $\angle ADB=\angle ADC=90^{\circ}$, and $\angle BDC=120^{\circ}$. Compute the radius of the sphere that passes through A, B, C, and D.",roots
+57,,BmMT 2022 Team #1,2022,Algebra,BmMT,1.0,,"If $x^{2}=7$, what is $x^{4}+x^{2}+1?$",aime_ready_integers
+20,,BmMT 2022 Team #2,2022,Algebra,BmMT,1.0,,"Richard and Alex are competing in a 150-meter race. If Richard runs at a constant speed of 5 meters per second and Alex runs at a constant speed of 3 meters per second, how many more seconds does it take for Alex to finish the race?",aime_ready_integers
+59,,BmMT 2022 Team #3,2022,Algebra,BmMT,1.0,,"David and Emma are playing a game with a chest of 100 gold coins. They alternate turns, taking one gold coin if the chest has an odd number of gold coins or taking exactly half of the gold coins if the chest has an even number of gold coins. The game ends when there are no more gold coins in the chest. If Emma goes first, how many gold coins does Emma have at the end?",aime_ready_integers
+625,,BmMT 2022 Team #4,2022,Number Theory,BmMT,1.0,,What is the only 3-digit perfect square whose digits are all different and whose units digit is 5?,aime_ready_integers
+36,,BmMT 2022 Team #5,2022,Geometry,BmMT,1.5,,"In regular pentagon ABCDE, let F be the midpoint of $\overline{AB},$ G be the midpoint of $\overline{CD}$ and H be the midpoint of $\overline{AE}.$ What is the measure of $\angle FGH$ in degrees?",aime_ready_integers
+21,,BmMT 2022 Team #6,2022,Algebra,BmMT,1.5,,Water enters at the left end of a pipe at a rate of 1 liter per 35 seconds. Some of the water exits the pipe through a leak in the middle. The rest of the water exits from the right end of the pipe at a rate of 1 liter per 36 seconds. How many minutes does it take for the pipe to leak a liter of water?,aime_ready_integers
+4056,,BmMT 2022 Team #7,2022,Geometry,BmMT,1.5,,"Carson wants to create a wire frame model of a right rectangular prism with a volume of 2022 cubic centimeters, where strands of wire form the edges of the prism. He wants to use as much wire as possible. If Carson also wants the length, width, and height in centimeters to be distinct whole numbers, how many centimeters of wire does he need to create the prism?",large_integers
+384,,BmMT 2022 Team #8,2022,Counting,BmMT,2.0,,"How many ways are there to fill the unit squares of a $3\times5$ grid with the digits 1, 2, and 3 such that every pair of squares that share a side differ by exactly 1?",aime_ready_integers
+183,,BmMT 2022 Team #9,2022,Geometry,BmMT,2.0,,"In pentagon ABCDE, $AB=54$ $AE=45$, $DE=18$, $\angle A=\angle C=\angle E$, D is on line segment $\overline{BE}$ and line $\overleftrightarrow{BD}$ bisects angle $\angle ABC$. What is the perimeter of pentagon ABCDE?",aime_ready_integers
+25/63,,BmMT 2022 Team #10,2022,Algebra,BmMT,2.0,,If $x$ and $y$ are nonzero real numbers such that $\frac{7}{x}+\frac{8}{y}=91$ and $\frac{6}{x}+\frac{10}{y}=89$ what is the value of $x+y?$,fractions
+13,,BmMT 2022 Team #11,2022,Logic,BmMT,2.5,,"Hilda and Marianne play a game with a shuffled deck of 10 cards, numbered from 1 to 10. Hilda draws five cards, and Marianne picks up the five remaining cards. Hilda observes that she does not have any pair of consecutive cards - that is, no two cards have numbers that differ by exactly 1. Additionally, the sum of the numbers on Hilda's cards is 1 less than the sum of the numbers on Marianne's cards. Marianne has exactly one pair of consecutive cards what is the sum of this pair?",aime_ready_integers
+9√3/2,,BmMT 2022 Team #12,2022,Geometry,BmMT,2.5,,Regular hexagon AUSTIN has side length 2. Let M be the midpoint of line segment $\overline{ST}.$ What is the area of pentagon MINUS?,roots
+6,,BmMT 2022 Team #13,2022,Algebra,BmMT,2.5,,"At a collector's store, plushes are either small or large and cost a positive integer number of dollars. All small plushes cost the same price, and all large plushes cost the same price. Two small plushes cost exactly one dollar less than a large plush. During a shopping trip, Isaac buys some plushes from the store for 59 dollars. What is the smallest number of dollars that the small plush could not possibly cost?",aime_ready_integers
+37/432,,BmMT 2022 Team #14,2022,Counting,BmMT,3.0,,Four fair six-sided dice are rolled. What is the probability that the median of the four outcomes is 5?,fractions
+1330,,BmMT 2022 Team #15,2022,Algebra,BmMT,3.0,,"Suppose $x_{1},x_{2},...,x_{2022}$ is a sequence of real numbers such that:
+    $x_{1}+x_{2}=1$,
+    $x_{2}+x_{3}=2$
+    $\cdots$, and 
+    $x_{2021}+x_{2022}=2021.$
+    If $x_{1}+x_{499}+x_{999}+x_{1501}=222$, then what is the value of $x_{2022}$?",large_integers
+32π/7,,BmMT 2022 Team #16,2022,Geometry,BmMT,3.0,,"A cone has radius 3 and height 4. An infinite number of spheres are placed in the cone in the following way: sphere $C_{0}$ is placed inside the cone such that it is tangent to the base of the cone and to the curved surface of the cone at more than one point, and for $i\ge1$ sphere $C_{i}$ is placed such that it is externally tangent to sphere $C_{i-1}$ and internally tangent to more than one point of the curved surface of the cone. If
+$V_{i}$ is the volume of sphere $C_{i}$, compute
+$V_{0}+V_{1}+V_{2}+\cdot\cdot\cdot.$",pi
+23405,,BmMT 2022 Team #17,2022,Number Theory,BmMT,3.5,,"Call an ordered pair, $(x,y)$, relatable if $x$ and $y$ are positive integers where $y$ divides 3600, $x$ divides $y$, and $\frac{y}{x}$ is a prime number. For every relatable ordered pair, Leanne wrote down the positive difference of the two terms of the pair. What is the sum of the numbers she wrote down?",large_integers
+271,,BmMT 2022 Team #18,2022,Algebra,BmMT,4.0,,"Let r, s, and t be the three roots of $P(x)=x^{3}-9x-9.$ Compute the value of
+$
+(r^{3}+r^{2}-10r-8)(s^{3}+s^{2}-10s-8)(t^{3}+t^{2}-10t-8).
+$",aime_ready_integers
+30,,BmMT 2022 Team #19,2022,Counting,BmMT,4.5,,"Compute the number of ways to color the digits $0,1,2,3,4,5,6,7,8,$ and 9 red, blue, or green such that:
+(a) every prime integer has at least one digit that is not blue, and
+(b) every composite integer has at least one digit that is not green.
+Note that 0 is not composite. For example, since 12 is composite, either the digit 1, the digit 2, or both must be not green.",aime_ready_integers
+√113 - 9,,BmMT 2022 Team #20,2022,Geometry,BmMT,5.0,,Pentagon ABCDE has $AB=DE=4$ and $BC=CD=9$ with $\angle ABC=\angle CDE=90^{\circ}.$ and there exists a circle tangent to all five sides of the pentagon. What is the length of segment $\overline{AE}$?,roots
+21,,BMT 2023 General #1,2023,Algebra,BMT,1.0,,"Arjun eats twice as many chocolates as Theo, and Wen eats twice as many chocolates as Arjun. If Arjun eats 6 chocolates, compute the total number of chocolates that Arjun, Theo, and Wen eat.",aime_ready_integers
+-10,,BMT 2023 General #2,2023,Algebra,BMT,1.0,,Compute $1 \times 4 - 2 \times 3 + 2 \times 5 - 3 \times 4 + 3 \times 6 - 4 \times 5 + 4 \times 7 - 5 \times 6 + 5 \times 8 - 6 \times 7$.,negative_integers
+2√5,,BMT 2023 General #3,2023,Geometry,BMT,1.0,,"A semicircle of radius 2 is inscribed inside of a rectangle, as shown in the diagram below. The diameter of the semicircle coincides with the bottom side of the rectangle, and the semicircle is tangent to the rectangle at all points of intersection. Compute the length of the diagonal of the rectangle.",roots
+75,,BMT 2023 General #4,2023,Algebra,BMT,1.0,,"Suppose a, b, and c are numbers satisfying the three equations:
+$a+2b=20$,
+$b+2c=2$,
+$c+2a=3$.
+Find $9a+9b+9c$.",aime_ready_integers
+1,,BMT 2023 General #5,2023,Algebra,BMT,1.0,,"Lakshay chooses two numbers, m and n, and draws two lines, $y=mx+3$ and $y=nx+23.$ Given that the two lines intersect at (20, 23), compute $m+n.$",aime_ready_integers
+171,,BMT 2023 General #6,2023,Number Theory,BMT,1.5,,"Compute the three-digit number that satisfies the following properties:
+1. The hundreds digit and ones digit are the same, but the tens digit is different.
+2. The number is divisible by 9.
+3. When the number is divided by 5, the remainder is 1.",aime_ready_integers
+6069,,BMT 2023 General #7,2023,Algebra,BMT,1.5,,"Recall that an arithmetic sequence is a sequence of numbers such that the difference between any two consecutive terms is the same. Suppose $x_{1}$, $x_{2}$, $x_{3}$ forms an arithmetic sequence. If $x_{2}=2023$ compute $x_{1}+x_{2}+x_{3}$",large_integers
+4,,BMT 2023 General #8,2023,Number Theory,BMT,1.5,,One of Landau's four unsolved problems asks whether there are infinitely many primes p such that $p-1$ is a perfect square. How many such primes are there less than 100?,aime_ready_integers
+-18,,BMT 2023 General #9,2023,Algebra,BMT,1.5,,"The boxes in the expression below are filled with the numbers 3, 4, 5, 6, 7, and 8, so that each number is used exactly once. What is the least possible value of the expression? $
+\Box \times \Box + \frac{\Box}{\Box} - \Box \times \Box
+$",negative_integers
+9π,,BMT 2023 General #10,2023,Geometry,BMT,2.0,,"Consider an equilateral triangle with side length 9. Each side is divided into 3 equal segments by 2 points, for a total of 6 points. Compute the area of the circle passing through these 6 points.",pi
+490,,BMT 2023 General #11,2023,Algebra,BMT,2.0,,"Consider two geometric sequences 16, $a_{1},a_{2},...$ and 56, $b_{1}, b_{2},...$ with the same common nonzero ratio . Given that $a_{2023}=b_{2020}$ , compute $b_{6}-a_{6}.$",aime_ready_integers
+12,,BMT 2023 General #12,2023,Algebra,BMT,2.0,,Find the greatest integer less than $\sqrt{10}+\sqrt{80}.$,aime_ready_integers
+90,,BMT 2023 General #13,2023,Counting,BMT,2.5,,"Three people, Pranav, Sumith, and Jacklyn, are attending a fair. Every time a person enters or exits, the groundskeeper writes their name down in chronological order. If each person enters and exits the fairgrounds exactly once, in how many ways can the groundskeeper write down their names?",aime_ready_integers
+43,,BMT 2023 General #14,2023,Algebra,BMT,2.5,,"For real numbers $x$ and $y$, suppose that $|x|-|y|=20$ and $|x|+|y|=23.$ Compute the sum of all possible distinct values of $|x-y|$.",aime_ready_integers
+1111,,BMT 2023 General #15,2023,Counting,BMT,2.5,,Find the number of positive integers n less than 10000 such that there are more 4's in the digits of $n+1$ than in the digits of n.,large_integers
+1232,,BMT 2023 General #16,2023,Number Theory,BMT,2.5,,"Let n be the smallest positive integer such that there exist integers, a, b, and c, satisfying:
+$
+\frac{n}{2}=a^{2} , \frac{n}{3}=b^{3} , \frac{n}{5}=c^{5} .
+$
+Find the number of positive integer factors of n.",large_integers
+1560π,,BMT 2023 General #17,2023,Geometry,BMT,3.0,,"Jingyuan is designing a bucket hat for BMT merchandise. The hat has the shape of a cylinder on top of a truncated cone. The cylinder has radius 9 and height 12. The truncated cone has base radius 15 and height 4, and its top radius is the same as the cylinder's radius. Compute the total volume of this bucket hat.",pi
+6/11,,BMT 2023 General #18,2023,Counting,BMT,3.0,,"Kait rolls a fair 6-sided die until she rolls a 6. If she rolls a 6 on the Nth roll, she then rolls the die N more times. What is the probability that she rolls a 6 during these next N times?",fractions
+30,,BMT 2023 General #19,2023,Geometry,BMT,3.5,,"Let w be a circle with center O and radius 8, and let A be a point such that $AO=17.$ Let P and Q be points on w such that line segments $\overline{AP}$ and $\overline{AQ}$ are tangent to w. Let B and C be points chosen on $\overline{AP}$ and $\overline{AQ}$, respectively, such that $\overline{BC}$ is also tangent to w. Compute the perimeter of triangle $\triangle ABC$.",aime_ready_integers
+71,,BMT 2023 General #20,2023,Number Theory,BMT,4.0,,"Call a positive integer, n, ready if all positive integer divisors of n have a ones digit of either 1 or 3. Let S be the sum of all positive integer divisors of 32! that are ready. Compute the remainder when S is divided by 131.",aime_ready_integers
+2006,,BMT 2023 General #21,2023,Algebra,BMT,4.0,,"Let $p, q,$ and $r$ be the three roots of the polynomial $x^{3}-2x^{2}+3x-2023$ Suppose that the polynomial $x^{3}+Bx^{2}+Mx+T$ has roots $p+q$, $p+r$, and $q+r$ for real numbers B, M, and T. Compute $B-M+T.$",large_integers
+5/7,,BMT 2023 General #22,2023,Geometry,BMT,4.0,,"Triangle $\triangle ABC$ has side lengths $AB=8$, $BC=15$, and $CA=17$ Circles $\omega_{1}$ and $\omega_{2}$ are externally tangent to each other and within $\triangle ABC$. The radius of circle $\omega_{2}$ is four times the radius of circle $\omega_{1}$. Circle $\omega_{1}$ is tangent to $\overline{AB}$ and $\overline{BC}$ and circle $\omega_{2}$ is tangent to $\overline{BC}$ and $\overline{CA}.$ Compute the radius of circle $\omega_{1}$.",fractions
+51,,BMT 2023 General #23,2023,Number Theory,BMT,4.5,,"Let N be the number of positive integers less than $210^{2023}$ such that $
+lcm(gcd(x, 1734), gcd(x+17,x+1732))
+$
+divides 2023. Compute the sum of the prime factors of N with multiplicity. (For example, if $S=75=3^{1}\cdot5^{2}.$ then the answer is $1\cdot3+2\cdot5=13)$.",aime_ready_integers
+80,,BMT 2023 General #24,2023,Algebra,BMT,4.5,,"Define a sequence $a_{0},a_{1},a_{2},...$ recursively by $a_{0}=0$, $a_{1}=1,$ and $a_{n+2}=a_{n+1}+xa_{n}$ for each $n\ge0$ and some real number $x$. The infinite series
+$
+\sum_{n=0}^{\infty}\frac{a_{n}}{10^{n}}=1.
+$
+Compute $x$.",aime_ready_integers
+3√11/11,,BMT 2023 General #25,2023,Geometry,BMT,5.0,,"A tetrahedron has three edges of length 2 and three edges of length 4, and one of its faces is an equilateral triangle. Compute the radius of the sphere that is tangent to every edge of this tetrahedron.",roots
+490,,BMT 2023 Algebra #3,2023,Algebra,BMT,2.5,,"Consider two geometric sequences 16, $a_{1},a_{2},...$ and $6,b_{1},b_{2},...$ with the same common nonzero ratio . Given that $a_{2023}=b_{2020}.$ compute $b_{6}-a_{6}.$",aime_ready_integers
+388,,BMT 2023 Algebra #4,2023,Algebra,BMT,2.5,,"Let $f(x)$ be a continuous function over the real numbers such that for every integer $n$, $f(n)=n^{2}$ and $f(x)$ is linear over the interval $[n,n+1]$. There exists a unique two-variable polynomial $g$ such that $g(x,\lfloor x\rfloor)=f(x)$ for all $x$. Compute $g(20,23)$. (Here, $\lfloor x\rfloor$ is defined as the greatest integer less than or equal to $x$. For example, $\lfloor2\rfloor=2$ and $\lfloor-3.5\rfloor=-4$.)",aime_ready_integers
+376,,BMT 2023 Algebra #7,2023,Algebra,BMT,4.5,,"Nikhil constructs a list of all polynomial pairs $(a(x),b(x))$ with real coefficients such that $a(x)$ has higher degree than $b(x)$ and $a(x)^{2}+b(x)^{2}=x^{10}+1$ Danielle takes Nikhil's list and adds all polynomial pairs that satisfy the same conditions but have complex coefficients. If Nikhil's original list had N pairs and Danielle added D pairs, compute $D-N$",aime_ready_integers
+5+3√2,,BMT 2023 Algebra #8,2023,Algebra,BMT,5.5,,"Compute the smallest real $t$ such that there exist constants $a, b$ for which the roots of $x^{3}-ax^{2}+ bx-\frac{ab}{t}$ are the side lengths of a right triangle.",roots
+2^2021 + 1,,BMT 2023 Algebra #9,2023,Algebra,BMT,6.0,,"A sequence of real numbers $\{x_{n}\}$ satisfies the recursion $x_{n+1}=4x_{n}-4x_{n}^{2}$ where $n\ge1.$ If $x_{2023}=0,$ compute the number of distinct possible values for $x_{1}$.",misc
+55,,BMT 2023 Algebra #10,2023,Algebra,BMT,6.5,,"There exists a unique triple of integers (B, M,T) such that $B>T>M$ and
+$$
+3B^{2}(3T-M)+8M^{2}(B-T)+3T^{2}(5M-B)-(2B^{3}+3M^{3}+4T^{3})+15BMT=2023.
+$$
+Compute $B+M+T.$",aime_ready_integers
+182,,BMT 2023 Discrete #4,2023,Number Theory,BMT,3.0,,"Given positive integers $a\ge2$ and k, let $m_{a}(k)$ denote the remainder when k is divided by a. Compute the number of positive integers, n, less than 500 such that $m_{2}(m_{5}(m_{11}(n)))=1$.",aime_ready_integers
+51,,BMT 2023 Discrete #6,2023,Number Theory,BMT,3.5,,"Let N be the number of positive integers a less than 2102023 such that
+$lcm(gcd(x, 1734), gcd(x+17,x+1732))$
+divides 2023. Compute the sum of the prime factors of N with multiplicity. (For example, if $S=75=3^{1}\cdot5^{2}$ then the answer is $1\cdot3+2.5=13$).",aime_ready_integers
+11/18,,BMT 2023 Discrete #7,2023,Counting,BMT,4.0,,"Maria and Skyler have a square-shaped cookie with a side length of 1 inch. They split the cookie by choosing two points on distinct sides of the cookie uniformly at random and cutting across the line segment formed by connecting the two points. If Maria always gets the larger piece, what is the expected amount of extra cookie in Maria's piece compared to Skyler's, in square inches?",fractions
+232,,BMT 2023 Discrete #8,2023,Number Theory,BMT,5.0,,"Define a family of functions $S_{k}(n)$ for positive integers n and k by the following two rules:
+$S_{0}(n)=1$
+$S_{k}(n)=\sum_{d|n}dS_{k-1}(d).$
+Compute the remainder when $S_{30}(30)$ is divided by 1001.",aime_ready_integers
+544,,BMT 2023 Discrete #9,2023,Counting,BMT,6.0,,"Shiori places seven books, numbered from 1 to 7, on a bookshelf in some order. Later, she discovers that she can place two dividers between the books, separating the books into left, middle, and right sections, such that:
+1. The left section is numbered in increasing order from left to right, or has at most one book.
+2. The middle section is numbered in decreasing order from left to right, or has at most one book.
+3. The right section is numbered in increasing order from left to right, or has at most one book.
+In how many possible orderings could Shiori have placed the books? For example, (2, 3, 5, 4, 1, 6, 7) and (2, 3, 4, 1, 5, 6, 7) are possible orderings with the partitions $2, 3, 5|4, 1|6, 7$ and $2, 3, 4 | 1 | 5, 6, 7$, but (5, 6, 2, 4, 1, 3, 7) is not.",aime_ready_integers
+970,,BMT 2023 Discrete #10,2023,Number Theory,BMT,7.0,,"Let a denote the positive real root of the polynomial $x^{2}-3x-2$. Compute the remainder when $\lfloor\alpha^{1000}\rfloor$ is divided by the prime number 997. Here, $\lfloor r\rfloor$ denotes the greatest integer less than r.",aime_ready_integers
+30,,BMT 2023 Geometry #4,2023,Geometry,BMT,3.0,,"Let w be a circle with center O and radius 8, and let A be a point such that $AO=17.$ Let P and Q be points on w such that line segments $\overline{AP}$ and $\overline{AQ}$ are tangent to w. Let B and C be points chosen on $\overline{AP}$ and AQ, respectively, such that $\overline{BC}$ is also tangent to w. Compute the perimeter of triangle $\triangle ABC.$",aime_ready_integers
+5/7,,BMT 2023 Geometry #5,2023,Geometry,BMT,3.5,,"Triangle $\Delta ABC$ has side lengths $AB=8$, $BC=15$, and $CA=17$ Circles $\omega_{1}$ and $\omega_{2}$ are externally tangent to each other and within $\triangle ABC$. The radius of circle $\omega_{2}$ is four times the radius of circle $\omega_{1}$ Circle $\omega_{1}$ is tangent to $\overline{AB}$ and $\overline{BC}$ and circle $\omega_{2}$ is tangent to $\overline{BC}$ and $\overline{CA}$ Compute the radius of circle $\omega_{1}$.",fractions
+5√7/16,,BMT 2023 Geometry #6,2023,Geometry,BMT,4.0,,"In triangle $\triangle ABC,$ let M be the midpoint of $\overline{AC}$. Extend $\overline{BM}$ such that it intersects the circumcircle of ∆ABC at a point X not equal to B. Let O be the center of the circumcircle of $\triangle ABC$. Given that $BM=4MX$ and $\angle ABC=45^{\circ}$ compute $sin(\angle BOX)$.",roots
+16√3,,BMT 2023 Geometry #8,2023,Geometry,BMT,4.5,,"A circle intersects equilateral triangle XYZ at A, B, C, D, E, and F such that points X, A, B, Y, C, D, Z, E, and F lie on the equilateral triangle in that order. If $AC^{2}+CE^{2}+EA^{2}=1900$ and $BD^{2}+DF^{2}+FB^{2}=2092,$ compute the positive difference between the areas of triangles $ACE$ and $BDF$.",roots
+6√5,,BMT 2023 Geometry #9,2023,Geometry,BMT,6.5,,"Let triangle ∆ABC be acute, and let point M be the midpoint of $\overline{BC}$. Let E be on line segment $\overline{AB}$ such that $\overline{AE}\perp\overline{EC}$ Then, suppose T is a point on the other side of $\overleftrightarrow{BC}$ as A is such that $\angle BTM=\angle ABC$ and $\angle TCA=\angle BMT.$ If $AT=14$, $AM=9.$ and $\frac{AE}{AC}=\frac{2}{7}$, compute BC.",roots
+156/25,,BMT 2023 Geometry #10,2023,Geometry,BMT,7.0,,"Let triangle ABC have circumcenter O and circumradius r, and let w be the circumcircle of triangle ABOC . Let F be the intersection of $\overleftrightarrow{AO}$ and w not equal to O. Let E be on line $\overleftrightarrow{AB}$ such that $\overline{EF}\perp\overline{AE},$ and let G be on line $\overleftrightarrow{AC}$ such that $\overline{GF}\perp\overline{AG}$. If $AC=\frac{65}{63}$, $BC=\frac{24}{13}r$, and $AB=\frac{126}{65}r$, compute $AF\cdot EG.$",fractions
+27,,BMT 2023 Guts #1,2023,Geometry,BMT,1.0,,"Given a square ABCD of side length 6, the point E is drawn on the line AB such that the
+distance EA is less than EB and the triangle $\triangle BCE$ has the same area as ABCD. Compute
+the shaded area.",aime_ready_integers
+12,,BMT 2023 Guts #2,2023,Counting,BMT,1.5,,"Jerry has red blocks, yellow blocks, and blue blocks. He builds a tower 5 blocks high, without
+any 2 blocks of the same color touching each other. Also, if the tower is flipped upside-down, it
+still looks the same. Compute the number of ways Jerry could have built this tower.",aime_ready_integers
+18,,BMT 2023 Guts #3,2023,Number Theory,BMT,1.5,,"Compute the second smallest positive whole number that has exactly 6 positive whole number
+divisors (including itself).",aime_ready_integers
+49/64,,BMT 2023 Guts #4,2023,Counting,BMT,2.0,,"A grasshopper is traveling on the coordinate plane, starting at the origin (0, 0). Each hop,
+the grasshopper chooses to move 1 unit up, down, left, or right with equal probability. The
+grasshopper hops 4 times and stops at point P. Compute the probability that it is possible to
+return to the origin from P in at most 3 hops.",fractions
+3/4,,BMT 2023 Guts #5,2023,Algebra,BMT,2.0,,"Two parabolas, $y = ax^2 + bx + c$ and $y = -ax^2 - bx - c$, intersect at $x = 2$ and $x = -2$. If the
+y-intercepts of the two parabolas are exactly 2 units apart from each other, compute $|a + b + c|$.",fractions
+4√5,,BMT 2023 Guts #6,2023,Geometry,BMT,2.5,,"Let rectangle ABCD have side lengths AB = 8, BC = 6. Let ABCD be inscribed in a circle
+with center O. Let M be the midpoint of side AB, and let X be the
+intersection of ray $\overrightarrow{MO}$ with the circle. Compute the length AX.",roots
+157,,BMT 2023 Guts #7,2023,Number Theory,BMT,4.0,,"For an integer $n > 0$, let $p(n)$ be the product of the digits of $n$. Compute the sum of all integers
+$n$ such that $n - p(n) = 52$.",aime_ready_integers
+13/2,,BMT 2023 Guts #8,2023,Geometry,BMT,3.5,,"Circle $\omega_1$ is centered at $O_1$ with radius 3, and circle $\omega_2$ is centered at $O_2$ with radius 2. Line
+$\ell$ is tangent to $\omega_1$ and $\omega_2$ at X, Z, respectively, and intersects segment $O_1O_2$ at Y. The circle
+through $O_1$, X, Y has center $O_3$, and the circle through $O_2$, Y, Z has center $O_4$. Given that
+$O_1O_2 = 13$, find $O_3O_4$.",fractions
+145,,BMT 2023 Guts #9,2023,Algebra,BMT,4.0,,"For positive integers a and b, consider the curve $x^a + y^b = 1$ over real numbers x, y and let
+$S(a, b)$ be the sum of the number of x-intercepts and y-intercepts of this curve. Compute
+$\sum_{a=1}^{10}\sum_{b=1}^5 S(a, b)$.",aime_ready_integers
+245,,BMT 2023 Guts #10,2023,Geometry,BMT,4.5,,"Let $\triangle ABC$ be a triangle with G as its centroid, which is the intersection of the three medians
+of the triangle. If $GA \perp GB$ and AB = 7, compute $AC^2 + BC^2$.",aime_ready_integers
+36,,BMT 2023 Guts #11,2023,Algebra,BMT,4.5,,"Compute the sum of all positive integers n for which there exists a real number x satisfying
+$\left(x + \frac{n}{x}\right)^n = 2^{20}$.",aime_ready_integers
+3024,,BMT 2023 Guts #12,2023,Counting,BMT,4.0,,"Call an n-digit integer with distinct digits mountainous if, for some integer $1 \leq k \leq n$, the first
+k digits are in strictly ascending order and the following $n - k$ digits are in strictly descending
+order. How many 5-digit mountainous integers with distinct digits are there?",large_integers
+152,,BMT 2023 Guts #13,2023,Algebra,BMT,5.0,,"Consider the set of triangles with side lengths $1 \leq x \leq y \leq z$ such that x, y, and z are the
+solutions to the equation $t^3 - at^2 + bt = 12$ for some real numbers a and b. Compute the smallest
+real number N such that $N > ab$ for any choice of x, y, and z.",aime_ready_integers
+12+4√3,,BMT 2023 Guts #14,2023,Geometry,BMT,5.0,,"Right triangle $\triangle ABC$ with $\angle A = 30^\circ$ and $\angle B = 90^\circ$ is inscribed in a circle $\omega_1$ with radius 4.
+Circle $\omega_2$ is drawn to be the largest circle outside of $\triangle ABC$ that is tangent to both BC and
+$\omega_1$, and circles $\omega_3$ and $\omega_4$ are drawn this same way for sides AC and AB, respectively. Suppose
+that the intersection points of these smaller circles with the bigger circle are noted as points D,
+E, and F. Compute the area of triangle $\triangle DEF$.",roots
+11111100111,,BMT 2023 Guts #15,2023,Number Theory,BMT,4.5,,"Given a positive integer k, let s(k) denote the sum of the digits of k. Let $a_1, a_2, a_3, \ldots$ denote the
+strictly increasing sequence of all positive integers n such that $s(7n + 1) = 7s(n) + 1$. Compute
+$a_{2023}$.",large_integers
+15/28,,BMT 2023 Guts #16,2023,Counting,BMT,5.5,,"Sabine rolls a fair 14-sided die numbered 1 to 14 and gets a value of x. She then draws x cards
+uniformly at random (without replacement) from a deck of 14 cards, each of which labeled a
+different integer from 1 to 14. She finally sums up the value of her die roll and the value on
+each card she drew to get a score of S. Let A be the set of all obtainable scores. Compute the
+probability that S is greater than or equal to the median of A.",fractions
+20234,,BMT 2023 Guts #17,2023,Number Theory,BMT,6.5,,"Let N be the smallest positive integer divisble by $10^{2023} - 1$ that only has the digits 4 and 8 in
+decimal form (these digits may be repeated). Compute the sum of the digits of $\frac{N}{10^{2023}-1}$.",large_integers
+(3-√3)/6,,BMT 2023 Guts #18,2023,Algebra,BMT,6.5,,"Consider the sequence $b_1, b_2, b_3, \ldots$ of real numbers defined by $b_1 = \frac{3+\sqrt{3}}{6}$, $b_2 = 1$, and for $n \geq 3$,
+$b_n = \frac{1 - b_{n-1} - b_{n-2}}{2b_{n-1}b_{n-2} - b_{n-1} - b_{n-2}}$.
+Compute $b_{2023}$.",misc
+18199,,BMT 2023 Guts #22,2023,Number Theory,BMT,6.5,,"Let $d_n(x)$ be the $n$th decimal digit (after the decimal point) of $x$.
+    For example, $d_3(\pi) = 1$ because $\pi = 3.1415\ldots$. 
+    For a positive integer $k$, let $f(k) = p_k^4$, where $p_k$ is the $k$th prime number. 
+    Compute the value of $\sum_{i=1}^{2023} d_{f(i)}\left(\frac{1}{f(i)}\right)$.",large_integers
+225,,BMT 2023 Guts #23,2023,Counting,BMT,7.0,,"A robot initially at position 0 along a number line has a movement function f(u, v). It rolls a
+fair 26-sided die repeatedly, with the kth roll having value $r_k$. For $k \geq 2$, if $r_k > r_{k-1}$, it moves
+$f(r_k, r_{k-1})$ units in the positive direction. If $r_k < r_{k-1}$, it moves $f(r_k, r_{k-1})$ units in the negative
+direction. If $r_k = r_{k-1}$, all movement and die-rolling stops and the robot remains at its final
+position x. If $f(u, v) = (u^2 - v^2)^2 + (u - 1)(v + 1)$, compute the expected value of x.",aime_ready_integers
+141,,BMT 2023 Guts #24,2023,Algebra,BMT,8.0,,"Define the sequence $s_0, s_1, s_2, \ldots$ by $s_0 = 0$ and $s_n = 3s_{n-1} + 2$ for $n \geq 1$. The monic polynomial
+f(x) defined as
+$f(x) = \frac{1}{s_{2023}} \sum_{k=0}^{32} s_{2023+k}x^{32-k}$
+can be factored uniquely (up to permutation) as the product of 16 monic quadratic polynomials
+$p_1, p_2, \cdots, p_{16}$ with real coefficients, where $p_i(x) = x^2 + a_ix + b_i$ for $1 \leq i \leq 16$. Compute the
+integer N that minimizes $\left|N - \sum_{k=1}^{16}(a_k + b_k)\right|$.",aime_ready_integers
+1,,BmMT 2023 Individual #1,2023,Algebra,BmMT,1.0,,"If x is 20% of 23 and y is 23% of 20, compute $\frac{x}{y}$.",aime_ready_integers
+6,,BmMT 2023 Individual #2,2023,Counting,BmMT,1.0,,"Pablo wants to eat a banana, a mango, and a tangerine, one at a time. How many ways can he
+choose the order to eat the three fruits?",aime_ready_integers
+12,,BmMT 2023 Individual #3,2023,Algebra,BmMT,1.0,,"Let a, b, and c be 3 positive integers. If $a + \frac{b}{c} = \frac{11}{6}$, what is the minimum value of a + b + c?",aime_ready_integers
+16,,BmMT 2023 Individual #4,2023,Geometry,BmMT,1.0,,"A rectangle has an area of 12. If all of its sidelengths are increased by 2, its area becomes 32.
+What is the perimeter of the original rectangle?",aime_ready_integers
+2/7,,BmMT 2023 Individual #6,2023,Counting,BmMT,1.0,,"Priscilla has three octagonal prisms and two cubes, none of which are touching each other. If she
+chooses a face from these five objects in an independent and uniformly random manner, what
+is the probability the chosen face belongs to a cube?",fractions
+π/2 + 1 + 2√2,,BmMT 2023 Individual #7,2023,Geometry,BmMT,1.5,,"Let triangle $\triangle ABC$ and triangle $\triangle DEF$ be two congruent isosceles right triangles where line
+segments $AC$ and $DF$ are their respective hypotenuses. Connecting a line segment CF gives
+us a square ACFD but with missing line segments AC, AD, and DF. Instead, A and D are
+connected by an arc defined by the semicircle with endpoints A and D. If CF = 1, what is the
+perimeter of the whole shape ABCFED?",misc
+7/10,,BmMT 2023 Individual #8,2023,Counting,BmMT,1.5,,"There are two moles that live underground, and there are five circular holes that the moles can
+hop out of. The five holes are positioned where A, B, C, D,
+and E are the centers of the circles, AE = 30 cm, and congruent triangles $\triangle ABC$, $\triangle CBD$, and
+$\triangle CDE$ are equilateral. The two moles randomly choose exactly two of the five holes, hop out
+of the two chosen holes, and hop back in. What is the probability that the holes that the two
+moles hop out of have centers that are exactly 15 cm apart?",fractions
+13,,BmMT 2023 Individual #9,2023,Number Theory,BmMT,1.5,,"Carson is planning a trip for n people. Let x be the number of cars that will be used and y
+be the number of people per car. What is the smallest value of n such that there are exactly 3
+possibilities for x and y so that y is an integer, x < y, and exactly one person is left without a
+car?",aime_ready_integers
+9,,BmMT 2023 Individual #10,2023,Geometry,BmMT,1.5,,"Iris is eating an ice cream cone, which consists of a hemisphere of ice cream with radius r > 0
+on top of a cone with height 12 and also radius r. Iris is a slow eater, so after eating one-third
+of the ice cream, she notices that the rest of the ice cream has melted and completely filled the
+cone. Assuming the ice cream did not change volume after it melted, what is the value of r?",aime_ready_integers
+83,,BmMT 2023 Individual #11,2023,Algebra,BmMT,1.5,,"As Natasha begins eating brunch between 11:30 AM and 12 PM, she notes that the smaller angle
+between the minute and hour hand of the clock is 27 degrees. What is the number of degrees
+in the smaller angle between the minute and hour hand when Natasha finishes eating brunch 20
+minutes later?",aime_ready_integers
+1/6,,BmMT 2023 Individual #12,2023,Counting,BmMT,2.0,,"On a regular hexagon ABCDEF, Luke the frog starts at point A; there is food on points C and
+E and there are crocodiles on points B and D. When Luke is on a point, he hops to any of the
+five other vertices with equal probability. What is the probability that Luke will visit both of
+the points with food before visiting any of the crocodiles?",fractions
+5398,,BmMT 2023 Individual #13,2023,Geometry,BmMT,2.0,,"2023 regular unit hexagons are arranged in a tessellating lattice, as follows. The first hexagon
+ABCDEF (with vertices in clockwise order) has leftmost vertex A at the origin, and hexagons
+$H_2$ and $H_3$ share edges CD and DE with hexagon $H_1$, respectively. Hexagon $H_4$ shares edges
+with both hexagons $H_2$ and $H_3$, and hexagons $H_5$ and $H_6$ are constructed similarly to hexagons
+$H_2$ and $H_3$. Hexagons $H_7$ to $H_{2022}$ are constructed following the pattern of hexagons $H_4$,
+$H_5$, $H_6$. Finally, hexagon $H_{2023}$ is constructed, sharing an edge with both hexagons $H_{2021}$ and $H_{2022}$.
+Compute the perimeter of the resulting figure.",large_integers
+29,,BmMT 2023 Individual #14,2023,Algebra,BmMT,2.0,,"Aditya's favorite number is a positive two-digit integer. Aditya sums the integers from 5 to his
+favorite number, inclusive. Then, he sums the next 12 consecutive integers starting after his
+favorite number. If the two sums are consecutive integers and the second sum is greater than
+the first sum, what is Aditya's favorite number?",aime_ready_integers
+499950,,BmMT 2023 Individual #15,2023,Algebra,BmMT,2.0,,"The $100^{th}$ anniversary of BMT will fall in the year 2112, which is a palindromic year. Compute
+the sum of all years from 0000 to 9999, inclusive, that are palindromic when written out as
+four-digit numbers (including leading zeros). Examples include 2002, 1991, and 0110.",large_integers
+15,,BmMT 2023 Individual #16,2023,Geometry,BmMT,2.5,,"Points A, B, C, D, and E lie on line r, in that order, such that DE = 2DC and AB = 2BC.
+Let M be the midpoint of segment AC. Finally, let point P lie on r such that PE = x. If
+AB = 8x, ME = 9x, and AP = 112, compute the sum of the two possible values of CD.",aime_ready_integers
+30,,BmMT 2023 Individual #17,2023,Algebra,BmMT,2.5,,"A parabola $y = x^2$ in the xy-plane is rotated $180^{\circ}$ about a point (a, b). The resulting parabola
+has roots at x = 40 and x = 48. Compute a + b.",aime_ready_integers
+35/72,,BmMT 2023 Individual #18,2023,Counting,BmMT,3.0,,"Susan has a standard die with values 1 to 6. She plays a game where every time she rolls the
+die, she permanently increases the value on the top face by 1. What is the probability that,
+after she rolls her die 3 times, there is a face on it with a value of at least 7?",fractions
+115,,BmMT 2023 Individual #19,2023,Number Theory,BmMT,3.5,,"Let N be a 6-digit number satisfying the property that the average value of the digits of $N^4$ is
+5. Compute the sum of the digits of $N^4$.",aime_ready_integers
+√(4 + 2√2) - 1,,BmMT 2023 Individual #20,2023,Geometry,BmMT,3.5,,"Let $O_1$, $O_2$,\ldots, $O_8$ be circles of radius 1 such that $O_1$ is externally tangent to $O_8$ and $O_2$ but
+no other circles, $O_2$ is externally tangent to $O_1$ and $O_3$ but no other circles, and so on. Let C
+be a circle that is externally tangent to each of $O_1$, $O_2$, $O_3$, \ldots, $O_8$. Compute the radius of C.",misc
+3/2,,BmMT 2023 Team #1,2023,Algebra,BmMT,1.0,,"There exist real numbers $B$, $M$, and $T$ such that $B + M + T = 23$ and $B - M - T = 20$.
+Compute $M + T$.",fractions
+5,,BmMT 2023 Team #2,2023,Geometry,BmMT,1.0,,"Kaity has a rectangular garden that measures 10 yards by 12 yards. Austin's triangular garden
+has side lengths 6 yards, 8 yards, and 10 yards. Compute the ratio of the area of Kaity's garden
+to the area of Austin's garden.",aime_ready_integers
+65,,BmMT 2023 Team #3,2023,Algebra,BmMT,1.0,,"Nikhil's mom and brother both have ages under 100 years that are perfect squares. His mom is
+33 years older than his brother. Compute the sum of their ages.",aime_ready_integers
+3,,BmMT 2023 Team #4,2023,Counting,BmMT,1.5,,"Madison wants to arrange 3 identical blue books and 2 identical pink books on a shelf so that
+each book is next to at least one book of the other color. In how many ways can Madison
+arrange the books?",aime_ready_integers
+10,,BmMT 2023 Team #5,2023,Algebra,BmMT,1.5,,"Two friends, Anna and Bruno, are biking together at the same initial speed from school to the
+mall, which is 6 miles away. Suddenly, 1 mile in, Anna realizes that she forgot her calculator
+at school. If she bikes 4 miles per hour faster than her initial speed, she could head back to
+school and still reach the mall at the same time as Bruno, assuming Bruno continues biking
+towards the mall at their initial speed. In miles per hour, what is Anna and Bruno's initial
+speed, before Anna has changed her speed? (Assume that the rate at which Anna and Bruno
+bike is constant.)",aime_ready_integers
+12962,,BmMT 2023 Team #6,2023,Number Theory,BmMT,1.5,,"Let a number be ""almost-perfect"" if the sum of its digits is 28. Compute the sum of the third
+smallest and third largest almost-perfect 4-digit positive integers.",large_integers
+10+2√3,,BmMT 2023 Team #7,2023,Geometry,BmMT,1.5,,"Regular hexagon ABCDEF is contained in rectangle PQRS such that line AB lies on line PQ,
+point C lies on line QR, line DE lies on line RS, and point F lies on line SP. Given that
+PQ = 4, compute the perimeter of AQCDSF.",roots
+16,,BmMT 2023 Team #8,2023,Number Theory,BmMT,1.5,,"Compute the number of ordered pairs $(m, n)$, where $m$ and $n$ are relatively prime positive
+integers and $mn = 2520$. (Note that positive integers $x$ and $y$ are relatively prime if they share
+no common divisors other than 1. For example, this means that 1 is relatively prime to every
+positive integer.)",aime_ready_integers
+2013,,BmMT 2023 Team #9,2023,Algebra,BmMT,2.0,,"A geometric sequence with more than two terms has first term $x$, last term 2023, and common
+ratio $y$, where $x$ and $y$ are both positive integers greater than 1. An arithmetic sequence with
+a finite number of terms has first term $x$ and common difference $y$. Also, of all arithmetic
+sequences with first term $x$, common difference $y$, and no terms exceeding 2023, this sequence
+is the longest. What is the last term of the arithmetic sequence?",large_integers
+5/42,,BmMT 2023 Team #10,2023,Counting,BmMT,2.0,,"Andrew is playing a game where he must choose three slips, uniformly at random and without
+replacement, from a jar that has nine slips labeled 1 through 9. He wins if the sum of the three
+chosen numbers is divisible by 3 and one of the numbers is 1. What is the probability Andrew
+wins?",fractions
+16/25,,BmMT 2023 Team #11,2023,Geometry,BmMT,2.0,,"Circle $O$ is inscribed in square $ABCD$. Let $E$ be the point where $O$ meets line segment $AB$.
+Line segments $EC$ and $ED$ intersect $O$ at points $P$ and $Q$, respectively. Compute the ratio of
+the area of triangle $\triangle EPQ$ to the area of triangle $\triangle ECD$.",fractions
+819,,BmMT 2023 Team #12,2023,Algebra,BmMT,2.5,,"Define a recursive sequence by $a_1 = \frac{1}{2}$ and $a_2 = 1$, and
+$a_n = \frac{1 + a_{n-1}}{a_{n-2}}$ for $n \geq 3$. The product
+$a_1 a_2 a_3 \ldots a_{2023}$
+can be expressed in the form $a^b \cdot c^d \cdot e^f$, where $a$, $b$, $c$, $d$, $e$, and $f$ are positive (not necessarily
+distinct) integers, and $a$, $c$, and $e$ are prime. Compute $a + b + c + d + e + f$.",aime_ready_integers
+7,,BmMT 2023 Team #13,2023,Number Theory,BmMT,2.5,,"An increasing sequence of 3-digit positive integers satisfies the following properties:
+1. Each number is a multiple of 2, 3, or 5.
+
+2. Adjacent numbers differ by only one digit and are relatively prime. (Note that positive
+integers $x$ and $y$ are relatively prime if they share no common divisors other than 1.)
+
+What is the maximum possible length of the sequence?",aime_ready_integers
+4√5,,BmMT 2023 Team #14,2023,Geometry,BmMT,3.0,,"Circles $O_A$ and $O_B$ with centers $A$ and $B$, respectively, have radii 3 and 8, respectively, and
+are internally tangent to each other at point $P$. Point $C$ is on circle $O_A$ such that line $BC$ is
+tangent to circle $O_A$. Extend line $PC$ to intersect circle $O_B$ at point $D \neq P$. Compute $CD$.",roots
+-35,,BmMT 2023 Team #15,2023,Algebra,BmMT,3.0,,Compute the product of all real solutions $x$ to the equation $x^2 + 20x - 23 = 2\sqrt{x^2 + 20x + 1}$.,negative_integers
+90,,BmMT 2023 Team #16,2023,Number Theory,BmMT,3.0,,"Compute the number of divisors of $729,000,000$ that are perfect powers. (A perfect power is an
+integer that can be written in the form $a^b$, where $a$ and $b$ are positive integers and $b > 1$.)",aime_ready_integers
+380,,BmMT 2023 Team #17,2023,Algebra,BmMT,3.5,,"The arithmetic mean of two positive integers $x$ and $y$, each less than 100, is 4 more than their
+geometric mean. Given $x > y$, compute the sum of all possible values for $x + y$. (Note that the
+geometric mean of $x$ and $y$ is defined to be $\sqrt{xy}$.)",aime_ready_integers
+258,,BmMT 2023 Team #18,2023,Number Theory,BmMT,3.5,,"Ankit and Richard are playing a game. Ankit repeatedly writes the digits 2, 0, 2, 3, in that
+order, from left to right on a board until Richard tells him to stop. Richard wins if the resulting
+number, interpreted as a base-10 integer, is divisible by as many positive integers less than or
+equal to 12 as possible. For example, if Richard stops Ankit after 7 digits have been written,
+the number would be 2023202, which is divisible by 1 and 2. Richard wants to win the game as
+early as possible. Assuming Ankit must write at least one digit, after how many digits should
+Richard stop Ankit?",aime_ready_integers
+744,,BmMT 2023 Team #19,2023,Counting,BmMT,4.0,,"Eight chairs are set around a circular table. Among these chairs, two are red, two are blue, two
+are green, and two are yellow. Chairs that are the same color are identical. If rotations and
+reflections of arrangements of chairs are considered distinct, how many arrangements of chairs
+satisfy the property that each pair of adjacent chairs are different colors?",aime_ready_integers
+√2/4,,BmMT 2023 Team #20,2023,Geometry,BmMT,4.5,,"Four congruent spheres are placed inside a right-circular cone such that they are all tangent to
+the base and the lateral face of the cone, and each sphere is tangent to exactly two other spheres.
+If the radius of the cone is 1 and the height of the cone is $2\sqrt{2}$, what is the radius of one of the
+spheres?",roots
+28,,BMT 2024 General #1,2024,Algebra,BMT,1.0,,"Compute
+$2 + 0 + 2 + 4 + 2 \times 0 + 2 \times 2 + 2 \times 4 + 0 \times 2 + 0 \times 4 + 2 \times 4$.",aime_ready_integers
+43,,BMT 2024 General #2,2024,Algebra,BMT,11.0,,"When the odd positive two-digit number 11 is added to 46, the result is 57, whose sum of digits
+is $5 + 7 = 12$.\\
+What odd positive two-digit number can be added to 46 so the result is a number whose digits
+sum to 17?",aime_ready_integers
+45,,BMT 2024 General #3,2024,Algebra,BMT,1.0,,"At a certain point in time, Nikhil had 3 more apples than Brian. Theo then gave Nikhil 9 apples
+and took away 3 apples from Brian. Now, Nikhil has twice as many apples as Brian. Compute
+the number of apples that Nikhil and Brian now have in total.",aime_ready_integers
+4 + 2π/3,,BMT 2024 General #4,2024,Geometry,BMT,1.0,,"Jessica cuts a pie into perfect sixths. If the pie's radius is 2, what is the perimeter of one slice
+of the pie?",misc
+2024/4047,,BMT 2024 General #5,2024,Algebra,BMT,1.5,,"Find the smallest number among the following numbers:
+$\frac{7}{13}$, $\frac{10}{19}$, $\frac{5}{9}$, $\frac{3}{5}$, $\frac{2023}{4045}$, $\frac{6}{11}$, $\frac{2024}{4047}$, $\frac{4}{7}$.",fractions
+939,,BMT 2024 General #6,2024,Number Theory,BMT,1.5,,"Find the third-largest three-digit multiple of three that is a palindrome. (Recall that a palindrome is a number that reads the same forward and backward, such as 444 or 838, but not
+227.)",aime_ready_integers
+20,,BMT 2024 General #7,2024,Counting,BMT,1.5,,"Café BMT makes their famous Bacon, Mozzarella, Tomato sandwich with 3 strips of bacon, 1
+slice of mozzarella, and 1 tomato slice stacked on top of each other. How many ways can the
+toppings of a Bacon, Mozzarella, Tomato sandwich be arranged?",aime_ready_integers
+10π,,BMT 2024 General #8,2024,Geometry,BMT,1.5,,"On a chalkboard, Benji draws a square with side length 6. He then splits each side into 3 equal
+segments using 2 points for a total of 12 segments and 8 points. After trying some shapes, Benji
+finds that by using a circle, he can connect all 8 points together. What is the area of this circle?",pi
+-2,,BMT 2024 General #9,2024,Algebra,BMT,1.5,,"Find the real number $x$ satisfying
+$\frac{x^2 - 20}{x^2 + 20x + 4} = \frac{x^2 - 24}{x^2 + 24x + 4} = \frac{1}{2}$.",negative_integers
+-22,,BMT 2024 General #10,2024,Algebra,BMT,1.5,,"Suppose $a_1, a_2, \ldots$ is an arithmetic sequence, and suppose $g_1, g_2, \ldots$ is a geometric sequence
+with common ratio 2. Suppose $a_1 + g_1 = 1$ and $a_2 + g_2 = 1$. If $a_{24} = g_7$, find $a_{2024}$.",negative_integers
+26400,,BMT 2024 General #11,2024,Counting,BMT,1.5,,"The 35-step staircase of Sather Tower is being renovated. Each step will be painted a single
+color such that the stairs repeat color every 5 steps. There are 14 available stair colors, including
+blue and gold. Both blue and gold must be used, and each color may only cover up to 10 steps.
+With these restrictions, in how many different ways can the stairs be colored?",large_integers
+1,,BMT 2024 General #12,2024,Algebra,BMT,2.0,,"Find the greatest integer less than
+$\frac{2}{1} - \frac{2}{2} + \frac{2}{3} - \frac{2}{4} + \frac{2}{5} - \frac{2}{6} + \cdots - \frac{2}{2024}$.",aime_ready_integers
+11,,BMT 2024 General #13,2024,Number Theory,BMT,2.0,,"Find the number of positive integers, $n$, such that $\frac{20 + n}{24 - n}$ is an integer.",aime_ready_integers
+406,,BMT 2024 General #14,2024,Number Theory,BMT,2.0,,"How many terms of the sequence $3^1 + 1, 3^2 + 2, 3^3 + 3, \ldots, 3^{2024} + 2024$ are divisible by 5?",aime_ready_integers
+699,,BMT 2024 General #15,2024,Algebra,BMT,2.0,,"For a real number $n$, let $\lfloor n \rfloor$ be the greatest integer less than or equal to $n$ and let $\lceil n \rceil$ be the
+smallest integer greater than or equal to $n$. For example, $\lfloor 2.5 \rfloor = 2$ and $\lfloor 2 \rfloor = 2$, while $\lceil 2.5 \rceil = 3$
+and $\lceil 2 \rceil = 2$. Find the greatest integer $x$ such that $\left\lfloor \frac{x}{20} \right\rfloor + 20 = \left\lfloor \frac{x}{24} \right\rfloor + 24$.",aime_ready_integers
+13√3 - 4π/3,,BMT 2024 General #16,2024,Geometry,BMT,2.5,,"A square with side length 6 has a circle with radius 2 inside of it, with the centers of the square
+and circle vertically aligned. Aarush is standing 4 units directly above the center of the circle,
+at point $P$. What is the area of the region inside the square that he can see?",misc
+44,,BMT 2024 General #17,2024,Counting,BMT,2.5,,"Eight players are seated around a circular table. Each player is assigned to either Team Green
+or Team Yellow so that each team has at least one player. In how many ways can the players be
+assigned to the teams such that each player is on the same team as at least one player adjacent
+to them?",aime_ready_integers
+√37,,BMT 2024 General #18,2024,Geometry,BMT,2.5,,"Two circles, $\omega_1$ and $\omega_2$, are internally tangent at $A$. Let $B$ be the point on $\omega_2$ opposite of $A$.
+The radius of $\omega_1$ is 4 times the radius of $\omega_2$. Point $P$ is chosen on the circumference of $\omega_1$ such
+that the ratio $\frac{AP}{BP} = \frac{2\sqrt{3}}{\sqrt{7}}$. Let $O$ denote the center of $\omega_2$. Determine the ratio $\frac{OP}{AO}$.",roots
+240402402024,,BMT 2024 General #19,2024,Number Theory,BMT,2.5,,"Consider an $n$-digit number $d_1 d_2 d_3 \ldots d_n$ such that:
+1. there are no leading zeroes,
+2. the number formed from the first $k$ digits $d_1 \ldots d_k$ is divisible by $k$ (for all $1 \leq k \leq n$), and
+3. all of the digits are either 0, 2, or 4.
+If the number ends in the digits 2 0 2 4, what's the minimum value the number can be?",large_integers
+66/25,,BMT 2024 General #20,2024,Geometry,BMT,3.0,,"Let $U$ and $C$ be two circles, and kite BERK have vertices that lie on $U$ and sides that are
+tangent to $C$. Given that the diagonals of the kite measure 5 and 6, find the ratio of the area of
+$U$ to the area of $C$.",fractions
+5/81,,BMT 2024 General #21,2024,Counting,BMT,3.5,,"Clara has a pair of nine-sided fair dice, each of whose faces are labeled $1, 2, 3, \ldots, 9$. Justin also
+has a pair of nine-sided fair dice, and the faces of his dice have positive integer labels, but one
+of Justin's dice has the number 13. When Clara and Justin roll their dice, it turns out that for
+every number $S$, the probability that the sum of the results of Clara's dice is $S$ is equal to the
+probability that the sum of the results of Justin's dice is $S$. What is the probability that when
+Justin's dice are rolled, the results of the dice are equal?",fractions
+3,,BMT 2024 General #22,2024,Algebra,BMT,3.5,,"There exist nonzero real numbers $B$, $M$, and $T$ that satisfy the equations:
+$2B + M + T - 2B^2 - 2BM - 2MT - 2BT = 0,$
+$B + 2M + T - 3M^2 - 3BM - 3MT - 3BT = 0,$
+$B + M + 2T - 4T^2 - 4BM - 4MT - 4BT = 0.$
+Compute $2B + 3M + 4T$.",aime_ready_integers
+6020,,BMT 2024 General #23,2024,Number Theory,BMT,4.0,,"Find the greatest multiple of 43 whose base 6 representation is a permutation of the digits
+1, 2, 3, 4, and 5. (Express your answer in base 10).",large_integers
+89,,BMT 2024 General #24,2024,Algebra,BMT,4.5,,"Compute the number of positive integer triples $(B, M, T)$ satisfying $B, M, T < 24$ and
+$BM + MT + BT = (B + M + T)\sqrt[3]{BMT}$.",aime_ready_integers
+2160,,BMT 2024 General #25,2024,Number Theory,BMT,5.5,,"For an arbitrary positive integer $n$, we define $f(n)$ to be the number of ordered 5-tuples of
+positive integers, $(a_1, a_2, a_3, a_4, a_5)$, such that $a_1 a_2 a_3 a_4 a_5 \mid n$. Compute the sum of all $n$ for
+which $f(n)/n$ is maximized.",large_integers
+6072,,BMT 2024 Algebra #5,2024,Algebra,BMT,3.0,,"An ordered pair $(a, b)$ of real numbers is $Z$-nice if $x^3 + ax + b$ has 3 distinct roots $p, q, r$ such
+that $|p - 2024| = |q - 2024| = |r - 2024| = Z$. Find the greatest possible real value of $Z$ such
+that there is exactly one $Z$-nice ordered pair.",large_integers
+128,,BMT 2024 Algebra #8,2024,Algebra,BMT,6.0,,"Let $\alpha$ be a positive real number. Over all choices of positive real numbers $w, x, y, z$ satisfying
+$wx + yz = \alpha$,
+$wy + xz = \alpha$,
+$wz + xy = \alpha$,
+the minimum value of $w + 2x + 3y + 4z$ is $\frac{\alpha}{2}$. Compute $\alpha$.",aime_ready_integers
+(2√3)/3 - 1,,BMT 2024 Algebra #9,2024,Algebra,BMT,6.5,,"Define two sequences of real numbers, $\{a_n\}$ and $\{b_n\}$, such that $a_0 = b_0 = \sqrt{3}$ and for $n \geq 0$:
+$a_{n+1} = a_n + \sqrt{1 + a_n^2}$ and 
+$b_{n+1} = \frac{b_n}{1 + \sqrt{1 + b_n^2}}$
+Find the smallest real number $M$ such that $M > |a_i b_i - a_j b_j|$ for any integers $i, j > 0$.",misc
+91,,BMT 2024 Algebra #10,2024,Algebra,BMT,7.0,,"Let $\omega = e^{\frac{2\pi i}{5}}$, where $i = \sqrt{-1}$. If
+$$S = \prod_{0\leq a,b,c<5}\left(\omega^a - \sec\left(\frac{2\pi(b-a)}{5}\right) \cdot \omega^b + \omega^c\right),$$
+compute the remainder when $S$ is divided by 101.",aime_ready_integers
+2/5,,BMT 2024 Discrete #7,2024,Counting,BMT,3.5,,"Gigi randomly rearranges four G's and seven I's to form an eleven-letter string. What is the probability that there is a group of four consecutive letters that form ""GIGI,"" her name?",fractions
+81,,BMT 2024 Discrete #9,2024,Number Theory,BMT,4.0,,"Compute the remainder when
+$$\left(4^{1^2} + 4^{2^2} + 4^{3^2} + \cdots + 4^{82^2}\right)^2$$
+is divided by 83.",aime_ready_integers
+20616,,BMT 2024 Discrete #10,2024,Counting,BMT,5.5,,"The positive integers 1 through 9 are placed in the 9 cells of a $3 \times 3$ grid. Then, for every pair of cells sharing a side, the sum of the numbers in that pair is recorded in a list. The most number of times any number occurs in the list is 4. In how many ways could numbers have been placed in the grid?",large_integers
+448/15,,BMT 2024 Geometry #6,2024,Geometry,BMT,3.5,,"Let triangle $\triangle ABC$ be acute. Point $D$ is the foot of the altitude of $\triangle ABC$ from $A$ to $BC$, and
+$E$ is the foot of the altitude of $\triangle ABC$ from $B$ to $AC$. Let $F$ denote the point of intersection
+between $\overrightarrow{BE}$ and $\overrightarrow{AD}$, and let $G$ denote the point of intersection between $\overrightarrow{CF}$ and $\overrightarrow{DE}$. The
+areas of triangles $\triangle EFG$, $\triangle CDG$, and $\triangle CEG$ are 1, 4, and 3 respectively. Find the area of
+$\triangle ABC$.",fractions
+48/5,,BMT 2024 Geometry #7,2024,Geometry,BMT,4.5,,"In parallelogram $ABCD$, $E$ is a point on $AD$ such that $CE \perp AD$, $F$ is a point on $CD$ such
+that $AF \perp CD$, and $G$ is a point on $BC$ such that $AG \perp BC$. Let $H$ be a point on $GF$ such
+that $AH \perp GF$, and let $J$ be the intersection of $\overleftrightarrow{EF}$ and $\overleftrightarrow{BC}$. Given that $AH = 8$, $AE = 6$,
+and $EF = 4$, compute $CJ$.",fractions
+81/20,,BMT 2024 Geometry #8,2024,Geometry,BMT,5.0,,"Points $A$, $B$, $C$, $D$, $E$, and $F$ lie on a sphere with radius $\sqrt{10}$ such that lines $\overleftrightarrow{AD}$, $\overleftrightarrow{BE}$, and
+$\overleftrightarrow{CF}$ are concurrent at point $P$ inside the sphere and are pairwise perpendicular. If $PA = \sqrt{6}$,
+$PB = \sqrt{10}$, and $PC = \sqrt{15}$, what is the volume of tetrahedron $DEFP$?",fractions
+128,,BMT 2024 Geometry #9,2024,Geometry,BMT,6.0,,"Let $\triangle ABC$ be a triangle with incenter $I$, and let $M$ be the midpoint of $BC$. Line $\overleftrightarrow{AM}$ intersects
+the circumcircle of triangle $\triangle IBC$ at points $P$ and $Q$. Suppose that $AP = 13$, $AQ = 83$, and
+$BC = 56$. Find the perimeter of $\triangle ABC$.",aime_ready_integers
+(343√2)/16,,BMT 2024 Geometry #10,2024,Geometry,BMT,7.0,,"The incircle of scalene triangle $\triangle ABC$ is tangent to $BC$, $AC$, and $AB$ at points $D$, $E$, and
+$F$, respectively. The line $\overleftrightarrow{EF}$ intersects line $\overleftrightarrow{BC}$ at $P$ and line $\overleftrightarrow{AD}$ at $Q$. The circumcircle of
+$\triangle AEF$ intersects line $\overleftrightarrow{AP}$ again at point $R \neq A$. If $QE = 3$, $QF = 4$, and $QR = 8$, find the
+area of triangle $\triangle AEF$.",misc
+40,,BMT 2024 Guts #1,2024,Geometry,BMT,1.0,,The area of square $EBFG$ is 9 times the area of square $ABCD$. The diagonal $AC$ of $ABCD$ has length 20. Compute the length of $DG$.,aime_ready_integers
+253,,BMT 2024 Guts #2,2024,Number Theory,BMT,1.5,,"Wen writes a positive integer $W$ on the board. Repeatedly, she multiplies this integer by 2,
+writes the result on the board, and erases the original number. At some point, the value written
+on the board is 2024. Compute the smallest possible value of $W$.",aime_ready_integers
+2,,BMT 2024 Guts #3,2024,Number Theory,BMT,2.0,,"Compute the third largest factor of the third largest factor of the third smallest positive integer
+whose third largest factor has at least three factors. Recall that every positive integer is a factor",aime_ready_integers
+239,,BMT 2024 Guts #5,2024,Number Theory,BMT,2.0,,"Compute the smallest three-digit positive integer with distinct nonzero digits satisfying the
+property that it is not divisible by any of its digits. For example, 426 does not have this
+property because it is divisible by 2 and 6.",aime_ready_integers
+16,,BMT 2024 Guts #6,2024,Algebra,BMT,2.0,,"Compute $(x + y)^{100}$ given
+$\left(\frac{x^2 + 2xy + y^2}{y + z}\right)^{100} = 1,$
+$\left(\frac{y^2 + 2yz + z^2}{x + z}\right)^{50} = 8,$
+$\left(\frac{x^2 + 2xz + z^2}{x + y}\right)^{25} = 16.$",aime_ready_integers
+14,,BMT 2024 Guts #8,2024,Geometry,BMT,2.5,,"Isaac has a steel tube that is 2024 units long. He wants to cut this tube into $C$ smaller pieces
+such that no three pieces can be the sides of a triangle with positive area, and each piece has a
+unique positive integer length. Compute the greatest possible value of $C$.",aime_ready_integers
+65537,,BMT 2024 Guts #9,2024,Algebra,BMT,3.0,,"Let $\log^*_2(n)$ be the number of times we need to apply $\log_2$ to $n$ to get a number less than 1. This
+function grows very slowly, but a useful application is to extended exponentiation:
+Let $a \uparrow^1 b = a^b$, and $a \uparrow^{n+1} b = a \uparrow^n (a \uparrow^n (\cdots (a \uparrow^n a)))$
+$\underbrace{\phantom{a \uparrow^n a \cdots a \uparrow^n a}}_{b-1 \uparrow^n\text{'s}}$. For instance, $4 \uparrow^2 3 = 4 \uparrow^1 (4 \uparrow^1 4)$.
+Compute $\log^*_2(2 \uparrow^3 4)$.",large_integers
+32,,BMT 2024 Guts #10,2024,Number Theory,BMT,3.0,,"Suppose $N$, $a$, and $b$ are positive integers such that $N = a^3 + b^3 - a^2b - ab^2$. Given that $N$ has
+exactly 6 factors, compute the least possible value of $N$.",aime_ready_integers
+(720√2)/17,,BMT 2024 Guts #11,2024,Geometry,BMT,3.5,,"Let $\triangle ABC$ be a right triangle such that $\angle B = 90^\circ$. Points $D$ and $E$ are placed on $\overline{AC}$ such
+that $AB = AE$ and $BC = DC$. Given that $AD = 2$ and $EC = 9$, compute $BD \cdot BE$.",misc
+2028,,BMT 2024 Guts #13,2024,Algebra,BMT,3.5,,"Let $\lfloor x \rfloor$ denote the greatest integer less than or equal to $x$. Additionally, let $\{x\}$ denote $x - \lfloor x \rfloor$.
+For example, $\lfloor \pi \rfloor = 3$ and $\{\pi\} = 0.1415 \ldots$. Compute the integer $n$ such that there are exactly
+2024 positive solutions $x$ to the equation
+$$\frac{x}{\lfloor x \rfloor\{x\}} = n.$$",large_integers
+285,,BMT 2024 Guts #14,2024,Number Theory,BMT,4.0,,"For each positive integer $n$, let $s(n)$ be the sum of its digits and let $p(n)$ be the product of its
+digits. Compute the number of positive integers $n \leq 10^6$ that satisfy $s(n) - p(n) = 5$.",aime_ready_integers
+√5 - 2,,BMT 2024 Guts #15,2024,Algebra,BMT,4.5,,"Arjun considers the parabola described by $y = x^2 - 2x + 2$ in the coordinate plane and chooses
+some $\theta$ uniformly at random from the interval $[0, 2\pi)$. He then rotates the parabola about its
+vertex counterclockwise by $\theta$ and counts the number of times the resulting parabola intersects
+the coordinate axes. The probability that there are exactly four intersections can be expressed
+as $\frac{\pi+\arcsin(r)-\arccos(r)}{2\pi}$ for some real number $r$. Compute $r$.",roots
+15,,BMT 2024 Guts #16,2024,Geometry,BMT,4.5,,"Let $H$ be the orthocenter of obtuse triangle $\triangle ABC$ and $D$ be the midpoint of $AC$. A line
+through $H$ perpendicular to $\overrightarrow{DH}$ intersects with $\overrightarrow{AB}$ and $\overrightarrow{BC}$ at points $E$ and $F$, respectively.
+Given that $EH = 3$ and $HD = 5$, compute the maximum possible area of triangle $\triangle DEF$.",aime_ready_integers
+10147,,BMT 2024 Guts #17,2024,Number Theory,BMT,5.0,,"Let the power, $p(n)$, of a positive integer $n$ be the number of fractions of the form $\frac{m}{n}$
+that are in simplest form over all positive integers $m$ with $1 \leq m \leq n$. ($\frac{1}{1}$ is in simplest form.) Let a
+positive integer $n$ be weak if $\frac{p(n)}{n} \leq \frac{p(k)}{k}$ for all $1 \leq k < n$. Compute the sum of all weak positive
+integers less than 2024.",large_integers
+7/8 - 1/(2^1351),,BMT 2024 Guts #18,2024,Counting,BMT,5.5,,"Arthur has a four-sided die, of which all faces are initially labeled 1. Every second, Arthur rolls
+the die and, if the outcome of the die is 1, then he changes the number on the top face to 2,
+and otherwise, he changes the number to 1. Let the probability that the sum of the die rolls
+is at some point $k$ be $p_k$. Let $\lfloor x \rfloor$ denote the largest integer less than or equal to $x$, and let
+$\{x\} = x - \lfloor x \rfloor$. Compute $\{p_1 + p_2 + \cdots + p_{2024}\}$.",misc
+20√10,,BMT 2024 Guts #22,2024,Geometry,BMT,6.0,,"Tetrahedron $ABIH$ has points $C$ on $BH$, $D$ on $AH$, $E$ on $HI$, $F$ on $AI$, and $G$ on $BI$ such
+that the squares $BCEG$ and $ADEF$ have side length 5. Quadrilaterals $ABCD$ and $ABGF$
+are isosceles trapezoids. Given that $AB = 4\sqrt{2}$ and $CD = 3\sqrt{2}$, compute the volume of solid
+$ABCDEFG$.",roots
+966,,BMT 2024 Guts #23,2024,Algebra,BMT,6.5,,"Let $X$ denote the set $\{-1, 0, 1, 2, 3, 4\}$, and let $P(X)$ denote the set of all subsets of $X$. Compute
+the number of functions $f : P(X) \to X$ such that $f(\emptyset) = 0$ and $f(A\cap B)+f(A\cup B) = f(A)+f(B)$
+for any subsets $A$ and $B$ of $X$.",aime_ready_integers
+56,,BMT 2024 Guts #24,2024,Algebra,BMT,7.0,,"A polynomial with integer coefficients that has a root of the form $k \cos\left(\frac{4\pi}{7}\right)$
+for some positive integer $k$ is called simple if there are no polynomials of lesser degree with integer coefficients
+sharing the same root. There exists a unique simple polynomial $P(x)$ with leading coefficient 1
+such that $|P(3)|$ is minimized over all simple polynomials with leading coefficient 1. Compute
+$P(4)$.",aime_ready_integers
+11,,BmMT 2024 Individual #1,2024,Algebra,BmMT,1.0,,"Nikhil has 20 BMT shirts and 24 BmMT shirts. Wen takes half of his shirts, and then Arjun takes half of his remaining shirts. How many shirts does Nikhil have left?",aime_ready_integers
+22/9,,BmMT 2024 Individual #2,2024,Algebra,BmMT,1.0,,What is the value of $2 + \frac{1}{2+ \frac{1}{4}}$?,fractions
+506,,BmMT 2024 Individual #3,2024,Geometry,BmMT,1.0,,Rohit has a garden in the shape of a square with perimeter 2024. Youngmin has a lawn in the shape of a rectangle whose width is $\frac{1}{23}$ the width of Rohit's garden and whose length is $\frac{1}{22}$ the length of Rohit's garden. What is the area of Youngmin's lawn?,aime_ready_integers
+4,,BmMT 2024 Individual #4,2024,Counting,BmMT,1.5,,"Anthony, Boris, and Carson are playing a game of frisbee! Anthony starts with the frisbee. On each turn, the player holding the frisbee throws it to someone else, after which the frisbee is either caught or dropped. If the frisbee is dropped, the nearest player picks it up. Throughout the game, Anthony throws the frisbee 8 times and catches it 6 times, Boris throws the frisbee 10 times and catches it 7 times, and Carson throws the frisbee 7 times and catches it 8 times. How many times is the frisbee dropped during the game?",aime_ready_integers
+2012,,BmMT 2024 Individual #5,2024,Number Theory,BmMT,1.5,,Find the largest integer less than 2024 that leaves a remainder of 20 when divided by 24.,large_integers
+77,,BmMT 2024 Individual #6,2024,Number Theory,BmMT,1.5,,Find the sum of all prime numbers less than 50 that have only prime digits.,aime_ready_integers
+24,,BmMT 2024 Individual #7,2024,Number Theory,BmMT,2.0,,"Let $x$ and $y$ be two numbers taken from the set $\{2^0, 2^1, 2^2, 2^3, \ldots, 2^{10}\}$ such that
+$xy - (x + y) = 104$.
+What is the value of $x + y$?",aime_ready_integers
+35/128,,BmMT 2024 Individual #8,2024,Counting,BmMT,2.0,,"Thomas tosses a fair coin 3 times, and then Jefferson tosses the same coin 4 times. What is the probability that they flip exactly 3 heads in total?",fractions
+1/2025,,BmMT 2024 Individual #9,2024,Algebra,BmMT,2.5,,"Let $O_n$ be the sum of the first $n$ positive odd integers, and let $E_n$ be the sum of the first $n$ positive even integers. For example, $E_1 = 2$ and $O_2 = 1 + 3 = 4$. What is the value of the product $\left(\frac{O_1}{E_1}\right)\left(\frac{O_2}{E_2}\right)\cdots\left(\frac{O_{2024}}{E_{2024}}\right)$?",fractions
+120,,BmMT 2024 Individual #10,2024,Geometry,BmMT,2.5,,"In triangle $\triangle ABC$, points $D$ and $E$ are chosen on $\overline{AB}$ and $\overline{AC}$, respectively, such that $DE$ is parallel to $BC$. If $AE = BE$, $\angle BDE = 125^\circ$, and $\angle ACB = 85^\circ$, what is the value of $\angle BEC + \angle BAE$ in degrees?",aime_ready_integers
+57,,BmMT 2024 Individual #11,2024,Number Theory,BmMT,2.5,,"Find the sum of all two-digit positive integers, $x$, such that $x$ is a factor of 2024 and the units digit of $x^{2024}$ is the same as the units digit of $x$.",aime_ready_integers
+-12,,BmMT 2024 Individual #12,2024,Algebra,BmMT,3.0,,"What is the product of all real numbers, $x$, that satisfy
+$\frac{x^2 - 20x}{x^2 - 20x - 24} + \frac{x^2 - 20x + 24}{x^2 - 20x} = 2$?",negative_integers
+14√2,,BmMT 2024 Individual #13,2024,Geometry,BmMT,3.0,,"Consider a hexagon with consecutive side lengths of 8, 6, 10, 8, 6, and 10, formed by attaching two right triangles with legs of length 6 and 8 to the top and bottom of a square. Compute the largest distance between two points in this hexagon.",roots
+4534,,BmMT 2024 Individual #14,2024,Number Theory,BmMT,3.0,,"Kaity creates a list of all four-digit integers, $ABCD$, with distinct digits such that $3000 < ABCD < 6000$, $ABC$ is divisible by 3, $BCD$ is divisible by 4, $DCB$ is divisible by 5, and $CBA$ is divisible by 6. Find the median of Kaity's list.",large_integers
+1080,,BmMT 2024 Individual #15,2024,Counting,BmMT,3.5,,"A permutation of a set of $n$ integers is any arrangement of its elements in a specific order. For example, permutations of the list $(1, 2, 3)$ include $(1, 3, 2)$ and $(3, 2, 1)$. Let a permutation $(a_1, a_2, a_3, \ldots, a_n)$ of the positive integers from 1 to $n$, inclusive, be a katamari if, for all $1 \leq i \leq n$, the inequality $a_i < 2 + a_1 + a_2 + a_3 + \cdots + a_{i-1}$ holds. For example, the permutation $(1, 2, 3, 4, 5, 7, 6)$ is a katamari but $(5, 4, 1, 2, 3)$ is not. Compute the number of permutations of $(1, 2, 3, \ldots, 9)$ that are katamaris.",large_integers
+74,,BmMT 2024 Individual #16,2024,Number Theory,BmMT,4.0,,"A positive integer is called square-free if it is not divisible by any perfect square greater than 1. Compute the sum of all positive integers, $k$, for which there exists a square-free positive integer, $n$, such that $n^k$ has 64 divisors.",aime_ready_integers
+338175,,BmMT 2024 Individual #17,2024,Algebra,BmMT,4.0,,"Let a sequence of integers, $a_1, a_2, \ldots, a_n$, be anti-consecutive if $-2024 \leq a_1 \leq 2024$ and $a_i + a_{i+1} = i$ for all $1 \leq i \leq n - 1$. Over all anti-consecutive sequences of length 501, compute the sum of all possible values of $a_{501}$ that are divisible by 3.",large_integers
+π/30,,BmMT 2024 Individual #18,2024,Geometry,BmMT,4.0,,"Let $\triangle ABC$ be an equilateral triangle with side length 1. Let $O_a$, $O_b$, and $O_c$ be three congruent circles inside $\triangle ABC$ such that $O_a$ is tangent to $\overline{CA}$ and $\overline{AB}$, $O_b$ is tangent to $\overline{AB}$ and $\overline{BC}$, $O_c$ is tangent to $\overline{BC}$ and $\overline{CA}$, and none of the circles intersect each other. Let $O_m$ be a circle inside $\triangle ABC$ that is externally tangent to $O_a$, $O_b$, and $O_c$. What is the minimum possible sum of the areas of $O_a$ and $O_m$?",pi
+20,,BmMT 2024 Individual #19,2024,Algebra,BmMT,4.0,,Let $S$ be the sum of the cubes of the divisors of 4200. Compute the last two digits of $S$.,aime_ready_integers
+249899,,BmMT 2024 Individual #20,2024,Counting,BmMT,4.5,,"Jonathan has 46 indistinguishable blue balls, 3 indistinguishable red balls, and a green ball in a bin. He continuously draws balls from the bin without replacement until he draws the green ball. For instance, Jonathan might draw a red ball, followed by two blue balls, another red ball, and then the green ball, completing the process. Compute the number of possible sequences of draws that are possible under these conditions.",large_integers
+2,,BmMT 2024 Team #1,2024,Algebra,BmMT,1.0,,Find the positive integer $x$ such that $x^{\frac{x}{x}} - \frac{12}{x^{\frac{x}{x}}} = 1$.,aime_ready_integers
+20π-40,,BmMT 2024 Team #2,2024,Geometry,BmMT,1.5,,"A track is constructed by attaching two semicircular arcs with diameter 20 meters to a rectangle
+with width 20 meters and length 24 meters. Preston runs a lap around the
+entire track, while Ronan only runs a lap around the rectangle. What is the absolute difference
+between the distance Preston runs and the distance Ronan runs, in meters?",pi
+288,,BmMT 2024 Team #3,2024,Number Theory,BmMT,1.5,,What is the sum of the odd factors of 2024?,aime_ready_integers
+14,,BmMT 2024 Team #4,2024,Counting,BmMT,1.5,,"Oski the bear wears a sock on each of his four distinguishable paws, where each paw has either
+a white sock or a black sock. If his four socks are not all the same color, find the number of
+different sock combinations Oski can wear.",aime_ready_integers
+20,,BmMT 2024 Team #5,2024,Logic,BmMT,2.0,,"Eight friends are meeting up to share books with each other. Each friend brings some number
+of books, and the median number of books that the friends brought is 11. If six of the friends
+bring 2, 10, 12, 16, 20, and 24 books, respectively, what is the maximum number of books the
+other two friends could have brought in total?",aime_ready_integers
+160,,BmMT 2024 Team #6,2024,Counting,BmMT,2.5,,"Austin writes the integers from 1 to 1000, inclusive, on a blackboard. He then erases every
+integer that is divisible by 5. How many instances of the digit 5 are left on the blackboard?",aime_ready_integers
+48,,BmMT 2024 Team #7,2024,Algebra,BmMT,2.0,,"Kiran has two buckets, Bucket A and Bucket B, each with lots of water, and a hose that can
+add water at a fixed rate to the buckets. Kiran punctures a hole into Bucket A so it leaks out
+water at a constant rate into Bucket B. If Kiran uses the hose to add water to Bucket A, Bucket
+A will first be holding 1 more gallon of water 48 seconds later. If he instead uses the hose to
+directly add water to Bucket B, Bucket B will first be holding 1 more gallon of water 16 seconds
+later. How many seconds does it take for a gallon of water to leak from Bucket A into Bucket
+B?",aime_ready_integers
+48,,BmMT 2024 Team #8,2024,Geometry,BmMT,2.0,,"Mary has a box that is 7 inches long and wide and 4 inches tall. What is the maximum number
+of 2 inch by 2 inch by 1 inch blocks she can fit inside the box without it overflowing?",aime_ready_integers
+6,,BmMT 2024 Team #9,2024,Counting,BmMT,2.5,,"A deck of eight distinct cards is shuffled in a particular way. In one round of shuffling, the
+following is done in order:
+
+1. The second card from the top is moved to the top.
+2. The third card from the top is moved to the top.
+3. The fifth card from the top is moved to the top.
+4. The seventh card from the top is moved to the top.
+
+What is the least number of rounds of shuffling that would return the deck to its original order?",aime_ready_integers
+1/1012,,BmMT 2024 Team #10,2024,Algebra,BmMT,2.5,,"Recall that the arithmetic mean of $n$ numbers $a_1, \ldots, a_n$ is $\frac{a_1 + \cdots + a_n}{n}$ and the geometric mean
+of $n$ numbers $a_1, \ldots, a_n$ is $\sqrt[n]{a_1 \ldots a_n}$. A five-element arithmetic sequence $a_1, a_2, a_3, a_4, a_5$ has
+a common difference of $y$ and an arithmetic mean of $x$. A five-element geometric sequence
+$b_1, b_2, b_3, b_4, b_5$ has a common ratio of $y$ and a geometric mean of $x$. If $a_1 = b_1 = 2024$, compute
+the sum of all possible values of $y$.",fractions
+156,,BmMT 2024 Team #11,2024,Algebra,BmMT,3.0,,"Jessica has an analog clock on her wall. At a certain time, she measures the smaller angle
+between the hour and minute hand and finds that it is $138^{\circ}$. She also has a digital clock on
+her nightstand showing the same time, and the product of the number of minutes and hours
+displayed is 72. What is the least number of minutes that could have passed since 12:00 A.M.
+of the same day?",aime_ready_integers
+8π,,BmMT 2024 Team #12,2024,Geometry,BmMT,3.0,,"A dog is on a leash that is attached to the exterior of a fenced region in the shape of a regular
+hexagon, ABCDEF, with side length 1 foot. The dog's leash is 3 feet long and is attached to
+vertex A. If side $\overline{DE}$ is removed, what is the area of the region the dog can
+reach while still attached to the leash?",pi
+40,,BmMT 2024 Team #13,2024,Algebra,BmMT,3.5,,"Compute the sum of all values of $c$ for which there exists a function $f$ such that for all real
+numbers $a$ and $b$, the following hold:
+1. $f(a) + f(a^2) = c,$
+2. $f(0) + f(1 - b) + f(1 - 2b + b^2) = c + 20.$",aime_ready_integers
+15/64,,BmMT 2024 Team #14,2024,Counting,BmMT,3.5,,"Five people, Alice, Benji, Carl, Danielle, and Erica, are passing around a bag with 6 candies
+in it. Alice initially holds the bag and takes a candy from the bag. Then, she passes the bag
+and remaining candies to one of the other four people uniformly at random. That person takes
+a candy from the bag and then passes the bag and remaining candies to one of the other four
+people uniformly at random. This continues until there are no more candies in the bag. What
+is the probability that every person takes a candy from the bag?",fractions
+87,,BmMT 2024 Team #15,2024,Number Theory,BmMT,4.0,,"Let $S$ be the sum of all positive integers $n \leq 91$ such that $n^2 + 2n + 18$ is divisible by 91.
+Compute the remainder when $S$ is divided by 91.",aime_ready_integers
+(16√6)/3,,BmMT 2024 Team #16,2024,Geometry,BmMT,4.0,,"Triangle $\triangle ABC$ has point $D$ on side $\overline{AB}$ so that $AD = BD$ and $BC = CD$. Point $E$ is placed
+on side $\overline{AC}$ so that $\angle ABC = 2\angle ADE$. If $AE = 4$ and $CE = 12$, find $BC$.",misc
+298/425,,BmMT 2024 Team #17,2024,Counting,BmMT,4.5,,"Tushar has three fair 20-sided dice, $D_1$, $D_2$, and $D_3$. Die $D_1$ has faces labeled with the integers
+from 1 to 20, inclusive, die $D_2$ has faces labeled with the even integers from 2 to 40, inclusive, and die $D_3$ has faces labeled with the multiples of 3 from 3 to 60, inclusive. Tushar selects one
+of these three dice from a bag uniformly at random and then rolls the selected die three times.
+If the sum of Tushar's three rolls is 30, what is the probability that he selected $D_1$?",fractions
+7/51,,BmMT 2024 Team #18,2024,Algebra,BmMT,4.5,,"Let $p$, $q$, and $r$ be the three roots of the cubic polynomial $x^3 - 5x + 1$. Compute
+$\frac{1}{p^3 + 5} + \frac{1}{q^3 + 5} + \frac{1}{r^3 + 5}.$",fractions
+2√3 - √6,,BmMT 2024 Team #19,2024,Geometry,BmMT,5.0,,"A right cylinder is placed in a cube with side length 1 such that it is tangent to all 6 faces of
+the cube and its altitude is parallel to a main diagonal of the cube. What is the height of the
+cylinder, given that it is twice the cylinder's diameter?",misc
+2/7,,BmMT 2024 Team #20,2024,Counting,BmMT,5.5,,"Shreyas is playing a game. He begins with 2 marbles in his collection. Then, on turn $n$ of the
+game, he flips a fair coin and adds $2^n$ marbles to his collection if it lands heads. The game ends
+when the number of marbles in his collection is divisible by either 3 or 5. What is the probability
+that the number of marbles in his collection is divisible by 5 at the end of the game?",fractions

@@ -14,6 +14,7 @@ from mathapp.user_state import UserState
 # from mathapp.pages.aimev2 import aimev2_page
 from mathapp.pages.welcome import welcome_page
 from mathapp.pages.quiz import quiz_page
+from mathapp.pages.prepare_problem import prepare_problem
 
 
 app = rx.App(
@@ -37,3 +38,4 @@ app.add_page(allproblems, route="/allproblems", title="All Problems", descriptio
 app.add_page(login, route="/login", title="Login", description="Login to your account.")
 app.add_page(signup, route="/signup", title="Signup", description="Create an account.")
 app.add_page(quiz_page, route="/quiz", title="AIME Quiz", description="Try AIME level competition math problems.")
+app.add_page(prepare_problem, route="/prepare_problem", title="Problems Preparation", description="Prepare and customize your own problem sets.")

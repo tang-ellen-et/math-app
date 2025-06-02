@@ -30,7 +30,6 @@ class UserMathItem(rx.Model, table=True):
     TestDate: str
     ProblemId: str 
 
-
 class User(rx.Model, table=True):
     """The user model."""
     username: str
@@ -38,7 +37,10 @@ class User(rx.Model, table=True):
     password_hash: str
     created_at: str
 
-
-
-
-
+class ProblemCompare(rx.Model, table=True):
+    """The math problem model."""
+    Problem: str
+    Answer: str
+    modified_problem: str
+    AIME_Answer: str
+    
